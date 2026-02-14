@@ -20,16 +20,16 @@
 #     bash /data/<scripts_dir>/geo_download_docker.sh [OPTIONS]
 #
 # Modes:
-#   # Single dataset — download all samples
+#   # Single dataset â€” download all samples
 #   bash geo_download_docker.sh "Study_Name" "GSE123456" "all"
 #
-#   # Single dataset — specific GSM samples
+#   # Single dataset â€” specific GSM samples
 #   bash geo_download_docker.sh "Study_Name" "GSE123456" "GSM111,GSM222"
 #
-#   # Batch mode — multiple datasets from input file
+#   # Batch mode â€” multiple datasets from input file
 #   bash geo_download_docker.sh --input-file datasets.txt
 #
-#   # Batch mode — parallel processing (2 datasets simultaneously)
+#   # Batch mode â€” parallel processing (2 datasets simultaneously)
 #   bash geo_download_docker.sh --input-file datasets.txt --parallel 2
 #
 # Input file format (tab-separated):
@@ -37,23 +37,24 @@
 #   Lines with the same Output_Directory+Accession are automatically aggregated.
 #
 # Pipeline stages:
-#   1. Prefetch   — downloads .sra/.sralite files from NCBI
-#   2. Validate   — runs vdb-validate to check file integrity
-#   3. Extract    — converts SRA to FASTQ via fasterq-dump + pigz compression
+#   1. Prefetch   â€” downloads .sra/.sralite files from NCBI
+#   1b. Prefetch retry – failed prefetches retried sequentially with 30s delay
+#   2. Validate   â€” runs vdb-validate to check file integrity
+#   3. Extract    â€” converts SRA to FASTQ via fasterq-dump + pigz compression
 #   Failed samples are automatically retried sequentially, then with disk temp.
 #
 # Outputs (written to /data/<Output_Directory>/):
-#   Raw_data/<GSM>/<SRR>.fastq.gz   — compressed FASTQ files
-#   download_summary.txt             — summary of results
-#   error_log.txt                    — detailed error log
-#   prefetch_failed.txt              — samples that failed download
-#   validation_failed.txt            — samples that failed integrity check
-#   extraction_failed.txt            — samples that failed FASTQ extraction
-#   successful_samples.txt           — samples that completed all stages
+#   Raw_data/<GSM>/<SRR>.fastq.gz   â€” compressed FASTQ files
+#   download_summary.txt             â€” summary of results
+#   error_log.txt                    â€” detailed error log
+#   prefetch_failed.txt              â€” samples that failed download
+#   validation_failed.txt            â€” samples that failed integrity check
+#   extraction_failed.txt            â€” samples that failed FASTQ extraction
+#   successful_samples.txt           â€” samples that completed all stages
 #
 # Dependencies (provided by stodo3569/geo-tools Docker image):
 #   sra-tools (>=3.0.0): prefetch, vdb-validate, fasterq-dump
-#   pysradb:             automatic GSE→GSM→SRR accession resolution
+#   pysradb:             automatic GSEâ†’GSMâ†’SRR accession resolution
 #   GNU parallel:        parallel download and extraction
 #   pigz:                parallel gzip compression
 #   curl:                network utilities
@@ -61,7 +62,7 @@
 # Resource handling:
 #   CPU and memory are detected automatically and allocated adaptively
 #   across pipeline stages. --shm-size controls the RAM disk used for
-#   fast temporary extraction (recommended: ≥50% of system RAM).
+#   fast temporary extraction (recommended: â‰¥50% of system RAM).
 #
 # Note on /data:
 #   The container expects a host directory mounted at /data. All inputs,
@@ -150,7 +151,7 @@ detect_system_resources() {
     log_message "  Total Memory: ${TOTAL_MEM_GB}GB"
     log_message "  Available Memory: ${AVAILABLE_MEM_GB}GB"
     if [[ "$RAM_DISK_AVAILABLE" == true ]]; then
-        log_message "  RAM Disk: ${RAM_DISK_SIZE}GB available at /dev/shm ✓"
+        log_message "  RAM Disk: ${RAM_DISK_SIZE}GB available at /dev/shm âœ“"
     else
         log_message "  RAM Disk: Not available"
     fi
@@ -187,7 +188,7 @@ calculate_optimal_parallelism() {
             
         extraction)
             # SIMPLE STRATEGY: 1 file per 2 CPUs
-            # 14 CPUs ÷ 2 = 7 parallel files
+            # 14 CPUs Ã· 2 = 7 parallel files
             local cpus_per_file=2
             local optimal_jobs=$((CPUS / cpus_per_file))
             
@@ -344,7 +345,7 @@ log_warning() {
 }
 
 log_success() {
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ✓ $*"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] âœ“ $*"
 }
 
 log_step_error() {
@@ -1153,9 +1154,9 @@ prefetch_data() {
         echo "[$(date +%H:%M:%S)] Prefetching..."
         
         if prefetch {2} '"$ngc_arg"' --output-directory "Raw_data/${sample}" --max-size '"$MAX_SIZE"' 2>> "'"$ERROR_LOG"'"; then
-            echo "[$(date +%H:%M:%S)] ✓ Complete"
+            echo "[$(date +%H:%M:%S)] âœ“ Complete"
         else
-            echo "[$(date +%H:%M:%S)] ✗ Failed"
+            echo "[$(date +%H:%M:%S)] âœ— Failed"
             log_step_error "PREFETCH" "${sample}" "{2}" "prefetch command failed"
             mark_prefetch_failed "${sample}" "{2}"
         fi
@@ -1171,8 +1172,59 @@ prefetch_data() {
     
     log_message ""
     if [[ $failed_count -gt 0 ]]; then
-        log_warning "$failed_count sample(s) failed prefetch - see $PREFETCH_FAILED"
-        log_message "Continuing with successful samples..."
+        log_warning "$failed_count sample(s) failed prefetch on first attempt"
+        log_message ""
+        log_message "========================================="
+        log_message "STEP 1b: Retrying failed prefetch samples (sequential)"
+        log_message "========================================="
+        log_message "Retrying $failed_count sample(s) one at a time with 30s delay..."
+        
+        # Save original failures and reset the tracking file
+        local original_failures="prefetch_failed_attempt1.txt"
+        cp "$PREFETCH_FAILED" "$original_failures"
+        > "$PREFETCH_FAILED"
+        
+        local retry_success=0
+        local retry_fail=0
+        
+        while IFS=$'\t' read -r sample run; do
+            [[ -z "$sample" ]] && continue
+            [[ -z "$run" ]] && continue
+            
+            log_message "[RETRY] Waiting 30s before retrying ${sample}/${run}..."
+            sleep 30
+            
+            # Clean up any partial/corrupt files from first attempt
+            if [[ -d "Raw_data/${sample}/${run}" ]]; then
+                log_message "[RETRY] Removing partial download for ${run}..."
+                rm -rf "Raw_data/${sample}/${run}"
+            fi
+            
+            log_message "[RETRY] Prefetching ${sample}/${run}..."
+            if prefetch "$run" $ngc_arg --output-directory "Raw_data/${sample}" --max-size "$MAX_SIZE" 2>> "$ERROR_LOG"; then
+                log_success "[RETRY] ${sample}/${run} - prefetch succeeded on retry"
+                ((retry_success++))
+            else
+                log_error "[RETRY] ${sample}/${run} - prefetch failed again"
+                log_step_error "PREFETCH_RETRY" "$sample" "$run" "prefetch failed on retry"
+                mark_prefetch_failed "$sample" "$run"
+                ((retry_fail++))
+            fi
+        done < "$original_failures"
+        
+        log_message ""
+        log_message "Prefetch retry results:"
+        log_message "  Recovered: $retry_success"
+        log_message "  Still failed: $retry_fail"
+        
+        if [[ $retry_fail -gt 0 ]]; then
+            log_warning "$retry_fail sample(s) still failed after retry - see $PREFETCH_FAILED"
+            log_message "Continuing with successful samples..."
+        else
+            log_success "All previously failed samples recovered on retry!"
+        fi
+        
+        rm -f "$original_failures"
     else
         log_success "All samples prefetched successfully"
     fi
@@ -1198,7 +1250,7 @@ validate_data() {
     while read -r sample run; do
         if is_sample_failed "$sample" "$run"; then
             skipped=$((skipped + 1))
-            log_message "  ⊗ Skipping validation (failed prefetch): $sample / $run"
+            log_message "  âŠ— Skipping validation (failed prefetch): $sample / $run"
         else
             # Support both .sra and .sralite (SRA Normalized Format)
             local sra_file="Raw_data/${sample}/${run}/${run}.sra"
@@ -1253,9 +1305,9 @@ validate_data() {
         echo "[$(date +%H:%M:%S)] Validating..."
         
         if vdb-validate "$sra_file" 2>> "'"$ERROR_LOG"'"; then
-            echo "[$(date +%H:%M:%S)] ✓ Valid"
+            echo "[$(date +%H:%M:%S)] âœ“ Valid"
         else
-            echo "[$(date +%H:%M:%S)] ✗ Corrupt"
+            echo "[$(date +%H:%M:%S)] âœ— Corrupt"
             log_step_error "VALIDATION" "${sample}" "{2}" "vdb-validate detected corruption"
             mark_validation_failed "${sample}" "{2}"
         fi
@@ -1310,7 +1362,7 @@ extract_and_compress() {
     while read -r sample run; do
         if is_sample_failed "$sample" "$run"; then
             skipped=$((skipped + 1))
-            log_message "  ⊗ Skipping (previous stage failed): $sample / $run"
+            log_message "  âŠ— Skipping (previous stage failed): $sample / $run"
         else
             # Support both .sra and .sralite formats
             local sra_file="$work_dir/Raw_data/${sample}/${run}/${run}.sra"
@@ -1329,7 +1381,6 @@ extract_and_compress() {
     
     if [[ $total_to_extract -eq 0 ]]; then
         log_warning "No files to extract"
-        rm -rf "$temp_dir" 2>/dev/null
         return 0
     fi
     
@@ -1446,7 +1497,7 @@ extract_and_compress() {
         elif [[ -f "$srr_dir/${run}.sralite" ]]; then
             sra_input="${run}.sralite"
         else
-            echo "[$(date +%H:%M:%S)] ✗ Failed - SRA file not found"
+            echo "[$(date +%H:%M:%S)] âœ— Failed - SRA file not found"
             log_step_error "EXTRACTION" "${sample}" "${run}" "No .sra or .sralite file found"
             mark_extraction_failed "${sample}" "${run}"
             exit 1
@@ -1475,10 +1526,10 @@ extract_and_compress() {
             cd .. && \
             rm -rf "${run}" "$job_temp_dir" 2>> "'"$ERROR_LOG"'"); then
             
-            echo "[$(date +%H:%M:%S)] ✓ Complete"
+            echo "[$(date +%H:%M:%S)] âœ“ Complete"
             mark_successful "${sample}" "${run}"
         else
-            echo "[$(date +%H:%M:%S)] ✗ Failed"
+            echo "[$(date +%H:%M:%S)] âœ— Failed"
             log_step_error "EXTRACTION" "${sample}" "${run}" "Extraction or compression failed"
             mark_extraction_failed "${sample}" "${run}"
             # Clean up temp directory on failure
@@ -1592,11 +1643,11 @@ extract_and_compress() {
                     cd .. && \
                     rm -rf "${run}" "$retry_job_temp" 2>> "$ERROR_LOG"); then
                     
-                    log_message "[RETRY] ✓ ${sample}/${run} succeeded"
+                    log_message "[RETRY] âœ“ ${sample}/${run} succeeded"
                     mark_successful "${sample}" "${run}"
                     ((retry_success++))
                 else
-                    log_error "[RETRY] ✗ ${sample}/${run} failed again"
+                    log_error "[RETRY] âœ— ${sample}/${run} failed again"
                     mark_extraction_failed "${sample}" "${run}"
                     rm -rf "$retry_job_temp" 2>/dev/null
                     ((retry_fail++))
@@ -1702,11 +1753,11 @@ extract_and_compress() {
                             cd .. && \
                             rm -rf "${run}" "$disk_job_temp" 2>> "$ERROR_LOG"); then
                             
-                            log_message "[DISK-RETRY] ✓ ${sample}/${run} succeeded with disk temp!"
+                            log_message "[DISK-RETRY] âœ“ ${sample}/${run} succeeded with disk temp!"
                             mark_successful "${sample}" "${run}"
                             ((disk_success++))
                         else
-                            log_error "[DISK-RETRY] ✗ ${sample}/${run} failed even with disk temp"
+                            log_error "[DISK-RETRY] âœ— ${sample}/${run} failed even with disk temp"
                             log_error "This sample may be corrupted or have other issues"
                             mark_extraction_failed "${sample}" "${run}"
                             rm -rf "$disk_job_temp" 2>/dev/null
