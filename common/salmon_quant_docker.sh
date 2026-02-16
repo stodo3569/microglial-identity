@@ -19,33 +19,25 @@
 #   - Skip already-quantified samples (unless --force)
 #
 # Usage:
-#   # Quantify all samples using the built-in GENCODE v49 index (default)
-#   bash salmon_quant_docker.sh "Study_Name"
-#
-#   # Quantify all samples using a custom index
-#   bash salmon_quant_docker.sh --index /data/my_custom_index "Study_Name"
+#   # Quantify all samples in a single study
+#   bash salmon_quant_docker.sh --index /data/salmon_index "Study_Name"
 #
 #   # Quantify specific samples
-#   bash salmon_quant_docker.sh "Study_Name" "GSM123,GSM456"
+#   bash salmon_quant_docker.sh --index /data/salmon_index "Study_Name" "GSM123,GSM456"
 #
 #   # Batch from input file (same format as geo_download_docker.sh)
-#   bash salmon_quant_docker.sh --input-file datasets.txt
+#   bash salmon_quant_docker.sh --index /data/salmon_index --input-file datasets.txt
 #
-# Docker example (using built-in GENCODE v49 index):
+# Docker example:
 #   docker run --rm \
 #     -u "$(id -u):$(id -g)" \
+#     --shm-size=80g \
+#     -e SALMON_SHOW_STDERR=true \
+#     -e SALMON_HEARTBEAT_SEC=30 \
 #     -v /data:/data \
-#     stodo3569/salmon-tools:0.1 \
+#     stodo3569/salmon-tools:0.0 \
 #     bash /data/geo_scripts/salmon_quant_docker.sh \
-#       --input-file /data/datasets.txt
-#
-# Docker example (using a custom index on the host):
-#   docker run --rm \
-#     -u "$(id -u):$(id -g)" \
-#     -v /data:/data \
-#     stodo3569/salmon-tools:0.1 \
-#     bash /data/geo_scripts/salmon_quant_docker.sh \
-#       --index /data/my_custom_index \
+#       --index /data/salmon_index \
 #       --input-file /data/datasets.txt
 #
 # Input file format (same as geo_download_docker.sh / fastp_trim_docker.sh):
@@ -283,8 +275,7 @@ AVAILABLE_MEM_GB=6
 INDEX_MEM_GB=6
 
 # Salmon parameters (from salmon_quant_10.sh)
-# Default: built-in GENCODE v49 index in salmon-tools:0.1 container
-SALMON_INDEX="/opt/salmon_index"
+SALMON_INDEX=""
 SALMON_THREADS=4
 SALMON_LIBTYPE_PAIRED="A"
 SALMON_LIBTYPE_SINGLE="A"
@@ -394,22 +385,20 @@ show_help() {
 Salmon Quantification Script - Docker Version
 
 USAGE:
-  Single study (built-in GENCODE v49 index):
-    $0 STUDY_DIR [SAMPLE_FILTER]
-
-  Single study (custom index):
+  Single study:
     $0 --index INDEX_PATH STUDY_DIR [SAMPLE_FILTER]
 
   Multiple studies from file:
-    $0 --input-file FILE [--parallel N]
+    $0 --index INDEX_PATH --input-file FILE [--parallel N]
 
 ARGUMENTS:
   STUDY_DIR       Name of the study directory under BASE_PATH (e.g., "Friedman_2019")
   SAMPLE_FILTER   Optional comma-separated GSM/SRX IDs to process (default: all)
 
+REQUIRED OPTIONS:
+  --index PATH        Path to the salmon index directory (REQUIRED)
+
 OPTIONS:
-  --index PATH        Path to a salmon index directory
-                      (default: /opt/salmon_index — built-in GENCODE v49 / GRCh38)
   --input-file FILE   Process multiple studies from a tab-delimited file
                       (same format as geo_download_docker.sh)
   --parallel N        Process N studies simultaneously (default: 1)
@@ -422,38 +411,33 @@ OPTIONS:
   --base-path PATH    Override base data path (default: /data or $GEO_BASE_PATH)
 
 EXAMPLES:
-  # Quantify all samples (uses built-in GENCODE v49 index)
-  bash salmon_quant_docker.sh "Friedman_2019"
-
-  # Quantify all samples with a custom index
-  bash salmon_quant_docker.sh --index /data/my_custom_index "Friedman_2019"
+  # Quantify all samples in a study
+  bash salmon_quant_docker.sh --index /data/salmon_index "Friedman_2019"
 
   # Quantify specific samples
-  bash salmon_quant_docker.sh "Friedman_2019" "GSM3559136,GSM3559137"
+  bash salmon_quant_docker.sh --index /data/salmon_index "Friedman_2019" "GSM3559136,GSM3559137"
 
   # Batch from input file
-  bash salmon_quant_docker.sh --input-file /data/datasets.txt
+  bash salmon_quant_docker.sh --index /data/salmon_index --input-file /data/datasets.txt
 
-  # Parallel studies with custom index
-  bash salmon_quant_docker.sh --index /data/my_custom_index --input-file /data/datasets.txt --parallel 2
+  # Parallel studies
+  bash salmon_quant_docker.sh --index /data/salmon_index --input-file /data/datasets.txt --parallel 2
 
 DOCKER:
-  # Using the built-in GENCODE v49 index (default):
   docker run --rm \
     -u "$(id -u):$(id -g)" \
+    --shm-size=80g \
+    -e SALMON_SHOW_STDERR=true \
+    -e SALMON_HEARTBEAT_SEC=30 \
     -v /data:/data \
-    stodo3569/salmon-tools:0.1 \
+    stodo3569/salmon-tools:0.0 \
     bash /data/geo_scripts/salmon_quant_docker.sh \
+      --index /data/salmon_index \
       --input-file /data/datasets.txt
 
-  # Using a custom index on the host:
-  docker run --rm \
-    -u "$(id -u):$(id -g)" \
-    -v /data:/data \
-    stodo3569/salmon-tools:0.1 \
-    bash /data/geo_scripts/salmon_quant_docker.sh \
-      --index /data/my_custom_index \
-      --input-file /data/datasets.txt
+RUNTIME ENV VARS:
+  SALMON_SHOW_STDERR=true   Stream salmon stderr to terminal while also logging to error file
+  SALMON_HEARTBEAT_SEC=30   Print "salmon still running..." heartbeat every N seconds
 
 SALMON PARAMETERS (from salmon_quant_10.sh):
   --validateMappings     Enable selective alignment validation
@@ -543,11 +527,17 @@ parse_arguments() {
         esac
     done
 
-    # Log which index is being used
-    if [[ "$SALMON_INDEX" == "/opt/salmon_index" ]]; then
-        log_message "Using built-in GENCODE v49 index (/opt/salmon_index)"
-    else
-        log_message "Using custom index: $SALMON_INDEX"
+    # Validate required --index
+    if [[ -z "$SALMON_INDEX" ]]; then
+        log_error "Missing required option: --index PATH"
+        log_error "A salmon index is required for quantification."
+        log_error ""
+        log_error "To build an index:"
+        log_error "  1. Create transcriptome FASTA with gffread:"
+        log_error "     gffread -w transcriptome.fa -g genome.fa annotations.gtf"
+        log_error "  2. Build salmon index:"
+        log_error "     salmon index -t transcriptome.fa -i salmon_index -k 31"
+        exit 1
     fi
 
     if [[ "$found_input_file" == true ]]; then
@@ -557,7 +547,7 @@ parse_arguments() {
     # Single study mode
     if [[ ${#positional_args[@]} -lt 1 ]]; then
         log_error "Missing required argument: STUDY_DIR"
-        log_error "Usage: $0 [--index INDEX_PATH] STUDY_DIR [SAMPLE_FILTER] [OPTIONS]"
+        log_error "Usage: $0 --index INDEX_PATH STUDY_DIR [SAMPLE_FILTER] [OPTIONS]"
         exit 1
     fi
 
