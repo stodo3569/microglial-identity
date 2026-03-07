@@ -151,3 +151,73 @@ The `-p 127.0.0.1:8787:8787` flag is key to the security model. `127.0.0.1` (loc
 docker build -t stodo3569/rstudio-server_microglial-identity:0.0 \
   -f Dockerfile_rstudio-server_microglial-identity .
 ```
+### Getting started with the analyses
+
+#### 6. Clone the repository
+
+Once your RStudio Server session is open in the browser, open the **Terminal** tab (next to Console) and clone the repository into the container's home directory:
+
+```bash
+cd /home/rstudio
+git clone https://github.com/[YOUR-GITHUB-USERNAME]/[YOUR-REPO-NAME].git
+```
+
+The repository contains all R scripts, common utility functions, and Docker build files. It does **not** contain any data — see the sections below for how to obtain data.
+
+After cloning, your working directory will look like this:
+
+```
+/home/rstudio/
+├── [YOUR-REPO-NAME]/
+│   ├── analyses/           # Per-chapter analysis scripts
+│   ├── common/
+│   │   └── R/
+│   │       └── 00_functions.R
+│   └── docker/
+└── data/                   # Block volume mounted at container start (see step 4)
+    ├── Dataset_A/
+    │   └── Aligned_data/
+    │       └── [GSM_ID]/
+    │           └── quant.sf
+    └── Gosselin_2017/
+        └── Aligned_data/
+            └── [GSM_ID]/
+                └── quant.sf
+```
+
+> **Note:** The `data/` directory is the block volume you mounted in step 4 (`-v /data:/home/rstudio/data`). It sits outside the repository and is not tracked by Git.
+
+---
+
+#### 7. Obtain the data
+
+Each script documents its own inputs and outputs at the top, and exposes two flags that let you decide how much to recompute:
+
+| Flag | Default | Effect |
+|---|---|---|
+| `DOWNLOAD_OUTPUT_RDS` | `FALSE` | Set to `TRUE` to download this script's output RDS from Zenodo and stop — no input data or previous scripts needed |
+| `LOAD_INPUT_RDS` | `TRUE` | When `TRUE`, downloads and loads any input RDS objects this script needs from Zenodo; set to `FALSE` to supply those inputs yourself by running the upstream script |
+
+This gives you three ways to engage with any given script:
+
+**Skip the script entirely** — set `DOWNLOAD_OUTPUT_RDS <- TRUE`. The output RDS is downloaded from Zenodo and you proceed directly to the next script. No input data required.
+
+**Run the script from a Zenodo-supplied input RDS** — leave `DOWNLOAD_OUTPUT_RDS <- FALSE` and `LOAD_INPUT_RDS <- TRUE` (defaults). The script downloads whatever upstream RDS objects it needs from Zenodo and runs using those. Use this when you want to verify or modify a specific step without re-running everything before it.
+
+**Run the script entirely from scratch** — set `LOAD_INPUT_RDS <- FALSE`. The script expects you to supply its inputs yourself, either by running the upstream script or (for the first script, `01_tximport.R`) by providing raw Salmon quant.sf files. Raw RNA-seq data and quant.sf files are available from NCBI GEO:
+
+> GEO accession: [INSERT GEO ACCESSION]
+
+Place quant.sf files under `data/` following the directory structure shown above.
+
+All RDS objects are also available for direct download from Zenodo:
+
+> Zenodo record: [INSERT DOI LINK ONCE DEPOSITED]
+
+---
+
+#### 8. Run the analyses
+
+Scripts are organised by chapter under `analyses/`. Within each chapter, run scripts in numerical order. Each script sources `common/R/00_functions.R` via a relative path — this resolves correctly as long as you run scripts from within the cloned repository folder structure.
+
+Open any script in RStudio, review the `DOWNLOAD_OUTPUT_RDS` and `SAVE_OUTPUT_RDS` flags at the top, set them according to your needs, and run.
