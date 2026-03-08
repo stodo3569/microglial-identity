@@ -1,347 +1,347 @@
-study	geo_accession	sample_title	cell_type	neuropathology_if_ex_vivo	tissue_if_exvivo	Control_tissue	source_if_ex_vivo	Genotype	treatment	final_differentiation_supplements_if_in_vitro	Serum_if_in_vitro	coculture_if_in_vitro	age	sex	region	name_id
-Hasselmann_2019_GSE133432	GSM3908560	MBJ_ExVivo_1	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	28	Female	NA	GSM3908560
-Hasselmann_2019_GSE133432	GSM3908561	MBJ_ExVivo_2	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	39	Male	NA	GSM3908561
-Ormel_2018_GSE102335	GSM2734886	pMG16-137	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	77	NA	NA	GSM2734886
-Ormel_2018_GSE102335	GSM2734887	pMG17-003	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	96	NA	NA	GSM2734887
-Ormel_2018_GSE102335	GSM2734888	pMG17-005	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	60	NA	NA	GSM2734888
-Pinto_2020_GSE137939	GSM4094660	AC_2019_01_15_47 [C1]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	13	NA	hippocampus	GSM4094660
-Pinto_2020_GSE137939	GSM4094661	AC_2019_01_15_48 [C2]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	19	NA	hippocampus	GSM4094661
-Pinto_2020_GSE137939	GSM4094662	AC_2019_01_15_49 [C3]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	25	NA	hippocampus	GSM4094662
-Pinto_2020_GSE137939	GSM4094663	AC_2019_01_15_50 [C4]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	35	NA	hippocampus	GSM4094663
-Pinto_2020_GSE137939	GSM4094664	AC_2019_01_15_51 [C5]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	18	NA	hippocampus	GSM4094664
-Pinto_2020_GSE137939	GSM4094665	AC_2019_01_15_52 [DS1]	ex vivo primary microglia	Down Syndrome	Normal	FALSE	Post-mortem	None	None	NA	NA	NA	13	NA	hippocampus	GSM4094665
-Pinto_2020_GSE137939	GSM4094666	AC_2019_01_15_54 [DS3]	ex vivo primary microglia	Down Syndrome	Normal	FALSE	Post-mortem	None	None	NA	NA	NA	25	NA	hippocampus	GSM4094666
-Pinto_2020_GSE137939	GSM4094667	AC_2019_01_15_55 [DS4]	ex vivo primary microglia	Down Syndrome	Normal	FALSE	Post-mortem	None	None	NA	NA	NA	39	NA	hippocampus	GSM4094667
-Pinto_2020_GSE137939	GSM4094668	AC_2019_01_15_56 [DS5]	ex vivo primary microglia	Down Syndrome	Normal	FALSE	Post-mortem	None	None	NA	NA	NA	19	NA	hippocampus	GSM4094668
-Pong_2020_GSE65867	GSM1608035	H_MO-MG6_R3-1202938	ex vivo primary microglia	Junior pilocytic astrocytoma	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608035
-Pong_2020_GSE65867	GSM1608036	H_MO-MG6_R4-1202939	ex vivo primary microglia	Junior pilocytic astrocytoma	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608036
-Pong_2020_GSE65867	GSM1608037	H_MO-MG8_R3-1202940	ex vivo primary microglia	Junior pilocytic astrocytoma	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608037
-Pong_2020_GSE65867	GSM1608038	H_MO-MG8_R4-1202941	ex vivo primary microglia	Junior pilocytic astrocytoma	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608038
-Pong_2020_GSE65867	GSM1608039	H_MO-MG11-1207680	ex vivo primary microglia	Junior pilocytic astrocytoma	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608039
-Pong_2020_GSE65867	GSM1608040	H_MO-MG11-1207681	ex vivo primary microglia	Junior pilocytic astrocytoma	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608040
-Pong_2020_GSE65867	GSM1608041	H_MO-MG15-R3-1224755	ex vivo primary microglia	Junior pilocytic astrocytoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608041
-Pong_2020_GSE65867	GSM1608042	H_MO-MG15-R4-1224756	ex vivo primary microglia	Junior pilocytic astrocytoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608042
-Pong_2020_GSE65867	GSM1608043	H_MO-MG16-R3-1224757	ex vivo primary microglia	Junior pilocytic astrocytoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608043
-Pong_2020_GSE65867	GSM1608044	H_MO-MG16-R4-1224758	ex vivo primary microglia	Junior pilocytic astrocytoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608044
-Pong_2020_GSE65867	GSM1608045	H_MO-MG17-R3-1224759	ex vivo primary microglia	Junior pilocytic astrocytoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608045
-Pong_2020_GSE65867	GSM1608046	H_MO-MG17-R4-1224760	ex vivo primary microglia	Junior pilocytic astrocytoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608046
-Kana_2019_GSE133357	GSM3906184	patient#MA_cerebellum	ex vivo primary microglia	Multisystem atrophy	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	60	Female	NA	GSM3906184
-Kana_2019_GSE133357	GSM3906185	patient#MA_STG	ex vivo primary microglia	Multisystem atrophy	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	60	Female	NA	GSM3906185
-Kana_2019_GSE133357	GSM3906186	patient#BP_cerebellum	ex vivo primary microglia	Bipolar disorder	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	45	Female	NA	GSM3906186
-Kana_2019_GSE133357	GSM3906187	patient#BP_STG	ex vivo primary microglia	Bipolar disorder	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	45	Female	NA	GSM3906187
-vanDerPoel_2019_GSE111972	GSM3045818	Sample_MS_WM_1	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	54	Male	corpus callosum	GSM3045818
-vanDerPoel_2019_GSE111972	GSM3045819	Sample_MS_WM_10	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	58	Male	corpus callosum	GSM3045819
-vanDerPoel_2019_GSE111972	GSM3045820	Sample_MS_WM_11	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	50	Female	corpus callosum	GSM3045820
-vanDerPoel_2019_GSE111972	GSM3045821	Sample_MS_WM_2	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	53	Male	corpus callosum	GSM3045821
-vanDerPoel_2019_GSE111972	GSM3045822	Sample_MS_WM_3	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	66	Female	corpus callosum	GSM3045822
-vanDerPoel_2019_GSE111972	GSM3045823	Sample_MS_WM_5	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	64	Male	corpus callosum	GSM3045823
-vanDerPoel_2019_GSE111972	GSM3045824	Sample_MS_WM_6	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	54	Male	corpus callosum	GSM3045824
-vanDerPoel_2019_GSE111972	GSM3045825	Sample_MS_WM_7	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	81	Female	corpus callosum	GSM3045825
-vanDerPoel_2019_GSE111972	GSM3045826	Sample_MS_WM_8	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	78	Male	corpus callosum	GSM3045826
-vanDerPoel_2019_GSE111972	GSM3045827	Sample_MS_WM_9	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	95	Female	corpus callosum	GSM3045827
-vanDerPoel_2019_GSE111972	GSM3045828	Sample_MS_GM_1	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	53	Male	occipital cortex	GSM3045828
-vanDerPoel_2019_GSE111972	GSM3045829	Sample_MS_GM_3	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	64	Male	occipital cortex	GSM3045829
-vanDerPoel_2019_GSE111972	GSM3045830	Sample_MS_GM_4	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	54	Male	occipital cortex	GSM3045830
-vanDerPoel_2019_GSE111972	GSM3045831	Sample_MS_GM_5	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	58	Male	occipital cortex	GSM3045831
-vanDerPoel_2019_GSE111972	GSM3045832	Sample_MS_GM_6	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	50	Female	occipital cortex	GSM3045832
-vanDerPoel_2019_GSE111972	GSM3045833	Sample_CON_WM_1	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	85	Female	corpus callosum	GSM3045833
-vanDerPoel_2019_GSE111972	GSM3045834	Sample_CON_WM_10	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	78	Male	corpus callosum	GSM3045834
-vanDerPoel_2019_GSE111972	GSM3045835	Sample_CON_WM_11	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	57	Female	corpus callosum	GSM3045835
-vanDerPoel_2019_GSE111972	GSM3045836	Sample_CON_WM_2	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	51	Male	corpus callosum	GSM3045836
-vanDerPoel_2019_GSE111972	GSM3045837	Sample_CON_WM_3	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	89	Female	corpus callosum	GSM3045837
-vanDerPoel_2019_GSE111972	GSM3045838	Sample_CON_WM_4	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	84	Female	corpus callosum	GSM3045838
-vanDerPoel_2019_GSE111972	GSM3045839	Sample_CON_WM_5	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	76	Male	corpus callosum	GSM3045839
-vanDerPoel_2019_GSE111972	GSM3045840	Sample_CON_WM_6	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	70	Female	corpus callosum	GSM3045840
-vanDerPoel_2019_GSE111972	GSM3045841	Sample_CON_WM_7	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	64	Female	corpus callosum	GSM3045841
-vanDerPoel_2019_GSE111972	GSM3045842	Sample_CON_WM_8	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	78	Female	corpus callosum	GSM3045842
-vanDerPoel_2019_GSE111972	GSM3045843	Sample_CON_WM_9	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	102	Male	corpus callosum	GSM3045843
-vanDerPoel_2019_GSE111972	GSM3045844	Sample_CON_GM_1	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	51	Male	occipital cortex	GSM3045844
-vanDerPoel_2019_GSE111972	GSM3045845	Sample_CON_GM_2	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	76	Male	occipital cortex	GSM3045845
-vanDerPoel_2019_GSE111972	GSM3045846	Sample_CON_GM_3	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	64	Female	occipital cortex	GSM3045846
-vanDerPoel_2019_GSE111972	GSM3045847	Sample_CON_GM_4	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	102	Male	occipital cortex	GSM3045847
-vanDerPoel_2019_GSE111972	GSM3045848	Sample_CON_GM_5	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	57	Female	occipital cortex	GSM3045848
-Lin_2018_GSE115397	GSM3177367	DIPG14-Pons	ex vivo primary microglia	DIPG	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	4	Female	NA	GSM3177367
-Lin_2018_GSE115397	GSM3177368	DIPG19-Pons	ex vivo primary microglia	DIPG	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	2	Male	NA	GSM3177368
-Lin_2018_GSE115397	GSM3177369	DIPG20-Pons	ex vivo primary microglia	DIPG	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	8	Female	NA	GSM3177369
-Lin_2018_GSE115397	GSM3177370	DIPG21-Pons	ex vivo primary microglia	DIPG	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	7	Male	NA	GSM3177370
-Lin_2018_GSE115397	GSM3177371	DIPG32-Pons	ex vivo primary microglia	DIPG	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	7	Male	NA	GSM3177371
-Lin_2018_GSE115397	GSM3177372	DIPG35-Pons	ex vivo primary microglia	DIPG	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	5	Female	NA	GSM3177372
-Lin_2018_GSE115397	GSM3177373	DIPG29-normal_cortex	ex vivo primary microglia	DIPG	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	6	Female	NA	GSM3177373
-Lin_2018_GSE115397	GSM3177374	DIPG32-normal_cortex	ex vivo primary microglia	DIPG	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	5	Male	NA	GSM3177374
-Lin_2018_GSE115397	GSM3177375	DIPG35-normal_cortex	ex vivo primary microglia	DIPG	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	8	Female	NA	GSM3177375
-Lin_2018_GSE115397	GSM3177376	aGBM081	ex vivo primary microglia	GBM	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM3177376
-Lin_2018_GSE115397	GSM3177377	aGBM085	ex vivo primary microglia	GBM	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM3177377
-Lin_2018_GSE115397	GSM3177378	aGBM086	ex vivo primary microglia	GBM	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM3177378
-Lin_2018_GSE115397	GSM3177379	aGBM092	ex vivo primary microglia	GBM	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM3177379
-Galatro_2017_GSE99074	GSM3081106	spm09	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	78	Male	NA	GSM3081106
-Galatro_2017_GSE99074	GSM3081107	spm08	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	78	Male	NA	GSM3081107
-Galatro_2017_GSE99074	GSM3081108	spm06	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	56	Male	NA	GSM3081108
-Galatro_2017_GSE99074	GSM3081109	spm05	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	62	Male	NA	GSM3081109
-Galatro_2017_GSE99074	GSM3081110	spm04	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	77	Female	NA	GSM3081110
-Galatro_2017_GSE99074	GSM3081111	spm36	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	40	Male	NA	GSM3081111
-Galatro_2017_GSE99074	GSM3081112	spm35	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	37	Male	NA	GSM3081112
-Galatro_2017_GSE99074	GSM3081113	spm33	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	67	Male	NA	GSM3081113
-Galatro_2017_GSE99074	GSM3081114	spm30	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	64	Male	NA	GSM3081114
-Galatro_2017_GSE99074	GSM3081115	spm28	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	98	Female	NA	GSM3081115
-Galatro_2017_GSE99074	GSM3081116	spm26	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	66	Male	NA	GSM3081116
-Galatro_2017_GSE99074	GSM3081117	spm25	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	43	Male	NA	GSM3081117
-Galatro_2017_GSE99074	GSM3081118	spm15	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	44	Male	NA	GSM3081118
-Galatro_2017_GSE99074	GSM3081119	spm14	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	57	Female	NA	GSM3081119
-Galatro_2017_GSE99074	GSM3081120	spm13	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	84	Male	NA	GSM3081120
-Galatro_2017_GSE99074	GSM3081121	spm11	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	74	Male	NA	GSM3081121
-Galatro_2017_GSE99074	GSM3081122	spm37	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	55	Male	NA	GSM3081122
-Galatro_2017_GSE99074	GSM3081123	spm34	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	37	Male	NA	GSM3081123
-Galatro_2017_GSE99074	GSM3081124	spm32	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	48	Male	NA	GSM3081124
-Galatro_2017_GSE99074	GSM3081125	spm31	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	91	Female	NA	GSM3081125
-Galatro_2017_GSE99074	GSM3081126	spm29	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	66	Male	NA	GSM3081126
-Galatro_2017_GSE99074	GSM3081127	spm27	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	85	Male	NA	GSM3081127
-Galatro_2017_GSE99074	GSM3081128	spm24	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	63	Male	NA	GSM3081128
-Galatro_2017_GSE99074	GSM3081129	spm23	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	54	Male	NA	GSM3081129
-Galatro_2017_GSE99074	GSM3081130	spm22	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	54	Male	NA	GSM3081130
-Galatro_2017_GSE99074	GSM3081131	spm21	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	51	Male	NA	GSM3081131
-Galatro_2017_GSE99074	GSM3081132	spm20	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	84	Male	NA	GSM3081132
-Galatro_2017_GSE99074	GSM3081133	spm19	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	34	Male	NA	GSM3081133
-Galatro_2017_GSE99074	GSM3081134	spm18	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	64	Male	NA	GSM3081134
-Galatro_2017_GSE99074	GSM3081135	spm12	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	63	Male	NA	GSM3081135
-Galatro_2017_GSE99074	GSM3081136	spm10	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	70	Female	NA	GSM3081136
-Galatro_2017_GSE99074	GSM3081137	spm01	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	89	Female	NA	GSM3081137
-Galatro_2017_GSE99074	GSM3081138	S15018	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	84	Female	NA	GSM3081138
-Galatro_2017_GSE99074	GSM3081139	S14005	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	67	Male	NA	GSM3081139
-Galatro_2017_GSE99074	GSM3081140	S13067	ex vivo primary microglia	Multisystem atrophy	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	57	Male	NA	GSM3081140
-Galatro_2017_GSE99074	GSM3081141	S12112	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	85	Male	NA	GSM3081141
-Galatro_2017_GSE99074	GSM3081142	S1210100	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	56	Female	NA	GSM3081142
-Galatro_2017_GSE99074	GSM3081143	S12067	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	102	Male	NA	GSM3081143
-Galatro_2017_GSE99074	GSM3081144	S12048	ex vivo primary microglia	Bipolar disorder	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	81	Male	NA	GSM3081144
-Szulzewsky_2016_GSE80338	GSM2124785	GBM Sample 1 (sample 1)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	54	Female	NA	GSM2124785
-Szulzewsky_2016_GSE80338	GSM2124786	GBM Sample 2 (sample 2)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	54	Male	NA	GSM2124786
-Szulzewsky_2016_GSE80338	GSM2124787	GBM Sample 3 (sample 3)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	67	Female	NA	GSM2124787
-Szulzewsky_2016_GSE80338	GSM2124788	GBM Sample 4 (sample 4)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	43	Female	NA	GSM2124788
-Szulzewsky_2016_GSE80338	GSM2124789	GBM Sample 5 (sample 5)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM2124789
-Szulzewsky_2016_GSE80338	GSM2124790	GBM Sample 6 (sample 6)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	52	Male	NA	GSM2124790
-Szulzewsky_2016_GSE80338	GSM2124791	GBM Sample 7 (sample 7)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	69	Female	NA	GSM2124791
-Szulzewsky_2016_GSE80338	GSM2124792	GBM Sample 8 (sample 8)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	74	Female	NA	GSM2124792
-Szulzewsky_2016_GSE80338	GSM2124793	Epilepsy Sample 1 (sample 9)	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	34	Male	NA	GSM2124793
-Szulzewsky_2016_GSE80338	GSM2124794	Epilepsy Sample 2 (sample 10)	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	51	Female	NA	GSM2124794
-Szulzewsky_2016_GSE80338	GSM2124795	Epilepsy Sample 3 (sample 11)	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	26	Male	NA	GSM2124795
-Szulzewsky_2016_GSE80338	GSM2124796	Postmortem Sample 1 (sample 12)	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	93	Female	NA	GSM2124796
-Szulzewsky_2016_GSE80338	GSM2124797	Postmortem Sample 2 (sample 13)	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	60	Female	NA	GSM2124797
-Szulzewsky_2016_GSE80338	GSM2124798	Postmortem Sample 3 (sample 14)	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	92	Male	NA	GSM2124798
-Szulzewsky_2016_GSE80338	GSM2124799	Postmortem Sample 4 (sample 15)	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	85	Female	NA	GSM2124799
-Szulzewsky_2016_GSE80338	GSM2124800	Postmortem Sample 5 (sample 16)	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	73	Male	NA	GSM2124800
-Alsema_2020_GSE146639	GSM4403287	bulk [BE_RNAseq_Pool_I_001_S4]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	60	Female	superior parietal lobe	GSM4403287
-Alsema_2020_GSE146639	GSM4403288	bulk [BE_RNAseq_Pool_I_002_S5]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	60	Female	superior frontal gyrus	GSM4403288
-Alsema_2020_GSE146639	GSM4403289	bulk [BE_RNAseq_Pool_I_003_S6]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	88	Male	superior parietal lobe	GSM4403289
-Alsema_2020_GSE146639	GSM4403290	bulk [BE_RNAseq_Pool_I_004_S7]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	88	Male	superior frontal gyrus	GSM4403290
-Alsema_2020_GSE146639	GSM4403291	bulk [BE_RNAseq_Pool_I_005_S8]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	83	Male	superior parietal lobe	GSM4403291
-Alsema_2020_GSE146639	GSM4403292	bulk [BE_RNAseq_Pool_I_006_S9]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	83	Male	superior frontal gyrus	GSM4403292
-Alsema_2020_GSE146639	GSM4403294	bulk [BE_RNAseq_Pool_I_008_S11]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	88	Female	superior parietal lobe	GSM4403294
-Alsema_2020_GSE146639	GSM4403295	bulk [BE_RNAseq_Pool_I_009_S12]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	88	Female	superior frontal gyrus	GSM4403295
-Alsema_2020_GSE146639	GSM4403296	bulk [BE_RNAseq_Pool_I_010_S3]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	82	Male	superior parietal lobe	GSM4403296
-Alsema_2020_GSE146639	GSM4403297	bulk [BE_RNAseq_Pool_I_011_S2]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	55	Female	superior parietal lobe	GSM4403297
-Alsema_2020_GSE146639	GSM4403298	bulk [BE_RNAseq_Pool_I_012_S1]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	92	Male	superior parietal lobe	GSM4403298
-Alsema_2020_GSE146639	GSM4403299	bulk [BE_RNAseq_Pool_I_013_S13]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	92	Male	superior frontal gyrus	GSM4403299
-Alsema_2020_GSE146639	GSM4403300	bulk [BE_RNAseq_Pool_II_001_S1]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	59	Male	superior parietal lobe	GSM4403300
-Alsema_2020_GSE146639	GSM4403301	bulk [BE_RNAseq_Pool_II_002_S2]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	59	Male	superior frontal gyrus	GSM4403301
-Alsema_2020_GSE146639	GSM4403302	bulk [BE_RNAseq_Pool_II_004_S4]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	85	Female	superior frontal gyrus	GSM4403302
-Alsema_2020_GSE146639	GSM4403304	bulk [BE_RNAseq_Pool_II_006_S6]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	92	Female	superior parietal lobe	GSM4403304
-Alsema_2020_GSE146639	GSM4403307	bulk [BE_RNAseq_Pool_II_009_S9]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	68	Male	superior parietal lobe	GSM4403307
-Alsema_2020_GSE146639	GSM4403308	bulk [BE_RNAseq_Pool_II_010_S10]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	68	Male	superior frontal gyrus	GSM4403308
-Alsema_2020_GSE146639	GSM4403309	bulk [BE_RNAseq_Pool_II_011_S11]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	98	Female	superior frontal gyrus	GSM4403309
-Alsema_2020_GSE146639	GSM4403310	bulk [BE_RNAseq_Pool_II_012_S12]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	82	Female	superior parietal lobe	GSM4403310
-Alsema_2020_GSE146639	GSM4403311	bulk [BE_RNAseq_Pool_II_013_S13]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	82	Female	superior frontal gyrus	GSM4403311
-Alsema_2020_GSE146639	GSM4636679	bulk [NextFlex_NB_0319_012_S12]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	89	Male	superior frontal gyrus	GSM4636679
-Alsema_2020_GSE146639	GSM4636680	bulk [NextFlex_NB_0319_002_S2]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	78	Male	superior frontal gyrus	GSM4636680
-Alsema_2020_GSE146639	GSM4636681	bulk [NextFlex_NB_0319_003_S3]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	103	Female	superior parietal lobe	GSM4636681
-Alsema_2020_GSE146639	GSM4636682	bulk [NextFlex_NB_0319_006_S6]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	97	Male	superior parietal lobe	GSM4636682
-Srinivasan_2019_GSE125050	GSM3561843	10-26 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	NA	Female	superior frontal gyrus	GSM3561843
-Srinivasan_2019_GSE125050	GSM3561847	13-40 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	73	NA	superior frontal gyrus	GSM3561847
-Srinivasan_2019_GSE125050	GSM3561848	06-26 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	84	Female	superior frontal gyrus	GSM3561848
-Srinivasan_2019_GSE125050	GSM3561849	10-70 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	74	Male	superior frontal gyrus	GSM3561849
-Srinivasan_2019_GSE125050	GSM3561863	05-58 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	72	Male	superior frontal gyrus	GSM3561863
-Srinivasan_2019_GSE125050	GSM3561877	03-59 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	88	Male	superior frontal gyrus	GSM3561877
-Srinivasan_2019_GSE125050	GSM3561882	07-04 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	NA	Male	superior frontal gyrus	GSM3561882
-Srinivasan_2019_GSE125050	GSM3561884	14-29 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	59	NA	superior frontal gyrus	GSM3561884
-Srinivasan_2019_GSE125050	GSM3561886	04-54 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	75	Male	superior frontal gyrus	GSM3561886
-Srinivasan_2019_GSE125050	GSM3561888	11-105 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	81	NA	superior frontal gyrus	GSM3561888
-Srinivasan_2019_GSE125050	GSM3561901	00-54 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	79	Male	superior frontal gyrus	GSM3561901
-Srinivasan_2019_GSE125050	GSM3561911	10-22 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	59	Female	superior frontal gyrus	GSM3561911
-Srinivasan_2019_GSE125050	GSM3561913	05-10 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	90	Male	superior frontal gyrus	GSM3561913
-Srinivasan_2019_GSE125050	GSM3561914	10-80 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	78	Female	superior frontal gyrus	GSM3561914
-Srinivasan_2019_GSE125050	GSM3561917	11-98 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	58	NA	superior frontal gyrus	GSM3561917
-Srinivasan_2019_GSE125050	GSM3561918	02-01 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	88	Female	superior frontal gyrus	GSM3561918
-Srinivasan_2019_GSE125050	GSM3561924	07-28 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	86	Male	superior frontal gyrus	GSM3561924
-Srinivasan_2019_GSE125050	GSM3561925	02-27 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	86	Male	superior frontal gyrus	GSM3561925
-Srinivasan_2019_GSE125050	GSM3561927	10-63 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	79	Male	superior frontal gyrus	GSM3561927
-Srinivasan_2019_GSE125050	GSM3561929	03-63 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	83	Female	superior frontal gyrus	GSM3561929
-Srinivasan_2019_GSE125050	GSM3561931	09-35 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	38	Male	superior frontal gyrus	GSM3561931
-Srinivasan_2019_GSE125050	GSM3561936	10-20 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	61	Male	superior frontal gyrus	GSM3561936
-Srinivasan_2019_GSE125050	GSM3561938	03-21 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	84	Female	superior frontal gyrus	GSM3561938
-Srinivasan_2019_GSE125050	GSM3561939	10-39 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	NA	Male	superior frontal gyrus	GSM3561939
-Srinivasan_2019_GSE125050	GSM3561942	04-33 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	70	Male	superior frontal gyrus	GSM3561942
-Gosselin_2017_SRP115940	NA	RNA_HMG002_S002_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	1	Female	Temporal cortex	RNA_HMG002_S002_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG003_S003_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	4	Male	Temporal cortex	RNA_HMG003_S003_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG003_S029_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	5	Male	Temporal cortex	RNA_HMG003_S029_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG005_S006_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	7	F	Occipital cortex	RNA_HMG005_S006_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG006_S008_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	3	F	Cerebellum	RNA_HMG006_S008_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG007_S009_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	13	F	Temporal cortex	RNA_HMG007_S009_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG008_S011_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	17	M	Occipital cortex	RNA_HMG008_S011_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG008_S012_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	17	M	Parietal cortex	RNA_HMG008_S012_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG010_S016_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	13	F	Frontal cortex	RNA_HMG010_S016_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG011_S017_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	15	F	Temporal cortex	RNA_HMG011_S017_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG012_S018_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	1.166666667	M	Frontal cortex	RNA_HMG012_S018_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG014_S020_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	1	F	Frontal cortex	RNA_HMG014_S020_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG015_S022_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	11	F	Frontal cortex	RNA_HMG015_S022_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG016_S023_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	13	F	Frontal cortex	RNA_HMG016_S023_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG017_S025_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	2	F	Temporal cortex	RNA_HMG017_S025_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG018_S026_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	5	M	Cerebellum	RNA_HMG018_S026_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG019_S027_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	1.666666667	M	Temporal cortex	RNA_HMG019_S027_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG021_S031_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	9	F	Temporal cortex	RNA_HMG021_S031_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG024_S034_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	8	M	Tumor	RNA_HMG024_S034_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG025_S036_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	5	M	Tumor	RNA_HMG025_S036_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG026_S037_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	16	M	Tumor	RNA_HMG026_S037_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG029_S040_Microglia_ExVivo	ex vivo primary microglia	Acute	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	16	F	Temporal cortex	RNA_HMG029_S040_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG031_S043_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	2	M	Frontal cortex	RNA_HMG031_S043_Microglia_ExVivo
-Gosselin_2017_SRP115940	NA	RNA_HMG035_S047_Microglia_ExVivo	ex vivo primary microglia	Acute	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	0.416666667	M	Frontal cortex	RNA_HMG035_S047_Microglia_ExVivo
-Young_2021_EGAD00001005736	NA	EGAF00003091616	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	77	M	parietal cortex	EGAF00003091616
-Young_2021_EGAD00001005736	NA	EGAF00003091659	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	60	M	temporal cortex	EGAF00003091659
-Young_2021_EGAD00001005736	NA	EGAF00003091775	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	73	F	frontal cortex	EGAF00003091775
-Young_2021_EGAD00001005736	NA	EGAF00003091662	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	64	F	frontal cortex	EGAF00003091662
-Young_2021_EGAD00001005736	NA	EGAF00003091826	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	48	M	frontal cortex	EGAF00003091826
-Young_2021_EGAD00001005736	NA	EGAF00003091795	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	60	F	parietal cortex	EGAF00003091795
-Young_2021_EGAD00001005736	NA	EGAF00003091860	ex vivo primary microglia	Meningioma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	77	M	cerebellum	EGAF00003091860
-Young_2021_EGAD00001005736	NA	EGAF00003091748	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	74	M	parietal cortex	EGAF00003091748
-Young_2021_EGAD00001005736	NA	EGAF00003091811	ex vivo primary microglia	Cold Aneurysm	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	39	F	gyrus rectus	EGAF00003091811
-Young_2021_EGAD00001005736	NA	EGAF00003091586	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	78	F	temporal cortex	EGAF00003091586
-Young_2021_EGAD00001005736	NA	EGAF00003091854	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	45	F	parietal cortex	EGAF00003091854
-Young_2021_EGAD00001005736	NA	EGAF00003091833	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	69	M	temporal cortex	EGAF00003091833
-Young_2021_EGAD00001005736	NA	EGAF00003091649	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	62	F	parietal cortex	EGAF00003091649
-Young_2021_EGAD00001005736	NA	EGAF00003091866	ex vivo primary microglia	Post fossa lesion	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	65	M	cerebellum	EGAF00003091866
-Young_2021_EGAD00001005736	NA	EGAF00003091861	ex vivo primary microglia	Meningioma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	44	M	parietal cortex	EGAF00003091861
-Young_2021_EGAD00001005736	NA	EGAF00003091723	ex vivo primary microglia	Cold Aneurysm	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	61	M	frontal cortex	EGAF00003091723
-Young_2021_EGAD00001005736	NA	EGAF00003091755	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	38	M	temporal cortex	EGAF00003091755
-Young_2021_EGAD00001005736	NA	EGAF00003091744	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	48	M	temporal cortex	EGAF00003091744
-Young_2021_EGAD00001005736	NA	EGAF00003091817	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	74	M	temporal cortex	EGAF00003091817
-Young_2021_EGAD00001005736	NA	EGAF00003091638	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	60	M	frontal cortex	EGAF00003091638
-Young_2021_EGAD00001005736	NA	EGAF00003091776	ex vivo primary microglia	Post fossa EVD	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	35	F	frontal cortex	EGAF00003091776
-Chomyk_2024_GSE255290	GSM8068291	White matter line 1	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068291
-Chomyk_2024_GSE255290	GSM8068292	White matter line 2	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068292
-Chomyk_2024_GSE255290	GSM8068293	White matter line 3	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068293
-Chomyk_2024_GSE255290	GSM8068294	White matter line 4	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068294
-Chomyk_2024_GSE255290	GSM8068295	White matter line 5	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068295
-Chomyk_2024_GSE255290	GSM8068296	Grey matter line 1	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068296
-Chomyk_2024_GSE255290	GSM8068297	Grey matter line 2	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068297
-Chomyk_2024_GSE255290	GSM8068298	Grey matter line 3	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068298
-Chomyk_2024_GSE255290	GSM8068299	Grey matter line 4	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068299
-Chomyk_2024_GSE255290	GSM8068300	Grey matter line 5	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068300
-Almansouri_2024_GSE260619	GSM8121059	Control WML_1	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	78	Female	Subcortical white matter	GSM8121059
-Almansouri_2024_GSE260619	GSM8121060	Control WML _2	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	92	Male	Subcortical white matter	GSM8121060
-Almansouri_2024_GSE260619	GSM8121061	Control WML _3	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	73	Male	Subcortical white matter	GSM8121061
-Almansouri_2024_GSE260619	GSM8121062	Control WML _4	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	84	Female	Subcortical white matter	GSM8121062
-Almansouri_2024_GSE260619	GSM8121063	NAWM matched with the DSCL cases_1	ex vivo primary microglia	Deep-subcortical white matter lesions	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	90	Male	Subcortical white matter	GSM8121063
-Almansouri_2024_GSE260619	GSM8121064	NAWM matched with the DSCL cases_2	ex vivo primary microglia	Deep-subcortical white matter lesions	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	96	Female	Subcortical white matter	GSM8121064
-Almansouri_2024_GSE260619	GSM8121065	NAWM matched with the DSCL cases_3	ex vivo primary microglia	Deep-subcortical white matter lesions	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	74	Male	Subcortical white matter	GSM8121065
-Almansouri_2024_GSE260619	GSM8121066	NAWM matched with the DSCL cases_4	ex vivo primary microglia	Deep-subcortical white matter lesions	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	83	Male	Subcortical white matter	GSM8121066
-Almansouri_2024_GSE260619	GSM8121067	DSCL cases_1	ex vivo primary microglia	Deep-subcortical white matter lesions	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	90	Male	Subcortical white matter	GSM8121067
-Almansouri_2024_GSE260619	GSM8121068	DSCL cases_2	ex vivo primary microglia	Deep-subcortical white matter lesions	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	96	Female	Subcortical white matter	GSM8121068
-Almansouri_2024_GSE260619	GSM8121069	DSCL cases_3	ex vivo primary microglia	Deep-subcortical white matter lesions	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	74	Male	Subcortical white matter	GSM8121069
-Almansouri_2024_GSE260619	GSM8121070	DSCL cases_4	ex vivo primary microglia	Deep-subcortical white matter lesions	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	83	Male	Subcortical white matter	GSM8121070
-Guttikonda_2020_GSE139549	GSM4143582	s_23_human_primary	ex vivo primary microglia	None	Healthy	TRUE	Post-mortem	None	HIV	NA	NA	NA	NA	NA	NA	GSM4143582
-Guttikonda_2020_GSE139549	GSM4143583	s_39_human_primary	ex vivo primary microglia	None	Healthy	TRUE	Post-mortem	None	HIV	NA	NA	NA	NA	NA	NA	GSM4143583
-Guttikonda_2020_GSE139549	GSM4143584	s_42_human_primary	ex vivo primary microglia	None	Healthy	TRUE	Post-mortem	None	HIV	NA	NA	NA	NA	NA	NA	GSM4143584
-Guttikonda_2020_GSE139549	GSM4143585	s_43_human_primary	ex vivo primary microglia	None	Healthy	TRUE	Post-mortem	None	HIV	NA	NA	NA	NA	NA	NA	GSM4143585
-Dorion_2023_GSE228755	GSM7135879	HAM814_ex vivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM7135879
-Dorion_2023_GSE228755	GSM7135883	HAM815_ex_vivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM7135883
-Dorion_2023_GSE228755	GSM7135889	HAM816_ex vivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM7135889
-Dorion_2023_GSE228755	GSM7135894	HAM821_ex vivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM7135894
-Wolf_2022_GSE180705	GSM5468498	MG P1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	53	Female	Retina	GSM5468498
-Wolf_2022_GSE180705	GSM5468499	MG P3	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	82	Male	Retina	GSM5468499
-Wolf_2022_GSE180705	GSM5468500	MG P4	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	94	Female	Retina	GSM5468500
-Wolf_2022_GSE180705	GSM5468501	MG P5	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	56	Male	Retina	GSM5468501
-Wolf_2022_GSE180705	GSM5468502	MG P6	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	61	Male	Retina	GSM5468502
-van den Bosch_2024_GSE234700	GSM7473479	10-008 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	81	Male	Subcortical white matter	GSM7473479
-van den Bosch_2024_GSE234700	GSM7473480	10-008 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	81	Male	Subcortical white matter	GSM7473480
-van den Bosch_2024_GSE234700	GSM7473481	94-116 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	72	Female	Subcortical white matter	GSM7473481
-van den Bosch_2024_GSE234700	GSM7473482	94-116 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	72	Female	Subcortical white matter	GSM7473482
-van den Bosch_2024_GSE234700	GSM7473483	11-036 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	88	Male	Subcortical white matter	GSM7473483
-van den Bosch_2024_GSE234700	GSM7473484	11-036 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	88	Male	Subcortical white matter	GSM7473484
-van den Bosch_2024_GSE234700	GSM7473485	13-022 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	92	Female	Subcortical white matter	GSM7473485
-van den Bosch_2024_GSE234700	GSM7473486	13-022 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	92	Female	Subcortical white matter	GSM7473486
-van den Bosch_2024_GSE234700	GSM7473487	13-034 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	89	Female	Subcortical white matter	GSM7473487
-van den Bosch_2024_GSE234700	GSM7473488	13-034 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	89	Female	Subcortical white matter	GSM7473488
-van den Bosch_2024_GSE234700	GSM7473489	09-012 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	78	Male	Subcortical white matter	GSM7473489
-van den Bosch_2024_GSE234700	GSM7473490	09-012 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	78	Male	Subcortical white matter	GSM7473490
-van den Bosch_2024_GSE234700	GSM7473491	94-124 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	63	Male	Subcortical white matter	GSM7473491
-van den Bosch_2024_GSE234700	GSM7473492	94-124 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	63	Male	Subcortical white matter	GSM7473492
-van den Bosch_2024_GSE234700	GSM7473493	09-076 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	75	Male	Subcortical white matter	GSM7473493
-van den Bosch_2024_GSE234700	GSM7473494	09-076 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	75	Male	Subcortical white matter	GSM7473494
-van den Bosch_2024_GSE234700	GSM7473495	11-089 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	64	Male	Subcortical white matter	GSM7473495
-van den Bosch_2024_GSE234700	GSM7473496	11-089 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	64	Male	Subcortical white matter	GSM7473496
-van den Bosch_2024_GSE234700	GSM7473497	12-032 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	80	Male	Subcortical white matter	GSM7473497
-van den Bosch_2024_GSE234700	GSM7473498	12-032 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	80	Male	Subcortical white matter	GSM7473498
-van den Bosch_2024_GSE234700	GSM7473499	14-058 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	74	Female	Subcortical white matter	GSM7473499
-van den Bosch_2024_GSE234700	GSM7473500	14-058 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	74	Female	Subcortical white matter	GSM7473500
-van den Bosch_2024_GSE234700	GSM7473501	15-064 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	50	Male	Subcortical white matter	GSM7473501
-van den Bosch_2024_GSE234700	GSM7473502	15-064 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	50	Male	Subcortical white matter	GSM7473502
-van den Bosch_2024_GSE234700	GSM7473503	14-007 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	51	Female	Subcortical white matter	GSM7473503
-van den Bosch_2024_GSE234700	GSM7473504	14-007 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	51	Female	Subcortical white matter	GSM7473504
-van den Bosch_2024_GSE234700	GSM7473505	17-100 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	66	Male	Subcortical white matter	GSM7473505
-van den Bosch_2024_GSE234700	GSM7473506	17-100 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	66	Male	Subcortical white matter	GSM7473506
-Pressl_2024_GSE233386	GSM7426704	4943_Microglia_BEB19025_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	54	Male	Cortex	GSM7426704
-Pressl_2024_GSE233386	GSM7426719	5446_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	63	Female	Cortex	GSM7426719
-Pressl_2024_GSE233386	GSM7426726	5471_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	50	Male	Cortex	GSM7426726
-Wolf_2022_GSE193161	GSM5775662	Retinal microglia P1 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	53	Female	NA	GSM5775662
-Wolf_2022_GSE193161	GSM5775663	Retinal microglia P1 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	53	Female	NA	GSM5775663
-Wolf_2022_GSE193161	GSM5775664	Retinal microglia P3 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	82	Male	NA	GSM5775664
-Wolf_2022_GSE193161	GSM5775665	Retinal microglia P3 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	82	Male	NA	GSM5775665
-Wolf_2022_GSE193161	GSM5775666	Retinal microglia P4 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	94	Female	NA	GSM5775666
-Wolf_2022_GSE193161	GSM5775667	Retinal microglia P4 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	94	Female	NA	GSM5775667
-Wolf_2022_GSE193161	GSM5775668	Retinal microglia P5 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	56	Male	NA	GSM5775668
-Wolf_2022_GSE193161	GSM5775669	Retinal microglia P5 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	56	Male	NA	GSM5775669
-Wolf_2022_GSE193161	GSM5775670	Retinal microglia P6 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	61	Male	NA	GSM5775670
-Wolf_2022_GSE193161	GSM5775671	Retinal microglia P6 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	61	Male	NA	GSM5775671
-Stirparo_2025_GSE282079	GSM8635372	enriched nuclei_2009-005_4316	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	82	Male	Cerebellum	GSM8635372
-Stirparo_2025_GSE282079	GSM8635385	enriched nuclei_2011-017_4388	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	83	Male	Cerebellum	GSM8635385
-Stirparo_2025_GSE282079	GSM8635393	enriched nuclei_2011-082_4193	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	84	Female	Cerebellum	GSM8635393
-Stirparo_2025_GSE282079	GSM8635401	enriched nuclei_2011-090_4204	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	85	Female	Cerebellum	GSM8635401
-Stirparo_2025_GSE282079	GSM8635411	enriched nuclei_2011-111_4285	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	93	Male	Cerebellum	GSM8635411
-Stirparo_2025_GSE282079	GSM8635419	enriched nuclei_2012-001_7652	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	89	Female	Cerebellum	GSM8635419
-Stirparo_2025_GSE282079	GSM8635422	enriched nuclei_2012-005_4343	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	84	Female	Cerebellum	GSM8635422
-Stirparo_2025_GSE282079	GSM8635464	enriched nuclei_BN2_3744	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	84	Male	Cerebellum	GSM8635464
-Stirparo_2025_GSE282079	GSM8635478	enriched nuclei_C9/194_3549	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	43	Male	Cerebellum	GSM8635478
-Stirparo_2025_GSE282079	GSM8635531	enriched nuclei_FX_10453	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	66	Male	Cerebellum	GSM8635531
-Stirparo_2025_GSE282079	GSM8635546	enriched nuclei_KO_3969	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	82	Female	Cerebellum	GSM8635546
-Stirparo_2025_GSE282079	GSM8635550	enriched nuclei_MD_1215_6679	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	21	Male	Cerebellum	GSM8635550
-Stirparo_2025_GSE282079	GSM8635557	enriched nuclei_MD_1485_6558	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	24	Female	Cerebellum	GSM8635557
-Stirparo_2025_GSE282079	GSM8635564	enriched nuclei_MD_1722_6731	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	16	Male	Cerebellum	GSM8635564
-Stirparo_2025_GSE282079	GSM8635575	enriched nuclei_MD_5391_6638	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	8	Male	Cerebellum	GSM8635575
-Stirparo_2025_GSE282079	GSM8635604	enriched nuclei_MD_5730_7245	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	25	Male	Cerebellum	GSM8635604
-Stirparo_2025_GSE282079	GSM8635612	enriched nuclei_MD_5751_5652	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	25	Female	Cerebellum	GSM8635612
-Stirparo_2025_GSE282079	GSM8635622	enriched nuclei_MD_6018_6680	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	24	Male	Cerebellum	GSM8635622
-Stirparo_2025_GSE282079	GSM8635628	enriched nuclei_MD_6209_6862	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	27	Male	Cerebellum	GSM8635628
-Stirparo_2025_GSE282079	GSM8635638	enriched nuclei_MD_6252_9077	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	8	Female	Cerebellum	GSM8635638
-Stirparo_2025_GSE282079	GSM8635648	enriched nuclei_OY_10444	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	60	Male	Cerebellum	GSM8635648
-Matlik_2023_GSE227729	GSM7106344	3440_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	Posterior putamen	GSM7106344
-Matlik_2023_GSE227729	GSM7106387	3561_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	Posterior putamen	GSM7106387
-Matlik_2023_GSE227729	GSM7106390	3564_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	Anterior caudate	GSM7106390
-Matlik_2023_GSE227729	GSM7106396	3585_Microglia_BEB19025_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	54	Male	Posterior putamen	GSM7106396
-Matlik_2023_GSE227729	GSM7106416	3847_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	Anterior putamen	GSM7106416
-Matlik_2023_GSE227729	GSM7106418	3849_Microglia_BEB18116_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	67	Male	Anterior putamen	GSM7106418
-Matlik_2023_GSE227729	GSM7106426	3876_Microglia_BEB18135_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	56	Male	Posterior caudate	GSM7106426
-Matlik_2023_GSE227729	GSM7106436	3887_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	Anterior putamen	GSM7106436
-Matlik_2023_GSE227729	GSM7106443	4375_Microglia_BEB18116_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	67	Male	Posterior putamen	GSM7106443
-Matlik_2023_GSE227729	GSM7106445	4378_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	Posterior caudate	GSM7106445
-Matlik_2023_GSE227729	GSM7106447	4381_Microglia_BEB19025_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	54	Male	Posterior caudate	GSM7106447
-Matlik_2023_GSE227729	GSM7106450	4384_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Female	Posterior caudate	GSM7106450
-Matlik_2023_GSE227729	GSM7106452	4387_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Female	Posterior putamen	GSM7106452
-Matlik_2023_GSE227729	GSM7106454	4390_Microglia_BEB18135_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	56	Male	Posterior putamen	GSM7106454
-Matlik_2023_GSE227729	GSM7106491	4759_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	Posterior putamen	GSM7106491
-Matlik_2023_GSE227729	GSM7106495	4780_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	Posterior caudate	GSM7106495
-Matlik_2023_GSE227729	GSM7106498	4783_Microglia_BEB19051_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	39	Male	Anterior putamen	GSM7106498
-Matlik_2023_GSE227729	GSM7106501	4863_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	Posterior caudate	GSM7106501
-Matlik_2023_GSE227729	GSM7106504	4866_Microglia_BEB19051_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	39	Male	Posterior caudate	GSM7106504
-Matlik_2023_GSE227729	GSM7106506	4869_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	Anterior caudate	GSM7106506
-Matlik_2023_GSE227729	GSM7106509	4872_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Female	Anterior caudate	GSM7106509
-Matlik_2023_GSE227729	GSM7106511	4877_Microglia_BEB19051_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	39	Male	Posterior putamen	GSM7106511
-Matlik_2023_GSE227729	GSM7106532	6140_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	Anterior putamen	GSM7106532
-Matlik_2023_GSE227729	GSM7106538	6187_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	Anterior caudate	GSM7106538
-Matlik_2023_GSE227729	GSM7106544	6280_Microglia_BEB18116_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	67	Male	Posterior caudate	GSM7106544
+study	geo_accession	sample_title	cell_type	neuropathology_if_ex_vivo	tissue_if_exvivo	Control_tissue	source_if_ex_vivo	Genotype	treatment	final_differentiation_supplements_if_in_vitro	Serum_if_in_vitro	coculture_if_in_vitro	age	sex	region	name_id	mapping_rate
+Hasselmann_2019_GSE133432	GSM3908560	MBJ_ExVivo_1	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	28	Female	NA	GSM3908560	82.72
+Hasselmann_2019_GSE133432	GSM3908561	MBJ_ExVivo_2	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	39	Male	NA	GSM3908561	73.54
+Ormel_2018_GSE102335	GSM2734886	pMG16-137	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	77	NA	NA	GSM2734886	61.74
+Ormel_2018_GSE102335	GSM2734887	pMG17-003	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	96	NA	NA	GSM2734887	56.11
+Ormel_2018_GSE102335	GSM2734888	pMG17-005	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	60	NA	NA	GSM2734888	64.1
+Pinto_2020_GSE137939	GSM4094660	AC_2019_01_15_47 [C1]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	13	NA	hippocampus	GSM4094660	46.86
+Pinto_2020_GSE137939	GSM4094661	AC_2019_01_15_48 [C2]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	19	NA	hippocampus	GSM4094661	53.14
+Pinto_2020_GSE137939	GSM4094662	AC_2019_01_15_49 [C3]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	25	NA	hippocampus	GSM4094662	51.63
+Pinto_2020_GSE137939	GSM4094663	AC_2019_01_15_50 [C4]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	35	NA	hippocampus	GSM4094663	49.84
+Pinto_2020_GSE137939	GSM4094664	AC_2019_01_15_51 [C5]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	18	NA	hippocampus	GSM4094664	51.93
+Pinto_2020_GSE137939	GSM4094665	AC_2019_01_15_52 [DS1]	ex vivo primary microglia	Down Syndrome	Normal	FALSE	Post-mortem	None	None	NA	NA	NA	13	NA	hippocampus	GSM4094665	47.51
+Pinto_2020_GSE137939	GSM4094666	AC_2019_01_15_54 [DS3]	ex vivo primary microglia	Down Syndrome	Normal	FALSE	Post-mortem	None	None	NA	NA	NA	25	NA	hippocampus	GSM4094666	37.53
+Pinto_2020_GSE137939	GSM4094667	AC_2019_01_15_55 [DS4]	ex vivo primary microglia	Down Syndrome	Normal	FALSE	Post-mortem	None	None	NA	NA	NA	39	NA	hippocampus	GSM4094667	45.34
+Pinto_2020_GSE137939	GSM4094668	AC_2019_01_15_56 [DS5]	ex vivo primary microglia	Down Syndrome	Normal	FALSE	Post-mortem	None	None	NA	NA	NA	19	NA	hippocampus	GSM4094668	44.17
+Pong_2020_GSE65867	GSM1608035	H_MO-MG6_R3-1202938	ex vivo primary microglia	Junior pilocytic astrocytoma	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608035	69.52
+Pong_2020_GSE65867	GSM1608036	H_MO-MG6_R4-1202939	ex vivo primary microglia	Junior pilocytic astrocytoma	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608036	76.93
+Pong_2020_GSE65867	GSM1608037	H_MO-MG8_R3-1202940	ex vivo primary microglia	Junior pilocytic astrocytoma	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608037	68.19
+Pong_2020_GSE65867	GSM1608038	H_MO-MG8_R4-1202941	ex vivo primary microglia	Junior pilocytic astrocytoma	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608038	68.88
+Pong_2020_GSE65867	GSM1608039	H_MO-MG11-1207680	ex vivo primary microglia	Junior pilocytic astrocytoma	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608039	68.08
+Pong_2020_GSE65867	GSM1608040	H_MO-MG11-1207681	ex vivo primary microglia	Junior pilocytic astrocytoma	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608040	70.69
+Pong_2020_GSE65867	GSM1608041	H_MO-MG15-R3-1224755	ex vivo primary microglia	Junior pilocytic astrocytoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608041	84.44
+Pong_2020_GSE65867	GSM1608042	H_MO-MG15-R4-1224756	ex vivo primary microglia	Junior pilocytic astrocytoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608042	80.24
+Pong_2020_GSE65867	GSM1608043	H_MO-MG16-R3-1224757	ex vivo primary microglia	Junior pilocytic astrocytoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608043	80.7
+Pong_2020_GSE65867	GSM1608044	H_MO-MG16-R4-1224758	ex vivo primary microglia	Junior pilocytic astrocytoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608044	79.57
+Pong_2020_GSE65867	GSM1608045	H_MO-MG17-R3-1224759	ex vivo primary microglia	Junior pilocytic astrocytoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608045	84.7
+Pong_2020_GSE65867	GSM1608046	H_MO-MG17-R4-1224760	ex vivo primary microglia	Junior pilocytic astrocytoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM1608046	86.31
+Kana_2019_GSE133357	GSM3906184	patient#MA_cerebellum	ex vivo primary microglia	Multisystem atrophy	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	60	Female	NA	GSM3906184	71.92
+Kana_2019_GSE133357	GSM3906185	patient#MA_STG	ex vivo primary microglia	Multisystem atrophy	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	60	Female	NA	GSM3906185	71.95
+Kana_2019_GSE133357	GSM3906186	patient#BP_cerebellum	ex vivo primary microglia	Bipolar disorder	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	45	Female	NA	GSM3906186	77.52
+Kana_2019_GSE133357	GSM3906187	patient#BP_STG	ex vivo primary microglia	Bipolar disorder	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	45	Female	NA	GSM3906187	72.5
+vanDerPoel_2019_GSE111972	GSM3045818	Sample_MS_WM_1	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	54	Male	corpus callosum	GSM3045818	81.7
+vanDerPoel_2019_GSE111972	GSM3045819	Sample_MS_WM_10	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	58	Male	corpus callosum	GSM3045819	69.35
+vanDerPoel_2019_GSE111972	GSM3045820	Sample_MS_WM_11	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	50	Female	corpus callosum	GSM3045820	76.06
+vanDerPoel_2019_GSE111972	GSM3045821	Sample_MS_WM_2	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	53	Male	corpus callosum	GSM3045821	71.98
+vanDerPoel_2019_GSE111972	GSM3045822	Sample_MS_WM_3	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	66	Female	corpus callosum	GSM3045822	74.79
+vanDerPoel_2019_GSE111972	GSM3045823	Sample_MS_WM_5	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	64	Male	corpus callosum	GSM3045823	78.16
+vanDerPoel_2019_GSE111972	GSM3045824	Sample_MS_WM_6	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	54	Male	corpus callosum	GSM3045824	71.02
+vanDerPoel_2019_GSE111972	GSM3045825	Sample_MS_WM_7	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	81	Female	corpus callosum	GSM3045825	70.45
+vanDerPoel_2019_GSE111972	GSM3045826	Sample_MS_WM_8	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	78	Male	corpus callosum	GSM3045826	73.79
+vanDerPoel_2019_GSE111972	GSM3045827	Sample_MS_WM_9	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	95	Female	corpus callosum	GSM3045827	77.13
+vanDerPoel_2019_GSE111972	GSM3045828	Sample_MS_GM_1	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	53	Male	occipital cortex	GSM3045828	69.51
+vanDerPoel_2019_GSE111972	GSM3045829	Sample_MS_GM_3	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	64	Male	occipital cortex	GSM3045829	74.74
+vanDerPoel_2019_GSE111972	GSM3045830	Sample_MS_GM_4	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	54	Male	occipital cortex	GSM3045830	75.47
+vanDerPoel_2019_GSE111972	GSM3045831	Sample_MS_GM_5	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	58	Male	occipital cortex	GSM3045831	76.42
+vanDerPoel_2019_GSE111972	GSM3045832	Sample_MS_GM_6	ex vivo primary microglia	Multiple sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	50	Female	occipital cortex	GSM3045832	70.19
+vanDerPoel_2019_GSE111972	GSM3045833	Sample_CON_WM_1	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	85	Female	corpus callosum	GSM3045833	61.45
+vanDerPoel_2019_GSE111972	GSM3045834	Sample_CON_WM_10	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	78	Male	corpus callosum	GSM3045834	72.57
+vanDerPoel_2019_GSE111972	GSM3045835	Sample_CON_WM_11	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	57	Female	corpus callosum	GSM3045835	71.83
+vanDerPoel_2019_GSE111972	GSM3045836	Sample_CON_WM_2	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	51	Male	corpus callosum	GSM3045836	64.21
+vanDerPoel_2019_GSE111972	GSM3045837	Sample_CON_WM_3	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	89	Female	corpus callosum	GSM3045837	74.24
+vanDerPoel_2019_GSE111972	GSM3045838	Sample_CON_WM_4	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	84	Female	corpus callosum	GSM3045838	73.16
+vanDerPoel_2019_GSE111972	GSM3045839	Sample_CON_WM_5	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	76	Male	corpus callosum	GSM3045839	71.16
+vanDerPoel_2019_GSE111972	GSM3045840	Sample_CON_WM_6	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	70	Female	corpus callosum	GSM3045840	75.62
+vanDerPoel_2019_GSE111972	GSM3045841	Sample_CON_WM_7	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	64	Female	corpus callosum	GSM3045841	75.72
+vanDerPoel_2019_GSE111972	GSM3045842	Sample_CON_WM_8	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	78	Female	corpus callosum	GSM3045842	74.29
+vanDerPoel_2019_GSE111972	GSM3045843	Sample_CON_WM_9	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	102	Male	corpus callosum	GSM3045843	73.34
+vanDerPoel_2019_GSE111972	GSM3045844	Sample_CON_GM_1	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	51	Male	occipital cortex	GSM3045844	67.24
+vanDerPoel_2019_GSE111972	GSM3045845	Sample_CON_GM_2	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	76	Male	occipital cortex	GSM3045845	73.78
+vanDerPoel_2019_GSE111972	GSM3045846	Sample_CON_GM_3	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	64	Female	occipital cortex	GSM3045846	76.83
+vanDerPoel_2019_GSE111972	GSM3045847	Sample_CON_GM_4	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	102	Male	occipital cortex	GSM3045847	68.73
+vanDerPoel_2019_GSE111972	GSM3045848	Sample_CON_GM_5	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	57	Female	occipital cortex	GSM3045848	71.44
+Lin_2018_GSE115397	GSM3177367	DIPG14-Pons	ex vivo primary microglia	DIPG	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	4	Female	NA	GSM3177367	61.85
+Lin_2018_GSE115397	GSM3177368	DIPG19-Pons	ex vivo primary microglia	DIPG	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	2	Male	NA	GSM3177368	43.82
+Lin_2018_GSE115397	GSM3177369	DIPG20-Pons	ex vivo primary microglia	DIPG	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	8	Female	NA	GSM3177369	68.52
+Lin_2018_GSE115397	GSM3177370	DIPG21-Pons	ex vivo primary microglia	DIPG	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	7	Male	NA	GSM3177370	60.6
+Lin_2018_GSE115397	GSM3177371	DIPG32-Pons	ex vivo primary microglia	DIPG	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	7	Male	NA	GSM3177371	68.34
+Lin_2018_GSE115397	GSM3177372	DIPG35-Pons	ex vivo primary microglia	DIPG	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	5	Female	NA	GSM3177372	58.01
+Lin_2018_GSE115397	GSM3177373	DIPG29-normal_cortex	ex vivo primary microglia	DIPG	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	6	Female	NA	GSM3177373	77.38
+Lin_2018_GSE115397	GSM3177374	DIPG32-normal_cortex	ex vivo primary microglia	DIPG	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	5	Male	NA	GSM3177374	55.64
+Lin_2018_GSE115397	GSM3177375	DIPG35-normal_cortex	ex vivo primary microglia	DIPG	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	8	Female	NA	GSM3177375	48.98
+Lin_2018_GSE115397	GSM3177376	aGBM081	ex vivo primary microglia	GBM	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM3177376	59.6
+Lin_2018_GSE115397	GSM3177377	aGBM085	ex vivo primary microglia	GBM	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM3177377	62
+Lin_2018_GSE115397	GSM3177378	aGBM086	ex vivo primary microglia	GBM	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM3177378	68.41
+Lin_2018_GSE115397	GSM3177379	aGBM092	ex vivo primary microglia	GBM	Tumour	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM3177379	51.38
+Galatro_2017_GSE99074	GSM3081106	spm09	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	78	Male	NA	GSM3081106	37.92
+Galatro_2017_GSE99074	GSM3081107	spm08	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	78	Male	NA	GSM3081107	30.75
+Galatro_2017_GSE99074	GSM3081108	spm06	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	56	Male	NA	GSM3081108	31.33
+Galatro_2017_GSE99074	GSM3081109	spm05	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	62	Male	NA	GSM3081109	31.29
+Galatro_2017_GSE99074	GSM3081110	spm04	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	77	Female	NA	GSM3081110	2.59
+Galatro_2017_GSE99074	GSM3081111	spm36	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	40	Male	NA	GSM3081111	37.47
+Galatro_2017_GSE99074	GSM3081112	spm35	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	37	Male	NA	GSM3081112	25.78
+Galatro_2017_GSE99074	GSM3081113	spm33	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	67	Male	NA	GSM3081113	35.81
+Galatro_2017_GSE99074	GSM3081114	spm30	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	64	Male	NA	GSM3081114	42.43
+Galatro_2017_GSE99074	GSM3081115	spm28	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	98	Female	NA	GSM3081115	41.49
+Galatro_2017_GSE99074	GSM3081116	spm26	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	66	Male	NA	GSM3081116	37.4
+Galatro_2017_GSE99074	GSM3081117	spm25	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	43	Male	NA	GSM3081117	36.63
+Galatro_2017_GSE99074	GSM3081118	spm15	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	44	Male	NA	GSM3081118	44.08
+Galatro_2017_GSE99074	GSM3081119	spm14	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	57	Female	NA	GSM3081119	44.98
+Galatro_2017_GSE99074	GSM3081120	spm13	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	84	Male	NA	GSM3081120	40.61
+Galatro_2017_GSE99074	GSM3081121	spm11	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	74	Male	NA	GSM3081121	34.06
+Galatro_2017_GSE99074	GSM3081122	spm37	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	55	Male	NA	GSM3081122	30.63
+Galatro_2017_GSE99074	GSM3081123	spm34	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	37	Male	NA	GSM3081123	29.1
+Galatro_2017_GSE99074	GSM3081124	spm32	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	48	Male	NA	GSM3081124	27.93
+Galatro_2017_GSE99074	GSM3081125	spm31	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	91	Female	NA	GSM3081125	3.97
+Galatro_2017_GSE99074	GSM3081126	spm29	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	66	Male	NA	GSM3081126	24.62
+Galatro_2017_GSE99074	GSM3081127	spm27	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	85	Male	NA	GSM3081127	21.49
+Galatro_2017_GSE99074	GSM3081128	spm24	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	63	Male	NA	GSM3081128	31.42
+Galatro_2017_GSE99074	GSM3081129	spm23	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	54	Male	NA	GSM3081129	29.17
+Galatro_2017_GSE99074	GSM3081130	spm22	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	54	Male	NA	GSM3081130	14.69
+Galatro_2017_GSE99074	GSM3081131	spm21	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	51	Male	NA	GSM3081131	38.2
+Galatro_2017_GSE99074	GSM3081132	spm20	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	84	Male	NA	GSM3081132	40.59
+Galatro_2017_GSE99074	GSM3081133	spm19	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	34	Male	NA	GSM3081133	22.42
+Galatro_2017_GSE99074	GSM3081134	spm18	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	64	Male	NA	GSM3081134	29.22
+Galatro_2017_GSE99074	GSM3081135	spm12	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	63	Male	NA	GSM3081135	32.26
+Galatro_2017_GSE99074	GSM3081136	spm10	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	70	Female	NA	GSM3081136	20.02
+Galatro_2017_GSE99074	GSM3081137	spm01	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	89	Female	NA	GSM3081137	22.25
+Galatro_2017_GSE99074	GSM3081138	S15018	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	84	Female	NA	GSM3081138	43.07
+Galatro_2017_GSE99074	GSM3081139	S14005	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	67	Male	NA	GSM3081139	36.79
+Galatro_2017_GSE99074	GSM3081140	S13067	ex vivo primary microglia	Multisystem atrophy	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	57	Male	NA	GSM3081140	39.66
+Galatro_2017_GSE99074	GSM3081141	S12112	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	85	Male	NA	GSM3081141	41.52
+Galatro_2017_GSE99074	GSM3081142	S1210100	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	56	Female	NA	GSM3081142	34.67
+Galatro_2017_GSE99074	GSM3081143	S12067	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	102	Male	NA	GSM3081143	35.08
+Galatro_2017_GSE99074	GSM3081144	S12048	ex vivo primary microglia	Bipolar disorder	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	81	Male	NA	GSM3081144	34.77
+Szulzewsky_2016_GSE80338	GSM2124785	GBM Sample 1 (sample 1)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	54	Female	NA	GSM2124785	89.84
+Szulzewsky_2016_GSE80338	GSM2124786	GBM Sample 2 (sample 2)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	54	Male	NA	GSM2124786	90.43
+Szulzewsky_2016_GSE80338	GSM2124787	GBM Sample 3 (sample 3)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	67	Female	NA	GSM2124787	90.6
+Szulzewsky_2016_GSE80338	GSM2124788	GBM Sample 4 (sample 4)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	43	Female	NA	GSM2124788	83.42
+Szulzewsky_2016_GSE80338	GSM2124789	GBM Sample 5 (sample 5)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM2124789	89.65
+Szulzewsky_2016_GSE80338	GSM2124790	GBM Sample 6 (sample 6)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	52	Male	NA	GSM2124790	90.62
+Szulzewsky_2016_GSE80338	GSM2124791	GBM Sample 7 (sample 7)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	69	Female	NA	GSM2124791	90.03
+Szulzewsky_2016_GSE80338	GSM2124792	GBM Sample 8 (sample 8)	ex vivo primary microglia	GBM	Tumour	FALSE	Surgical biopsy	None	None	NA	NA	NA	74	Female	NA	GSM2124792	90.14
+Szulzewsky_2016_GSE80338	GSM2124793	Epilepsy Sample 1 (sample 9)	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	34	Male	NA	GSM2124793	80.57
+Szulzewsky_2016_GSE80338	GSM2124794	Epilepsy Sample 2 (sample 10)	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	51	Female	NA	GSM2124794	84.12
+Szulzewsky_2016_GSE80338	GSM2124795	Epilepsy Sample 3 (sample 11)	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	26	Male	NA	GSM2124795	92.96
+Szulzewsky_2016_GSE80338	GSM2124796	Postmortem Sample 1 (sample 12)	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	93	Female	NA	GSM2124796	76.96
+Szulzewsky_2016_GSE80338	GSM2124797	Postmortem Sample 2 (sample 13)	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	60	Female	NA	GSM2124797	79.51
+Szulzewsky_2016_GSE80338	GSM2124798	Postmortem Sample 3 (sample 14)	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	92	Male	NA	GSM2124798	71.92
+Szulzewsky_2016_GSE80338	GSM2124799	Postmortem Sample 4 (sample 15)	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	85	Female	NA	GSM2124799	76.7
+Szulzewsky_2016_GSE80338	GSM2124800	Postmortem Sample 5 (sample 16)	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	73	Male	NA	GSM2124800	78.49
+Alsema_2020_GSE146639	GSM4403287	bulk [BE_RNAseq_Pool_I_001_S4]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	60	Female	superior parietal lobe	GSM4403287	81.83
+Alsema_2020_GSE146639	GSM4403288	bulk [BE_RNAseq_Pool_I_002_S5]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	60	Female	superior frontal gyrus	GSM4403288	82.21
+Alsema_2020_GSE146639	GSM4403289	bulk [BE_RNAseq_Pool_I_003_S6]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	88	Male	superior parietal lobe	GSM4403289	76.69
+Alsema_2020_GSE146639	GSM4403290	bulk [BE_RNAseq_Pool_I_004_S7]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	88	Male	superior frontal gyrus	GSM4403290	78.18
+Alsema_2020_GSE146639	GSM4403291	bulk [BE_RNAseq_Pool_I_005_S8]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	83	Male	superior parietal lobe	GSM4403291	73.95
+Alsema_2020_GSE146639	GSM4403292	bulk [BE_RNAseq_Pool_I_006_S9]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	83	Male	superior frontal gyrus	GSM4403292	72.78
+Alsema_2020_GSE146639	GSM4403294	bulk [BE_RNAseq_Pool_I_008_S11]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	88	Female	superior parietal lobe	GSM4403294	73.74
+Alsema_2020_GSE146639	GSM4403295	bulk [BE_RNAseq_Pool_I_009_S12]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	88	Female	superior frontal gyrus	GSM4403295	70.45
+Alsema_2020_GSE146639	GSM4403296	bulk [BE_RNAseq_Pool_I_010_S3]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	82	Male	superior parietal lobe	GSM4403296	72.77
+Alsema_2020_GSE146639	GSM4403297	bulk [BE_RNAseq_Pool_I_011_S2]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	55	Female	superior parietal lobe	GSM4403297	83.03
+Alsema_2020_GSE146639	GSM4403298	bulk [BE_RNAseq_Pool_I_012_S1]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	92	Male	superior parietal lobe	GSM4403298	83.88
+Alsema_2020_GSE146639	GSM4403299	bulk [BE_RNAseq_Pool_I_013_S13]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	92	Male	superior frontal gyrus	GSM4403299	81.95
+Alsema_2020_GSE146639	GSM4403300	bulk [BE_RNAseq_Pool_II_001_S1]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	59	Male	superior parietal lobe	GSM4403300	84.85
+Alsema_2020_GSE146639	GSM4403301	bulk [BE_RNAseq_Pool_II_002_S2]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	59	Male	superior frontal gyrus	GSM4403301	81.81
+Alsema_2020_GSE146639	GSM4403302	bulk [BE_RNAseq_Pool_II_004_S4]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	85	Female	superior frontal gyrus	GSM4403302	80.58
+Alsema_2020_GSE146639	GSM4403304	bulk [BE_RNAseq_Pool_II_006_S6]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	92	Female	superior parietal lobe	GSM4403304	63.73
+Alsema_2020_GSE146639	GSM4403307	bulk [BE_RNAseq_Pool_II_009_S9]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	68	Male	superior parietal lobe	GSM4403307	63.67
+Alsema_2020_GSE146639	GSM4403308	bulk [BE_RNAseq_Pool_II_010_S10]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	68	Male	superior frontal gyrus	GSM4403308	71.89
+Alsema_2020_GSE146639	GSM4403309	bulk [BE_RNAseq_Pool_II_011_S11]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	98	Female	superior frontal gyrus	GSM4403309	78.45
+Alsema_2020_GSE146639	GSM4403310	bulk [BE_RNAseq_Pool_II_012_S12]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	82	Female	superior parietal lobe	GSM4403310	76.03
+Alsema_2020_GSE146639	GSM4403311	bulk [BE_RNAseq_Pool_II_013_S13]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	82	Female	superior frontal gyrus	GSM4403311	79.45
+Alsema_2020_GSE146639	GSM4636679	bulk [NextFlex_NB_0319_012_S12]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	89	Male	superior frontal gyrus	GSM4636679	64.93
+Alsema_2020_GSE146639	GSM4636680	bulk [NextFlex_NB_0319_002_S2]	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	78	Male	superior frontal gyrus	GSM4636680	44.87
+Alsema_2020_GSE146639	GSM4636681	bulk [NextFlex_NB_0319_003_S3]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	103	Female	superior parietal lobe	GSM4636681	58.67
+Alsema_2020_GSE146639	GSM4636682	bulk [NextFlex_NB_0319_006_S6]	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	97	Male	superior parietal lobe	GSM4636682	50.93
+Srinivasan_2019_GSE125050	GSM3561843	10-26 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	NA	Female	superior frontal gyrus	GSM3561843	46.21
+Srinivasan_2019_GSE125050	GSM3561847	13-40 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	73	NA	superior frontal gyrus	GSM3561847	60.36
+Srinivasan_2019_GSE125050	GSM3561848	06-26 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	84	Female	superior frontal gyrus	GSM3561848	52.79
+Srinivasan_2019_GSE125050	GSM3561849	10-70 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	74	Male	superior frontal gyrus	GSM3561849	44.67
+Srinivasan_2019_GSE125050	GSM3561863	05-58 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	72	Male	superior frontal gyrus	GSM3561863	33.54
+Srinivasan_2019_GSE125050	GSM3561877	03-59 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	88	Male	superior frontal gyrus	GSM3561877	56.59
+Srinivasan_2019_GSE125050	GSM3561882	07-04 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	NA	Male	superior frontal gyrus	GSM3561882	36.55
+Srinivasan_2019_GSE125050	GSM3561884	14-29 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	59	NA	superior frontal gyrus	GSM3561884	57.41
+Srinivasan_2019_GSE125050	GSM3561886	04-54 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	75	Male	superior frontal gyrus	GSM3561886	33.12
+Srinivasan_2019_GSE125050	GSM3561888	11-105 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	81	NA	superior frontal gyrus	GSM3561888	56.92
+Srinivasan_2019_GSE125050	GSM3561901	00-54 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	79	Male	superior frontal gyrus	GSM3561901	58.52
+Srinivasan_2019_GSE125050	GSM3561911	10-22 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	59	Female	superior frontal gyrus	GSM3561911	52.03
+Srinivasan_2019_GSE125050	GSM3561913	05-10 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	90	Male	superior frontal gyrus	GSM3561913	44.41
+Srinivasan_2019_GSE125050	GSM3561914	10-80 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	78	Female	superior frontal gyrus	GSM3561914	46.01
+Srinivasan_2019_GSE125050	GSM3561917	11-98 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	58	NA	superior frontal gyrus	GSM3561917	43.44
+Srinivasan_2019_GSE125050	GSM3561918	02-01 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	88	Female	superior frontal gyrus	GSM3561918	53.43
+Srinivasan_2019_GSE125050	GSM3561924	07-28 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	86	Male	superior frontal gyrus	GSM3561924	34.88
+Srinivasan_2019_GSE125050	GSM3561925	02-27 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	86	Male	superior frontal gyrus	GSM3561925	29.36
+Srinivasan_2019_GSE125050	GSM3561927	10-63 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	79	Male	superior frontal gyrus	GSM3561927	46.79
+Srinivasan_2019_GSE125050	GSM3561929	03-63 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	83	Female	superior frontal gyrus	GSM3561929	43.27
+Srinivasan_2019_GSE125050	GSM3561931	09-35 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	38	Male	superior frontal gyrus	GSM3561931	26.09
+Srinivasan_2019_GSE125050	GSM3561936	10-20 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	61	Male	superior frontal gyrus	GSM3561936	35.3
+Srinivasan_2019_GSE125050	GSM3561938	03-21 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	84	Female	superior frontal gyrus	GSM3561938	24.65
+Srinivasan_2019_GSE125050	GSM3561939	10-39 Control myeloid	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	NA	Male	superior frontal gyrus	GSM3561939	28.2
+Srinivasan_2019_GSE125050	GSM3561942	04-33 AD myeloid	ex vivo primary microglia	Alzheimer's disease	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	70	Male	superior frontal gyrus	GSM3561942	31.68
+Gosselin_2017_SRP115940	NA	RNA_HMG002_S002_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	1	Female	Temporal cortex	RNA_HMG002_S002_Microglia_ExVivo	76.39
+Gosselin_2017_SRP115940	NA	RNA_HMG003_S003_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	4	Male	Temporal cortex	RNA_HMG003_S003_Microglia_ExVivo	77.29
+Gosselin_2017_SRP115940	NA	RNA_HMG003_S029_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	5	Male	Temporal cortex	RNA_HMG003_S029_Microglia_ExVivo	64.73
+Gosselin_2017_SRP115940	NA	RNA_HMG005_S006_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	7	F	Occipital cortex	RNA_HMG005_S006_Microglia_ExVivo	72.19
+Gosselin_2017_SRP115940	NA	RNA_HMG006_S008_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	3	F	Cerebellum	RNA_HMG006_S008_Microglia_ExVivo	55.68
+Gosselin_2017_SRP115940	NA	RNA_HMG007_S009_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	13	F	Temporal cortex	RNA_HMG007_S009_Microglia_ExVivo	69.32
+Gosselin_2017_SRP115940	NA	RNA_HMG008_S011_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	17	M	Occipital cortex	RNA_HMG008_S011_Microglia_ExVivo	70.63
+Gosselin_2017_SRP115940	NA	RNA_HMG008_S012_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	17	M	Parietal cortex	RNA_HMG008_S012_Microglia_ExVivo	70.9
+Gosselin_2017_SRP115940	NA	RNA_HMG010_S016_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	13	F	Frontal cortex	RNA_HMG010_S016_Microglia_ExVivo	69.29
+Gosselin_2017_SRP115940	NA	RNA_HMG011_S017_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	15	F	Temporal cortex	RNA_HMG011_S017_Microglia_ExVivo	53.37
+Gosselin_2017_SRP115940	NA	RNA_HMG012_S018_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	1.166666667	M	Frontal cortex	RNA_HMG012_S018_Microglia_ExVivo	57.22
+Gosselin_2017_SRP115940	NA	RNA_HMG014_S020_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	1	F	Frontal cortex	RNA_HMG014_S020_Microglia_ExVivo	62.94
+Gosselin_2017_SRP115940	NA	RNA_HMG015_S022_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	11	F	Frontal cortex	RNA_HMG015_S022_Microglia_ExVivo	50.8
+Gosselin_2017_SRP115940	NA	RNA_HMG016_S023_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	13	F	Frontal cortex	RNA_HMG016_S023_Microglia_ExVivo	54.32
+Gosselin_2017_SRP115940	NA	RNA_HMG017_S025_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	2	F	Temporal cortex	RNA_HMG017_S025_Microglia_ExVivo	59.6
+Gosselin_2017_SRP115940	NA	RNA_HMG018_S026_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	5	M	Cerebellum	RNA_HMG018_S026_Microglia_ExVivo	65.09
+Gosselin_2017_SRP115940	NA	RNA_HMG019_S027_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	1.666666667	M	Temporal cortex	RNA_HMG019_S027_Microglia_ExVivo	54.65
+Gosselin_2017_SRP115940	NA	RNA_HMG021_S031_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	9	F	Temporal cortex	RNA_HMG021_S031_Microglia_ExVivo	49.88
+Gosselin_2017_SRP115940	NA	RNA_HMG024_S034_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	8	M	Tumor	RNA_HMG024_S034_Microglia_ExVivo	65.18
+Gosselin_2017_SRP115940	NA	RNA_HMG025_S036_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	5	M	Tumor	RNA_HMG025_S036_Microglia_ExVivo	62.34
+Gosselin_2017_SRP115940	NA	RNA_HMG026_S037_Microglia_ExVivo	ex vivo primary microglia	Tumor	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	16	M	Tumor	RNA_HMG026_S037_Microglia_ExVivo	62.67
+Gosselin_2017_SRP115940	NA	RNA_HMG029_S040_Microglia_ExVivo	ex vivo primary microglia	Acute	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	16	F	Temporal cortex	RNA_HMG029_S040_Microglia_ExVivo	64.1
+Gosselin_2017_SRP115940	NA	RNA_HMG031_S043_Microglia_ExVivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	2	M	Frontal cortex	RNA_HMG031_S043_Microglia_ExVivo	57.86
+Gosselin_2017_SRP115940	NA	RNA_HMG035_S047_Microglia_ExVivo	ex vivo primary microglia	Acute	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	0.416666667	M	Frontal cortex	RNA_HMG035_S047_Microglia_ExVivo	50.79
+Young_2021_EGAD00001005736	NA	EGAF00003091616	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	77	M	parietal cortex	EGAF00003091616	82.08
+Young_2021_EGAD00001005736	NA	EGAF00003091659	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	60	M	temporal cortex	EGAF00003091659	60.32
+Young_2021_EGAD00001005736	NA	EGAF00003091775	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	73	F	frontal cortex	EGAF00003091775	82.62
+Young_2021_EGAD00001005736	NA	EGAF00003091662	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	64	F	frontal cortex	EGAF00003091662	76.92
+Young_2021_EGAD00001005736	NA	EGAF00003091826	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	48	M	frontal cortex	EGAF00003091826	80.18
+Young_2021_EGAD00001005736	NA	EGAF00003091795	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	60	F	parietal cortex	EGAF00003091795	74.48
+Young_2021_EGAD00001005736	NA	EGAF00003091860	ex vivo primary microglia	Meningioma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	77	M	cerebellum	EGAF00003091860	87.36
+Young_2021_EGAD00001005736	NA	EGAF00003091748	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	74	M	parietal cortex	EGAF00003091748	85.56
+Young_2021_EGAD00001005736	NA	EGAF00003091811	ex vivo primary microglia	Cold Aneurysm	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	39	F	gyrus rectus	EGAF00003091811	82.4
+Young_2021_EGAD00001005736	NA	EGAF00003091586	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	78	F	temporal cortex	EGAF00003091586	74.52
+Young_2021_EGAD00001005736	NA	EGAF00003091854	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	45	F	parietal cortex	EGAF00003091854	70.81
+Young_2021_EGAD00001005736	NA	EGAF00003091833	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	69	M	temporal cortex	EGAF00003091833	70.29
+Young_2021_EGAD00001005736	NA	EGAF00003091649	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	62	F	parietal cortex	EGAF00003091649	82.37
+Young_2021_EGAD00001005736	NA	EGAF00003091866	ex vivo primary microglia	Post fossa lesion	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	65	M	cerebellum	EGAF00003091866	78.94
+Young_2021_EGAD00001005736	NA	EGAF00003091861	ex vivo primary microglia	Meningioma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	44	M	parietal cortex	EGAF00003091861	85.65
+Young_2021_EGAD00001005736	NA	EGAF00003091723	ex vivo primary microglia	Cold Aneurysm	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	61	M	frontal cortex	EGAF00003091723	78.86
+Young_2021_EGAD00001005736	NA	EGAF00003091755	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	38	M	temporal cortex	EGAF00003091755	74.78
+Young_2021_EGAD00001005736	NA	EGAF00003091744	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	48	M	temporal cortex	EGAF00003091744	88.28
+Young_2021_EGAD00001005736	NA	EGAF00003091817	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	74	M	temporal cortex	EGAF00003091817	88.16
+Young_2021_EGAD00001005736	NA	EGAF00003091638	ex vivo primary microglia	None	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	60	M	frontal cortex	EGAF00003091638	86.53
+Young_2021_EGAD00001005736	NA	EGAF00003091776	ex vivo primary microglia	Post fossa EVD	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	35	F	frontal cortex	EGAF00003091776	74.24
+Chomyk_2024_GSE255290	GSM8068291	White matter line 1	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068291	70.91
+Chomyk_2024_GSE255290	GSM8068292	White matter line 2	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068292	60.59
+Chomyk_2024_GSE255290	GSM8068293	White matter line 3	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068293	75.19
+Chomyk_2024_GSE255290	GSM8068294	White matter line 4	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068294	76.47
+Chomyk_2024_GSE255290	GSM8068295	White matter line 5	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068295	70.1
+Chomyk_2024_GSE255290	GSM8068296	Grey matter line 1	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068296	73.6
+Chomyk_2024_GSE255290	GSM8068297	Grey matter line 2	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068297	69.63
+Chomyk_2024_GSE255290	GSM8068298	Grey matter line 3	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068298	71.41
+Chomyk_2024_GSE255290	GSM8068299	Grey matter line 4	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068299	68.88
+Chomyk_2024_GSE255290	GSM8068300	Grey matter line 5	ex vivo primary microglia	Multiple Sclerosis	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	NA	NA	NA	GSM8068300	75.03
+Almansouri_2024_GSE260619	GSM8121059	Control WML_1	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	78	Female	Subcortical white matter	GSM8121059	0.46
+Almansouri_2024_GSE260619	GSM8121060	Control WML _2	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	92	Male	Subcortical white matter	GSM8121060	0.45
+Almansouri_2024_GSE260619	GSM8121061	Control WML _3	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	73	Male	Subcortical white matter	GSM8121061	0.02
+Almansouri_2024_GSE260619	GSM8121062	Control WML _4	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	84	Female	Subcortical white matter	GSM8121062	0.02
+Almansouri_2024_GSE260619	GSM8121063	NAWM matched with the DSCL cases_1	ex vivo primary microglia	Deep-subcortical white matter lesions	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	90	Male	Subcortical white matter	GSM8121063	9.77
+Almansouri_2024_GSE260619	GSM8121064	NAWM matched with the DSCL cases_2	ex vivo primary microglia	Deep-subcortical white matter lesions	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	96	Female	Subcortical white matter	GSM8121064	0.09
+Almansouri_2024_GSE260619	GSM8121065	NAWM matched with the DSCL cases_3	ex vivo primary microglia	Deep-subcortical white matter lesions	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	74	Male	Subcortical white matter	GSM8121065	0.21
+Almansouri_2024_GSE260619	GSM8121066	NAWM matched with the DSCL cases_4	ex vivo primary microglia	Deep-subcortical white matter lesions	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	83	Male	Subcortical white matter	GSM8121066	7.26
+Almansouri_2024_GSE260619	GSM8121067	DSCL cases_1	ex vivo primary microglia	Deep-subcortical white matter lesions	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	90	Male	Subcortical white matter	GSM8121067	0.39
+Almansouri_2024_GSE260619	GSM8121068	DSCL cases_2	ex vivo primary microglia	Deep-subcortical white matter lesions	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	96	Female	Subcortical white matter	GSM8121068	0.2
+Almansouri_2024_GSE260619	GSM8121069	DSCL cases_3	ex vivo primary microglia	Deep-subcortical white matter lesions	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	74	Male	Subcortical white matter	GSM8121069	0.15
+Almansouri_2024_GSE260619	GSM8121070	DSCL cases_4	ex vivo primary microglia	Deep-subcortical white matter lesions	Atrophied	FALSE	Post-mortem	None	None	NA	NA	NA	83	Male	Subcortical white matter	GSM8121070	0.21
+Guttikonda_2020_GSE139549	GSM4143582	s_23_human_primary	ex vivo primary microglia	None	Healthy	TRUE	Post-mortem	None	HIV	NA	NA	NA	NA	NA	NA	GSM4143582	70.33
+Guttikonda_2020_GSE139549	GSM4143583	s_39_human_primary	ex vivo primary microglia	None	Healthy	TRUE	Post-mortem	None	HIV	NA	NA	NA	NA	NA	NA	GSM4143583	81.66
+Guttikonda_2020_GSE139549	GSM4143584	s_42_human_primary	ex vivo primary microglia	None	Healthy	TRUE	Post-mortem	None	HIV	NA	NA	NA	NA	NA	NA	GSM4143584	79.76
+Guttikonda_2020_GSE139549	GSM4143585	s_43_human_primary	ex vivo primary microglia	None	Healthy	TRUE	Post-mortem	None	HIV	NA	NA	NA	NA	NA	NA	GSM4143585	74.5
+Dorion_2023_GSE228755	GSM7135879	HAM814_ex vivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM7135879	81.44
+Dorion_2023_GSE228755	GSM7135883	HAM815_ex_vivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM7135883	80.56
+Dorion_2023_GSE228755	GSM7135889	HAM816_ex vivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM7135889	83.32
+Dorion_2023_GSE228755	GSM7135894	HAM821_ex vivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM7135894	82.33
+Wolf_2022_GSE180705	GSM5468498	MG P1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	53	Female	Retina	GSM5468498	82.48
+Wolf_2022_GSE180705	GSM5468499	MG P3	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	82	Male	Retina	GSM5468499	89.44
+Wolf_2022_GSE180705	GSM5468500	MG P4	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	94	Female	Retina	GSM5468500	77.91
+Wolf_2022_GSE180705	GSM5468501	MG P5	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	56	Male	Retina	GSM5468501	93.23
+Wolf_2022_GSE180705	GSM5468502	MG P6	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	61	Male	Retina	GSM5468502	85.69
+van den Bosch_2024_GSE234700	GSM7473479	10-008 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	81	Male	Subcortical white matter	GSM7473479	34.14
+van den Bosch_2024_GSE234700	GSM7473480	10-008 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	81	Male	Subcortical white matter	GSM7473480	38.69
+van den Bosch_2024_GSE234700	GSM7473481	94-116 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	72	Female	Subcortical white matter	GSM7473481	11.94
+van den Bosch_2024_GSE234700	GSM7473482	94-116 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	72	Female	Subcortical white matter	GSM7473482	12.02
+van den Bosch_2024_GSE234700	GSM7473483	11-036 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	88	Male	Subcortical white matter	GSM7473483	34.28
+van den Bosch_2024_GSE234700	GSM7473484	11-036 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	88	Male	Subcortical white matter	GSM7473484	30.37
+van den Bosch_2024_GSE234700	GSM7473485	13-022 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	92	Female	Subcortical white matter	GSM7473485	39.74
+van den Bosch_2024_GSE234700	GSM7473486	13-022 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	92	Female	Subcortical white matter	GSM7473486	34.83
+van den Bosch_2024_GSE234700	GSM7473487	13-034 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	89	Female	Subcortical white matter	GSM7473487	33.7
+van den Bosch_2024_GSE234700	GSM7473488	13-034 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	89	Female	Subcortical white matter	GSM7473488	40.49
+van den Bosch_2024_GSE234700	GSM7473489	09-012 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	78	Male	Subcortical white matter	GSM7473489	35.91
+van den Bosch_2024_GSE234700	GSM7473490	09-012 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	78	Male	Subcortical white matter	GSM7473490	34.83
+van den Bosch_2024_GSE234700	GSM7473491	94-124 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	63	Male	Subcortical white matter	GSM7473491	34.75
+van den Bosch_2024_GSE234700	GSM7473492	94-124 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	63	Male	Subcortical white matter	GSM7473492	38.79
+van den Bosch_2024_GSE234700	GSM7473493	09-076 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	75	Male	Subcortical white matter	GSM7473493	38.21
+van den Bosch_2024_GSE234700	GSM7473494	09-076 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	75	Male	Subcortical white matter	GSM7473494	39.74
+van den Bosch_2024_GSE234700	GSM7473495	11-089 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	64	Male	Subcortical white matter	GSM7473495	36.93
+van den Bosch_2024_GSE234700	GSM7473496	11-089 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	64	Male	Subcortical white matter	GSM7473496	29.78
+van den Bosch_2024_GSE234700	GSM7473497	12-032 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	80	Male	Subcortical white matter	GSM7473497	39.82
+van den Bosch_2024_GSE234700	GSM7473498	12-032 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	80	Male	Subcortical white matter	GSM7473498	33.17
+van den Bosch_2024_GSE234700	GSM7473499	14-058 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	74	Female	Subcortical white matter	GSM7473499	43.87
+van den Bosch_2024_GSE234700	GSM7473500	14-058 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	74	Female	Subcortical white matter	GSM7473500	41.7
+van den Bosch_2024_GSE234700	GSM7473501	15-064 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	50	Male	Subcortical white matter	GSM7473501	34.93
+van den Bosch_2024_GSE234700	GSM7473502	15-064 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	50	Male	Subcortical white matter	GSM7473502	35.12
+van den Bosch_2024_GSE234700	GSM7473503	14-007 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	51	Female	Subcortical white matter	GSM7473503	51.41
+van den Bosch_2024_GSE234700	GSM7473504	14-007 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	51	Female	Subcortical white matter	GSM7473504	51.83
+van den Bosch_2024_GSE234700	GSM7473505	17-100 MS nodules	ex vivo primary microglia	Multiple sclerosis	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	66	Male	Subcortical white matter	GSM7473505	42.79
+van den Bosch_2024_GSE234700	GSM7473506	17-100 MS NAWM	ex vivo primary microglia	Multiple sclerosis	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	66	Male	Subcortical white matter	GSM7473506	32.74
+Pressl_2024_GSE233386	GSM7426704	4943_Microglia_BEB19025_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	54	Male	Cortex	GSM7426704	15.85
+Pressl_2024_GSE233386	GSM7426719	5446_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	63	Female	Cortex	GSM7426719	18.83
+Pressl_2024_GSE233386	GSM7426726	5471_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	50	Male	Cortex	GSM7426726	16.93
+Wolf_2022_GSE193161	GSM5775662	Retinal microglia P1 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	53	Female	NA	GSM5775662	82.53
+Wolf_2022_GSE193161	GSM5775663	Retinal microglia P1 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	53	Female	NA	GSM5775663	82.42
+Wolf_2022_GSE193161	GSM5775664	Retinal microglia P3 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	82	Male	NA	GSM5775664	89.48
+Wolf_2022_GSE193161	GSM5775665	Retinal microglia P3 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	82	Male	NA	GSM5775665	89.39
+Wolf_2022_GSE193161	GSM5775666	Retinal microglia P4 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	94	Female	NA	GSM5775666	78.02
+Wolf_2022_GSE193161	GSM5775667	Retinal microglia P4 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	94	Female	NA	GSM5775667	77.79
+Wolf_2022_GSE193161	GSM5775668	Retinal microglia P5 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	56	Male	NA	GSM5775668	93.26
+Wolf_2022_GSE193161	GSM5775669	Retinal microglia P5 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	56	Male	NA	GSM5775669	93.19
+Wolf_2022_GSE193161	GSM5775670	Retinal microglia P6 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	61	Male	NA	GSM5775670	85.72
+Wolf_2022_GSE193161	GSM5775671	Retinal microglia P6 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	61	Male	NA	GSM5775671	85.67
+Stirparo_2025_GSE282079	GSM8635372	enriched nuclei_2009-005_4316	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	82	Male	Cerebellum	GSM8635372	19.16
+Stirparo_2025_GSE282079	GSM8635385	enriched nuclei_2011-017_4388	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	83	Male	Cerebellum	GSM8635385	13.67
+Stirparo_2025_GSE282079	GSM8635393	enriched nuclei_2011-082_4193	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	84	Female	Cerebellum	GSM8635393	16.11
+Stirparo_2025_GSE282079	GSM8635401	enriched nuclei_2011-090_4204	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	85	Female	Cerebellum	GSM8635401	17.9
+Stirparo_2025_GSE282079	GSM8635411	enriched nuclei_2011-111_4285	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	93	Male	Cerebellum	GSM8635411	13.27
+Stirparo_2025_GSE282079	GSM8635419	enriched nuclei_2012-001_7652	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	89	Female	Cerebellum	GSM8635419	1.41
+Stirparo_2025_GSE282079	GSM8635422	enriched nuclei_2012-005_4343	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	84	Female	Cerebellum	GSM8635422	17.17
+Stirparo_2025_GSE282079	GSM8635464	enriched nuclei_BN2_3744	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	84	Male	Cerebellum	GSM8635464	13.46
+Stirparo_2025_GSE282079	GSM8635478	enriched nuclei_C9/194_3549	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	43	Male	Cerebellum	GSM8635478	17.17
+Stirparo_2025_GSE282079	GSM8635531	enriched nuclei_FX_10453	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	66	Male	Cerebellum	GSM8635531	18.69
+Stirparo_2025_GSE282079	GSM8635546	enriched nuclei_KO_3969	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	82	Female	Cerebellum	GSM8635546	16.95
+Stirparo_2025_GSE282079	GSM8635550	enriched nuclei_MD_1215_6679	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	21	Male	Cerebellum	GSM8635550	7.16
+Stirparo_2025_GSE282079	GSM8635557	enriched nuclei_MD_1485_6558	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	24	Female	Cerebellum	GSM8635557	3.38
+Stirparo_2025_GSE282079	GSM8635564	enriched nuclei_MD_1722_6731	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	16	Male	Cerebellum	GSM8635564	4.22
+Stirparo_2025_GSE282079	GSM8635575	enriched nuclei_MD_5391_6638	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	8	Male	Cerebellum	GSM8635575	20.09
+Stirparo_2025_GSE282079	GSM8635604	enriched nuclei_MD_5730_7245	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	25	Male	Cerebellum	GSM8635604	0.59
+Stirparo_2025_GSE282079	GSM8635612	enriched nuclei_MD_5751_5652	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	25	Female	Cerebellum	GSM8635612	18.09
+Stirparo_2025_GSE282079	GSM8635622	enriched nuclei_MD_6018_6680	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	24	Male	Cerebellum	GSM8635622	11.73
+Stirparo_2025_GSE282079	GSM8635628	enriched nuclei_MD_6209_6862	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	27	Male	Cerebellum	GSM8635628	5.64
+Stirparo_2025_GSE282079	GSM8635638	enriched nuclei_MD_6252_9077	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	8	Female	Cerebellum	GSM8635638	14.4
+Stirparo_2025_GSE282079	GSM8635648	enriched nuclei_OY_10444	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	60	Male	Cerebellum	GSM8635648	16.14
+Matlik_2023_GSE227729	GSM7106344	3440_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	Posterior putamen	GSM7106344	18.22
+Matlik_2023_GSE227729	GSM7106387	3561_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	Posterior putamen	GSM7106387	17
+Matlik_2023_GSE227729	GSM7106390	3564_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	Anterior caudate	GSM7106390	15.7
+Matlik_2023_GSE227729	GSM7106396	3585_Microglia_BEB19025_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	54	Male	Posterior putamen	GSM7106396	21
+Matlik_2023_GSE227729	GSM7106416	3847_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	Anterior putamen	GSM7106416	16.88
+Matlik_2023_GSE227729	GSM7106418	3849_Microglia_BEB18116_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	67	Male	Anterior putamen	GSM7106418	15.82
+Matlik_2023_GSE227729	GSM7106426	3876_Microglia_BEB18135_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	56	Male	Posterior caudate	GSM7106426	14.26
+Matlik_2023_GSE227729	GSM7106436	3887_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	Anterior putamen	GSM7106436	13.78
+Matlik_2023_GSE227729	GSM7106443	4375_Microglia_BEB18116_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	67	Male	Posterior putamen	GSM7106443	19.26
+Matlik_2023_GSE227729	GSM7106445	4378_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	Posterior caudate	GSM7106445	17.43
+Matlik_2023_GSE227729	GSM7106447	4381_Microglia_BEB19025_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	54	Male	Posterior caudate	GSM7106447	18.62
+Matlik_2023_GSE227729	GSM7106450	4384_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Female	Posterior caudate	GSM7106450	17.14
+Matlik_2023_GSE227729	GSM7106452	4387_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Female	Posterior putamen	GSM7106452	17.29
+Matlik_2023_GSE227729	GSM7106454	4390_Microglia_BEB18135_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	56	Male	Posterior putamen	GSM7106454	16.64
+Matlik_2023_GSE227729	GSM7106491	4759_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	Posterior putamen	GSM7106491	15.39
+Matlik_2023_GSE227729	GSM7106495	4780_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	Posterior caudate	GSM7106495	16.93
+Matlik_2023_GSE227729	GSM7106498	4783_Microglia_BEB19051_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	39	Male	Anterior putamen	GSM7106498	15.64
+Matlik_2023_GSE227729	GSM7106501	4863_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	Posterior caudate	GSM7106501	15.67
+Matlik_2023_GSE227729	GSM7106504	4866_Microglia_BEB19051_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	39	Male	Posterior caudate	GSM7106504	14.46
+Matlik_2023_GSE227729	GSM7106506	4869_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	Anterior caudate	GSM7106506	15.15
+Matlik_2023_GSE227729	GSM7106509	4872_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Female	Anterior caudate	GSM7106509	17.43
+Matlik_2023_GSE227729	GSM7106511	4877_Microglia_BEB19051_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	39	Male	Posterior putamen	GSM7106511	15.33
+Matlik_2023_GSE227729	GSM7106532	6140_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	Anterior putamen	GSM7106532	17.42
+Matlik_2023_GSE227729	GSM7106538	6187_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	Anterior caudate	GSM7106538	17.89
+Matlik_2023_GSE227729	GSM7106544	6280_Microglia_BEB18116_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	67	Male	Posterior caudate	GSM7106544	17.76
