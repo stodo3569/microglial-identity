@@ -50,7 +50,7 @@
 # you run this script from inside a cloned copy of the repository with its
 # folder structure intact. The file can also be browsed online at:
 # https://github.com/[YOUR-GITHUB-USERNAME]/[YOUR-REPO-NAME]/blob/main/common/R/00_functions.R
-source("../../common/R/00_functions.R")
+source("microglial-identity/common/R/00_functions.R")
 
 # ==============================================================================
 # RDS management
