@@ -247,10 +247,11 @@ cat("Genes detected in at least 1 sample:", sum(genes_detected >= 1), "\n")
 cat("Genes detected in all samples:", sum(genes_detected == ncol(txi$counts)), "\n")
 
 # ── 6. Save outputs ─────────────────────────────────────────────────────────
+exvivo_counts <- txi$counts
+
 if (SAVE_OUTPUT_RDS) {
-  saveRDS(txi, file = "/home/rstudio/txi_all_datasets.rds")
-  cat("\nSaved txi object to /home/rstudio/txi_all_datasets.rds\n")
+  saveRDS(exvivo_counts, file = "/home/rstudio/exvivo_counts.rds")
+  cat("\nSaved txi object to /home/rstudio/exvivo_counts.rds\n")
   cat("Contents: txi$counts, txi$abundance (TPM), txi$length\n")
 }
 
-exvivo_counts <- txi$counts
