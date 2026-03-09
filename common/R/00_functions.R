@@ -295,24 +295,44 @@ SexDetect <- function(data, metadata) {
 
 # custom_DaMiR.sampleFilt() ----------------------------------------------------
 # Multi-study sample QC filter extending DaMiR2::DaMiR.sampleFilt().
-# Applies three sequential filtering passes:
+# Applies four QC criteria evaluated SIMULTANEOUSLY on the full sample set.
+# All metrics are computed before any sample is removed, so each sample is
+# assessed against the same reference distribution. Samples failing any
+# criterion are removed in a single pass at the end.
 #
 #   1. Study-size-weighted inter-study connectivity Z-score
 #      Each study contributes one equal vote regardless of sample count,
 #      preventing large studies from dominating the connectivity estimate.
+#      Computed on the full correlation matrix.
 #
 #   2. Within-study Z-score
 #      Outlier detection is relative to each study's own distribution.
 #      Studies with <= small_study_threshold samples are exempt (too few
-#      samples to compute a stable Z-score).
+#      samples to compute a stable Z-score). Computed on the full
+#      correlation matrix.
 #
 #   3. Near-duplicate detection
 #      Sample pairs with pairwise correlation >= th.duplicate_cor are
 #      flagged. Within each duplicate pair, the sample with the lower mean
-#      connectivity to ALL other passing samples is removed.
+#      connectivity to ALL other samples is removed. Evaluated on the full
+#      correlation matrix.
 #
 #   4. WGCNA standardised connectivity (Z.k)
-#      Global connectivity QC on the post-deduplication sample set.
+#      Global connectivity QC computed on the full sample set (not on
+#      survivors of the preceding filters, as in the original sequential
+#      implementation). Catches samples with globally low connectivity
+#      that may not be flagged by study-level criteria.
+#
+# Note on simultaneous vs sequential evaluation:
+#   In the original sequential implementation, metrics in steps 2–4 were
+#   recomputed on survivors of the preceding step. This meant that samples
+#   removed early never received later metrics (leaving NAs in the QC table)
+#   and that the reference distribution shifted between steps. The simultaneous
+#   approach uses a single correlation matrix computed once on all samples,
+#   ensuring every sample has a complete set of QC metrics and is evaluated
+#   against the same reference. Z.k values will therefore differ slightly from
+#   the sequential implementation because they are no longer computed on a
+#   post-filter subset.
 #
 # Produces five diagnostic ggplots (printed automatically) and returns a
 # named list with the filtered SummarizedExperiment, per-sample QC table,
@@ -331,18 +351,19 @@ SexDetect <- function(data, metadata) {
 # Returns: list with elements:
 #   $filtered_data     — SummarizedExperiment, samples passing all filters
 #   $sample_qc_summary — tibble, full per-sample QC metrics and filter outcomes
-#   $wgcna_connectivity— tibble, mean IAC and Z.k for post-dedup samples
+#                        (all four metrics populated for every sample)
+#   $wgcna_connectivity— tibble, mean IAC and Z.k for all samples
 #   $keep_samples      — character vector of retained sample IDs
 #   $duplicate_pairs   — data frame of all flagged near-duplicate pairs
 #   $removed_duplicates— character vector of samples removed as duplicates
 custom_DaMiR.sampleFilt <- function(data,
                                     study_df,
-                                    th.inter_study_z   = -2,
-                                    th.within_study_z  = -2,
-                                    th.wgcna_z         = -2.5,
-                                    th.duplicate_cor   = 0.99,
+                                    th.inter_study_z      = -2,
+                                    th.within_study_z     = -2,
+                                    th.wgcna_z            = -2.5,
+                                    th.duplicate_cor      = 0.99,
                                     small_study_threshold = 3,
-                                    type               = c("spearman", "pearson")) {
+                                    type                  = c("spearman", "pearson")) {
   
   # ── Input checks ────────────────────────────────────────────────────────────
   if (missing(data))     stop("'data' argument must be provided")
@@ -353,9 +374,9 @@ custom_DaMiR.sampleFilt <- function(data,
     stop("'class' info is lacking! Include the variable 'class' in colData(data).")
   if (!("study" %in% colnames(study_df)))
     stop("'study_df' must contain a 'study' column.")
-  if (any(is.na(assay(data))))   stop("NA values are not allowed in the 'data' matrix")
+  if (any(is.na(assay(data))))       stop("NA values are not allowed in the 'data' matrix")
   if (any(is.infinite(assay(data)))) stop("Inf values are not allowed in the 'data' matrix")
-  if (all(assay(data) == 0))    stop("All genes have 0 values")
+  if (all(assay(data) == 0))         stop("All genes have 0 values")
   if (all((assay(data) %% 1) == 0))
     warning("It seems you are using raw counts! This function works with normalised data.")
   if (missing(type)) type <- type[1]
@@ -363,15 +384,17 @@ custom_DaMiR.sampleFilt <- function(data,
   if (!(type %in% c("pearson", "spearman")))
     stop("'type' must be 'pearson' or 'spearman'")
   
-  count_data      <- assay(data)
-  n_samples_init  <- ncol(count_data)
-  all_samples     <- colnames(count_data)
+  count_data     <- assay(data)
+  n_samples_init <- ncol(count_data)
+  all_samples    <- colnames(count_data)
   
-  cat("=== custom_DaMiR.sampleFilt: multi-study QC ===\n")
+  cat("=== custom_DaMiR.sampleFilt: multi-study QC (simultaneous mode) ===\n")
   cat("Starting with", n_samples_init, "samples.\n\n")
   
-  # ── Step 1: Full correlation matrix ─────────────────────────────────────────
-  cat("Step 1: Computing inter-sample correlation matrix (", type, ")...\n")
+  # ── Step 1: Full correlation matrix on ALL samples ───────────────────────────
+  # Computed once on the complete sample set. All downstream metrics derive
+  # from this single matrix, ensuring a consistent reference for every sample.
+  cat("Step 1: Computing inter-sample correlation matrix (", type, ") on full sample set...\n")
   if (type == "spearman") {
     cormatrix <- abs(Hmisc::rcorr(as.matrix(count_data), type = "spearman")$r)
   } else {
@@ -380,46 +403,42 @@ custom_DaMiR.sampleFilt <- function(data,
   diag(cormatrix) <- NA   # exclude self-correlation from all means
   
   # ── Step 2: Study membership lookup ─────────────────────────────────────────
-  # study_df rows are samples; must have a 'study' column
-  study_vec <- setNames(study_df[all_samples, "study"], all_samples)
-  
+  study_vec   <- setNames(study_df[all_samples, "study"], all_samples)
   study_sizes <- table(study_vec)
-  cat("Study sizes:\n")
-  print(study_sizes)
-  cat("\n")
+  cat("Study sizes:\n"); print(study_sizes); cat("\n")
   
   # ── Step 3: Study-size-weighted inter-study connectivity ─────────────────────
-  cat("Step 2: Computing study-size-weighted inter-study connectivity...\n")
-  
+  # For each sample, compute mean correlation to each OTHER study separately,
+  # then average those per-study means — giving every study an equal vote
+  # regardless of sample count. Result is Z-scored globally across all samples.
+  cat("Step 2: Computing study-size-weighted inter-study connectivity on full sample set...\n")
   unique_studies <- unique(study_vec)
   
   inter_study_conn <- sapply(all_samples, function(focal) {
-    focal_study <- study_vec[focal]
+    focal_study   <- study_vec[focal]
     other_studies <- unique_studies[unique_studies != focal_study]
-    
     if (length(other_studies) == 0) return(NA)
-    
     per_study_means <- sapply(other_studies, function(s) {
       s_samples <- names(study_vec[study_vec == s])
       mean(cormatrix[focal, s_samples], na.rm = TRUE)
     })
-    
     mean(per_study_means, na.rm = TRUE)
   })
-  
-  inter_study_z <- as.numeric(scale(inter_study_conn))
+  inter_study_z        <- as.numeric(scale(inter_study_conn))
   names(inter_study_z) <- all_samples
   
-  # ── Step 4: Within-study Z-score ────────────────────────────────────────────
-  cat("Step 3: Computing within-study Z-scores...\n")
-  
+  # ── Step 4: Within-study Z-score on ALL samples ──────────────────────────────
+  # Mean correlation to own study-mates, Z-scored within each study.
+  # Studies with <= small_study_threshold samples are exempt: too few
+  # observations for a stable Z-score, so within_study_z is set to NA
+  # and these samples automatically pass the within-study filter.
+  cat("Step 3: Computing within-study Z-scores on full sample set...\n")
   within_study_mean_corr <- sapply(all_samples, function(focal) {
     focal_study <- study_vec[focal]
     study_mates <- names(study_vec[study_vec == focal_study & names(study_vec) != focal])
     if (length(study_mates) == 0) return(NA)
     mean(cormatrix[focal, study_mates], na.rm = TRUE)
   })
-  
   within_study_z <- ave(
     within_study_mean_corr,
     study_vec,
@@ -430,57 +449,39 @@ custom_DaMiR.sampleFilt <- function(data,
   )
   names(within_study_z) <- all_samples
   
-  # ── Step 5: Build per-sample QC summary data frame ──────────────────────────
-  qc_df <- tibble(
-    sample_name        = all_samples,
-    study              = study_vec[all_samples],
-    study_n            = as.integer(study_sizes[study_vec[all_samples]]),
-    inter_study_conn   = inter_study_conn[all_samples],
-    inter_study_z      = inter_study_z[all_samples],
-    within_study_corr  = within_study_mean_corr[all_samples],
-    within_study_z     = within_study_z[all_samples]
+  # ── Step 5: WGCNA standardised connectivity (Z.k) on ALL samples ────────────
+  # Mean inter-array correlation (IAC) computed from the full correlation matrix,
+  # then Z-scored globally. Because this is computed before any removal, Z.k
+  # reflects each sample's connectivity to the complete dataset rather than
+  # a post-filter subset. Values will therefore differ from a sequential
+  # implementation where Z.k is recomputed on survivors only.
+  cat("Step 4: Computing WGCNA standardised connectivity (Z.k) on full sample set...\n")
+  mean_IAC_full        <- rowMeans(cormatrix, na.rm = TRUE)
+  Z.k_full             <- as.numeric(scale(mean_IAC_full))
+  names(Z.k_full)      <- all_samples
+  
+  wgcna_df <- tibble(
+    sample_name = all_samples,
+    mean_IAC    = mean_IAC_full,
+    Z.k         = Z.k_full
   )
   
-  # ── Step 6: Apply inter-study and within-study filters ──────────────────────
-  cat("Step 4: Applying inter-study Z filter (threshold:", th.inter_study_z, ")...\n")
+  # ── Step 6: Near-duplicate detection on ALL samples ──────────────────────────
+  # Sample pairs with pairwise correlation >= th.duplicate_cor are flagged.
+  # Within each pair, the sample with the lower mean connectivity to all other
+  # samples is removed. Pairs are processed in descending correlation order;
+  # once a sample is removed it cannot be involved in further comparisons.
+  cat("Step 5: Detecting near-duplicate samples (pairwise correlation >=",
+      th.duplicate_cor, ") on full sample set...\n")
   
-  pass_inter <- is.na(qc_df$inter_study_z) | (qc_df$inter_study_z >= th.inter_study_z)
-  
-  cat("Step 5: Applying within-study Z filter (threshold:", th.within_study_z,
-      "; exempt if study_n <=", small_study_threshold, ")...\n")
-  pass_within <- qc_df$study_n <= small_study_threshold |
-    is.na(qc_df$within_study_z) |
-    (qc_df$within_study_z >= th.within_study_z)
-  
-  pass_both <- pass_inter & pass_within
-  qc_df$pass_correlation_filters <- pass_both
-  
-  removed_corr <- qc_df$sample_name[!pass_both]
-  if (length(removed_corr) > 0) {
-    cat("  Removed by correlation filters:", length(removed_corr), "sample(s):\n")
-    cat(" ", paste(removed_corr, collapse = ", "), "\n")
-  } else {
-    cat("  No samples removed by correlation filters.\n")
-  }
-  
-  samples_after_corr <- qc_df$sample_name[pass_both]
-  cat("  Samples remaining after correlation filters:", length(samples_after_corr), "\n\n")
-  
-  # ── Step 6b: Near-duplicate detection ───────────────────────────────────────
-  cat("Step 6b: Detecting near-duplicate samples (pairwise correlation >=",
-      th.duplicate_cor, ")...\n")
-  
-  cor_sub <- cormatrix[samples_after_corr, samples_after_corr]
-  diag(cor_sub) <- NA
-  
-  dup_pairs <- which(cor_sub >= th.duplicate_cor, arr.ind = TRUE)
+  dup_pairs <- which(cormatrix >= th.duplicate_cor, arr.ind = TRUE)
   dup_pairs <- dup_pairs[dup_pairs[, 1] < dup_pairs[, 2], , drop = FALSE]
   
   dup_pair_df <- if (nrow(dup_pairs) > 0) {
     data.frame(
-      sample_a  = rownames(cor_sub)[dup_pairs[, 1]],
-      sample_b  = colnames(cor_sub)[dup_pairs[, 2]],
-      pairwise_cor = cor_sub[dup_pairs],
+      sample_a     = rownames(cormatrix)[dup_pairs[, 1]],
+      sample_b     = colnames(cormatrix)[dup_pairs[, 2]],
+      pairwise_cor = cormatrix[dup_pairs],
       stringsAsFactors = FALSE
     )
   } else {
@@ -488,131 +489,96 @@ custom_DaMiR.sampleFilt <- function(data,
                pairwise_cor = numeric(), stringsAsFactors = FALSE)
   }
   
-  mean_conn_sub <- rowMeans(cor_sub, na.rm = TRUE)
-  
+  mean_conn_full     <- rowMeans(cormatrix, na.rm = TRUE)
   removed_duplicates <- character(0)
   
   if (nrow(dup_pair_df) > 0) {
     cat("  Found", nrow(dup_pair_df), "near-duplicate pair(s):\n")
     dup_pair_df_sorted <- dup_pair_df[order(-dup_pair_df$pairwise_cor), ]
-    
-    active_samples <- samples_after_corr
+    active_samples     <- all_samples
     
     for (i in seq_len(nrow(dup_pair_df_sorted))) {
       sa <- dup_pair_df_sorted$sample_a[i]
       sb <- dup_pair_df_sorted$sample_b[i]
-      
       if (!(sa %in% active_samples) || !(sb %in% active_samples)) next
       
-      if (mean_conn_sub[sa] >= mean_conn_sub[sb]) {
-        drop_sample <- sb
-        keep_sample_dup <- sa
+      if (mean_conn_full[sa] >= mean_conn_full[sb]) {
+        drop_sample <- sb; keep_sample_dup <- sa
       } else {
-        drop_sample <- sa
-        keep_sample_dup <- sb
+        drop_sample <- sa; keep_sample_dup <- sb
       }
-      
       cat(sprintf("    Pair (r = %.4f): keeping %s, removing %s\n",
                   dup_pair_df_sorted$pairwise_cor[i], keep_sample_dup, drop_sample))
-      
       removed_duplicates <- c(removed_duplicates, drop_sample)
       active_samples     <- active_samples[active_samples != drop_sample]
     }
-    
     cat("  Total removed as near-duplicates:", length(removed_duplicates), "\n")
   } else {
     cat("  No near-duplicate pairs found above threshold", th.duplicate_cor, "\n")
-    active_samples <- samples_after_corr
   }
   
-  samples_after_dedup <- active_samples
-  cat("  Samples remaining after duplicate filter:", length(samples_after_dedup), "\n\n")
-  
-  qc_df$removed_as_duplicate <- qc_df$sample_name %in% removed_duplicates
-  qc_df$pass_dedup_filter     <- !(qc_df$sample_name %in% removed_duplicates)
-  
-  max_pairwise_cor <- apply(cor_sub, 1, max, na.rm = TRUE)
-  dup_plot_df <- data.frame(
-    sample_name      = names(max_pairwise_cor),
-    max_pairwise_cor = max_pairwise_cor,
-    is_duplicate     = names(max_pairwise_cor) %in% removed_duplicates,
-    stringsAsFactors = FALSE
+  # ── Step 7: Build per-sample QC summary — all metrics populated ──────────────
+  # Every sample receives values for all four QC metrics. Samples exempt from
+  # the within-study filter (study_n <= small_study_threshold) have NA for
+  # within_study_z and automatically pass that criterion.
+  qc_df <- tibble(
+    sample_name          = all_samples,
+    study                = study_vec[all_samples],
+    study_n              = as.integer(study_sizes[study_vec[all_samples]]),
+    inter_study_conn     = inter_study_conn[all_samples],
+    inter_study_z        = inter_study_z[all_samples],
+    within_study_corr    = within_study_mean_corr[all_samples],
+    within_study_z       = within_study_z[all_samples],
+    mean_IAC             = mean_IAC_full[all_samples],
+    Z.k                  = Z.k_full[all_samples],
+    removed_as_duplicate = all_samples %in% removed_duplicates
   )
   
-  p_dup <- ggplot(dup_plot_df, aes(x = max_pairwise_cor, fill = is_duplicate)) +
-    geom_histogram(bins = 40, alpha = 0.7, color = "white") +
-    geom_vline(xintercept = th.duplicate_cor, linetype = "dashed",
-               color = "#AA4643", linewidth = 0.6) +
-    scale_fill_manual(values = c("TRUE" = "#AA4643", "FALSE" = "#44BB99"),
-                      labels = c("TRUE" = "Removed (duplicate)", "FALSE" = "Retained"),
-                      name = "Status") +
-    labs(title = paste0("Near-duplicate detection (threshold: r \u2265 ", th.duplicate_cor, ")"),
-         x = "Max pairwise correlation to any other sample", y = "Count") +
-    theme_bw() +
-    theme(panel.border = element_blank(),
-          axis.line.x = element_line(color = "black", size = 0.2),
-          axis.line.y = element_line(color = "black", size = 0.2))
+  # ── Step 8: Apply all filters simultaneously ─────────────────────────────────
+  # All four pass/fail decisions are made in a single step using the metrics
+  # computed above. No metric is recomputed between filter passes.
+  # Within-study exempt samples (NA within_study_z) pass the within-study
+  # criterion unconditionally.
+  cat("\nStep 6: Applying all filters simultaneously...\n")
   
-  # ── Step 7: WGCNA standardised connectivity (Z.k) ───────────────────────────
-  cat("Step 7: Computing WGCNA standardised connectivity (Z.k) on retained samples...\n")
+  pass_inter  <- is.na(qc_df$inter_study_z) | (qc_df$inter_study_z  >= th.inter_study_z)
+  pass_within <- qc_df$study_n <= small_study_threshold |
+    is.na(qc_df$within_study_z) |
+    (qc_df$within_study_z >= th.within_study_z)
+  pass_wgcna  <- qc_df$Z.k >= th.wgcna_z
+  pass_dedup  <- !qc_df$removed_as_duplicate
   
-  count_data_filt <- count_data[, samples_after_dedup, drop = FALSE]
-  
-  if (type == "spearman") {
-    IAC_filt <- abs(Hmisc::rcorr(as.matrix(count_data_filt), type = "spearman")$r)
-  } else {
-    IAC_filt <- abs(Hmisc::rcorr(as.matrix(count_data_filt), type = "pearson")$r)
-  }
-  diag(IAC_filt) <- NA
-  
-  mean_IAC  <- rowMeans(IAC_filt, na.rm = TRUE)
-  Z.k       <- as.numeric(scale(mean_IAC))
-  names(Z.k) <- samples_after_dedup
-  
-  wgcna_df <- tibble(
-    sample_name = samples_after_dedup,
-    mean_IAC    = mean_IAC,
-    Z.k         = Z.k
-  )
-  
-  pass_wgcna <- Z.k >= th.wgcna_z
-  names(pass_wgcna) <- samples_after_dedup
-  
-  removed_wgcna <- names(pass_wgcna[!pass_wgcna])
-  if (length(removed_wgcna) > 0) {
-    cat("  Removed by WGCNA Z.k filter (threshold:", th.wgcna_z, "):",
-        length(removed_wgcna), "sample(s):\n")
-    cat(" ", paste(removed_wgcna, collapse = ", "), "\n")
-  } else {
-    cat("  No samples removed by WGCNA Z.k filter.\n")
-  }
-  
-  keep_samples_final <- names(pass_wgcna[pass_wgcna])
-  cat("  Samples remaining after WGCNA filter:", length(keep_samples_final), "\n\n")
-  
-  # ── Step 8: Merge WGCNA metrics back into full QC table ─────────────────────
   qc_df <- qc_df %>%
-    left_join(wgcna_df, by = "sample_name") %>%
-    mutate(pass_wgcna_filter = sample_name %in% keep_samples_final,
-           pass_all_filters  = sample_name %in% keep_samples_final)
+    mutate(
+      pass_correlation_filters = pass_inter & pass_within,
+      pass_dedup_filter        = pass_dedup,
+      pass_wgcna_filter        = pass_wgcna,
+      pass_all_filters         = pass_inter & pass_within & pass_dedup & pass_wgcna
+    )
+  
+  keep_samples_final <- qc_df$sample_name[qc_df$pass_all_filters]
+  
+  cat("  Removed by inter-study Z filter   :", sum(!pass_inter), "\n")
+  cat("  Removed by within-study Z filter  :", sum(!pass_within & pass_inter), "\n")
+  cat("  Removed as near-duplicates        :", length(removed_duplicates), "\n")
+  cat("  Removed by WGCNA Z.k filter       :", sum(!pass_wgcna & pass_inter & pass_within & pass_dedup), "\n")
+  cat("  Samples retained                  :", length(keep_samples_final), "\n\n")
   
   # ── Step 9: Filter the SummarizedExperiment ─────────────────────────────────
   data_filt <- data[, keep_samples_final]
   
   cat("=== Summary ===\n")
-  cat("  Initial samples    :", n_samples_init, "\n")
-  cat("  After corr. filt.  :", length(samples_after_corr), "\n")
-  cat("  After dedup filter :", length(samples_after_dedup), "\n")
-  cat("  After WGCNA filt.  :", length(keep_samples_final), "\n")
-  cat("  Total removed      :", n_samples_init - length(keep_samples_final), "\n\n")
+  cat("  Initial samples :", n_samples_init, "\n")
+  cat("  Final samples   :", length(keep_samples_final), "\n")
+  cat("  Total removed   :", n_samples_init - length(keep_samples_final), "\n\n")
   
   # ── Diagnostic plots ────────────────────────────────────────────────────────
   p1 <- ggplot(qc_df, aes(x = inter_study_z, fill = pass_correlation_filters)) +
     geom_histogram(bins = 30, alpha = 0.7, color = "white") +
-    geom_vline(xintercept = th.inter_study_z, linetype = "dashed", color = "#AA4643", linewidth = 0.6) +
+    geom_vline(xintercept = th.inter_study_z, linetype = "dashed",
+               color = "#AA4643", linewidth = 0.6) +
     scale_fill_manual(values = c("TRUE" = "#44BB99", "FALSE" = "#AA4643"),
-                      labels = c("TRUE" = "Pass", "FALSE" = "Fail"),
-                      name = "Filter") +
+                      labels = c("TRUE" = "Pass", "FALSE" = "Fail"), name = "Filter") +
     labs(title = "Inter-study connectivity (study-weighted Z-score)",
          x = "Z-score", y = "Count") +
     theme_bw() +
@@ -622,10 +588,10 @@ custom_DaMiR.sampleFilt <- function(data,
   
   p2 <- ggplot(qc_df, aes(x = within_study_z, fill = pass_correlation_filters)) +
     geom_histogram(bins = 30, alpha = 0.7, color = "white") +
-    geom_vline(xintercept = th.within_study_z, linetype = "dashed", color = "#AA4643", linewidth = 0.6) +
+    geom_vline(xintercept = th.within_study_z, linetype = "dashed",
+               color = "#AA4643", linewidth = 0.6) +
     scale_fill_manual(values = c("TRUE" = "#44BB99", "FALSE" = "#AA4643"),
-                      labels = c("TRUE" = "Pass", "FALSE" = "Fail"),
-                      name = "Filter") +
+                      labels = c("TRUE" = "Pass", "FALSE" = "Fail"), name = "Filter") +
     labs(title = paste0("Within-study Z-score (studies with n \u2264 ",
                         small_study_threshold, " are exempt)"),
          x = "Within-study Z-score", y = "Count") +
@@ -634,25 +600,25 @@ custom_DaMiR.sampleFilt <- function(data,
           axis.line.x = element_line(color = "black", size = 0.2),
           axis.line.y = element_line(color = "black", size = 0.2))
   
-  p3 <- ggplot(wgcna_df, aes(x = Z.k,
-                             fill = sample_name %in% keep_samples_final)) +
+  p3 <- ggplot(qc_df, aes(x = Z.k, fill = pass_wgcna_filter)) +
     geom_histogram(bins = 30, alpha = 0.7, color = "white") +
-    geom_vline(xintercept = th.wgcna_z, linetype = "dashed", color = "#AA4643", linewidth = 0.6) +
+    geom_vline(xintercept = th.wgcna_z, linetype = "dashed",
+               color = "#AA4643", linewidth = 0.6) +
     scale_fill_manual(values = c("TRUE" = "#44BB99", "FALSE" = "#AA4643"),
-                      labels = c("TRUE" = "Pass", "FALSE" = "Fail"),
-                      name = "Filter") +
-    labs(title = "WGCNA standardised connectivity (Z.k)",
+                      labels = c("TRUE" = "Pass", "FALSE" = "Fail"), name = "Filter") +
+    labs(title = "WGCNA standardised connectivity (Z.k) — computed on full sample set",
          x = "Z.k", y = "Count") +
     theme_bw() +
     theme(panel.border = element_blank(),
           axis.line.x = element_line(color = "black", size = 0.2),
           axis.line.y = element_line(color = "black", size = 0.2))
   
-  p4 <- ggplot(qc_df, aes(x = reorder(study, within_study_corr, FUN = median, na.rm = TRUE),
-                          y = within_study_corr,
-                          fill = factor(study_n <= small_study_threshold,
-                                        levels = c(FALSE, TRUE),
-                                        labels = c("Normal", "Small (exempt)")))) +
+  p4 <- ggplot(qc_df,
+               aes(x = reorder(study, within_study_corr, FUN = median, na.rm = TRUE),
+                   y = within_study_corr,
+                   fill = factor(study_n <= small_study_threshold,
+                                 levels = c(FALSE, TRUE),
+                                 labels = c("Normal", "Small (exempt)")))) +
     geom_boxplot(outlier.shape = NA, alpha = 0.6) +
     geom_jitter(width = 0.2, size = 1.5, alpha = 0.8,
                 aes(color = pass_correlation_filters)) +
@@ -669,23 +635,39 @@ custom_DaMiR.sampleFilt <- function(data,
           axis.line.y = element_line(color = "black", size = 0.2),
           axis.text.x = element_text(angle = 45, hjust = 1))
   
-  print(p1)
-  print(p2)
-  print(p3)
-  print(p4)
-  print(p_dup)
+  max_pairwise_cor <- apply(cormatrix, 1, max, na.rm = TRUE)
+  dup_plot_df <- data.frame(
+    sample_name      = names(max_pairwise_cor),
+    max_pairwise_cor = max_pairwise_cor,
+    is_duplicate     = names(max_pairwise_cor) %in% removed_duplicates,
+    stringsAsFactors = FALSE
+  )
+  p_dup <- ggplot(dup_plot_df, aes(x = max_pairwise_cor, fill = is_duplicate)) +
+    geom_histogram(bins = 40, alpha = 0.7, color = "white") +
+    geom_vline(xintercept = th.duplicate_cor, linetype = "dashed",
+               color = "#AA4643", linewidth = 0.6) +
+    scale_fill_manual(values = c("TRUE" = "#AA4643", "FALSE" = "#44BB99"),
+                      labels = c("TRUE" = "Removed (duplicate)", "FALSE" = "Retained"),
+                      name = "Status") +
+    labs(title = paste0("Near-duplicate detection (threshold: r \u2265 ", th.duplicate_cor, ")"),
+         x = "Max pairwise correlation to any other sample", y = "Count") +
+    theme_bw() +
+    theme(panel.border = element_blank(),
+          axis.line.x = element_line(color = "black", size = 0.2),
+          axis.line.y = element_line(color = "black", size = 0.2))
+  
+  print(p1); print(p2); print(p3); print(p4); print(p_dup)
   
   # ── Return ───────────────────────────────────────────────────────────────────
   return(list(
-    filtered_data          = data_filt,
-    sample_qc_summary      = qc_df,
-    wgcna_connectivity     = wgcna_df,
-    keep_samples           = keep_samples_final,
-    duplicate_pairs        = dup_pair_df,
-    removed_duplicates     = removed_duplicates
+    filtered_data      = data_filt,
+    sample_qc_summary  = qc_df,
+    wgcna_connectivity = wgcna_df,
+    keep_samples       = keep_samples_final,
+    duplicate_pairs    = dup_pair_df,
+    removed_duplicates = removed_duplicates
   ))
 }
-
 
 # =============================================================================
 # 2. NORMALISATION
