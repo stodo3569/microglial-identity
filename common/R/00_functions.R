@@ -21,7 +21,7 @@
 #   edgeR, DESeq2, SummarizedExperiment, org.Hs.eg.db, AnnotationDbi,
 #   sva, DaMiR2, WGCNA, ggplot2, ggrepel, patchwork, ggdendro,
 #   dplyr, tidyr, purrr, tibble, broom, data.table, Hmisc,
-#   Matrix, matrixStats, progress, pheatmap, qvalue, gt, ineq
+#   Matrix, matrixStats, progress, pheatmap, qvalue, ineq
 # =============================================================================
 
 
@@ -81,34 +81,77 @@
 # plot_qc_boxplot() ------------------------------------------------------------
 # Draws a per-sample/per-group boxplot with overlaid jittered points for a
 # single QC metric. Points below `threshold` are coloured black to flag them
-# as potential outliers; all other points use the cell-type colour defined in
-# the `colours` lookup table. An optional dashed horizontal threshold line can
-# be added.
+# as potential outliers.
+#
+# Two colouring modes are supported:
+#
+#   Mode A — cell-type palette (colours provided):
+#     Pass a data frame with columns 'cell_type' and 'color' via `colours`.
+#     Above-threshold points inherit the cell-type colour from that lookup;
+#     below-threshold points are overridden to black. data_frame must have a
+#     'cell_type' column to join on.
+#
+#   Mode B — simple two-colour (colours = NULL, default):
+#     Above-threshold points are coloured "darkgreen"; below-threshold points
+#     are coloured "black". No cell-type metadata is required.
+#
+# An optional dashed horizontal threshold line is added when `threshold` is
+# not NULL.
 #
 # Args:
-#   data_frame : data frame containing QC metrics and a 'cell_type' column
-#   metric     : character — name of the numeric QC column to plot
-#   group_by   : character — name of the column to use as the x-axis grouping
-#   threshold  : numeric — value below which points are coloured black (NULL = no line)
-#   colours    : data frame with columns 'cell_type' and 'color'
+#   data_frame   : data frame containing QC metrics; must have a 'cell_type'
+#                  column when `colours` is provided
+#   metric       : character — name of the numeric QC column to plot
+#   group_by     : character — name of the column to use as the x-axis grouping
+#   threshold    : numeric — value below which points are flagged (NULL = no line)
+#   colours      : optional data frame with columns 'cell_type' and 'color'
+#                  (Mode A); NULL activates Mode B (default)
+#   sort_by_mean : logical — if TRUE (default), groups are ordered on the
+#                  x-axis by descending mean metric value
 #
 # Returns: a ggplot object
-plot_qc_boxplot <- function(data_frame, metric, group_by, threshold = NULL, colours) {
-  if(is.null(data_frame) || is.null(metric) || is.null(group_by) || is.null(colours)) {
-    stop("Please provide a data frame, metric, group_by, and colours arguments")
+plot_qc_boxplot <- function(data_frame, metric, group_by, threshold = NULL,
+                            colours = NULL, sort_by_mean = TRUE) {
+  
+  if (is.null(data_frame) || is.null(metric) || is.null(group_by)) {
+    stop("Please provide a data frame, metric, and group_by arguments")
+  }
+  if (!is.null(colours) && !("cell_type" %in% colnames(data_frame))) {
+    stop("'colours' was provided but data_frame has no 'cell_type' column to join on")
   }
   
-  data_frame <- left_join(data_frame, colours, by = "cell_type")
+  # Strip trailing replicate/batch suffix from group labels
   data_frame[[group_by]] <- sub("_[^_]*$", "", data_frame[[group_by]])
-  metric_sym <- rlang::sym(metric)
+  
+  metric_sym   <- rlang::sym(metric)
   group_by_sym <- rlang::sym(group_by)
   
-  mean_metric <- data_frame %>%
-    group_by(!!group_by_sym) %>%
-    summarise(mean_metric = mean(!!metric_sym, na.rm = TRUE)) %>%
-    arrange(desc(mean_metric))
+  # Optionally order x-axis groups by descending mean metric
+  if (sort_by_mean) {
+    mean_metric <- data_frame %>%
+      group_by(!!group_by_sym) %>%
+      summarise(mean_metric = mean(!!metric_sym, na.rm = TRUE), .groups = "drop") %>%
+      arrange(desc(mean_metric))
+    data_frame[[group_by]] <- factor(data_frame[[group_by]],
+                                     levels = mean_metric[[group_by]])
+  }
   
-  data_frame <- mutate(data_frame, color = ifelse(!!metric_sym < threshold, "black", color))
+  # Assign point colours -------------------------------------------------------
+  if (!is.null(colours)) {
+    # Mode A: join cell-type palette, then override below-threshold with black
+    data_frame <- left_join(data_frame, colours, by = "cell_type")
+    if (!is.null(threshold)) {
+      data_frame <- mutate(data_frame,
+                           color = ifelse(!!metric_sym < threshold, "black", color))
+    }
+  } else {
+    # Mode B: simple black / darkgreen scheme
+    if (!is.null(threshold)) {
+      data_frame$color <- ifelse(data_frame[[metric]] < threshold, "black", "darkgreen")
+    } else {
+      data_frame$color <- "black"
+    }
+  }
   
   p <- ggplot(data_frame, aes_string(x = group_by, y = metric)) +
     geom_boxplot(fill = NA, outlier.shape = NA) +
@@ -116,15 +159,16 @@ plot_qc_boxplot <- function(data_frame, metric, group_by, threshold = NULL, colo
     scale_color_identity() +
     theme_bw() +
     theme(panel.border = element_blank(),
-          axis.line.x = element_line(color = "black", size = 0.2),
-          axis.line.y = element_line(color = "black", size = 0.2))
+          axis.line.x  = element_line(color = "black", size = 0.2),
+          axis.line.y  = element_line(color = "black", size = 0.2))
   
   if (!is.null(threshold)) {
-    p <- p + geom_hline(yintercept = threshold, linetype = "dashed", color = "black", size = 0.4)
+    p <- p + geom_hline(yintercept = threshold, linetype = "dashed",
+                        color = "black", size = 0.4)
   }
   
-  p <- p + theme(axis.text.x = element_text(angle = 45, hjust = 1),
-                 plot.margin = margin(5.5, 5.5, 5.5, 50, "pt"))
+  p <- p + theme(axis.text.x  = element_text(angle = 45, hjust = 1),
+                 plot.margin  = margin(5.5, 5.5, 5.5, 50, "pt"))
   
   return(p)
 }
@@ -345,9 +389,6 @@ custom_DaMiR.sampleFilt <- function(data,
   cat("\n")
   
   # ── Step 3: Study-size-weighted inter-study connectivity ─────────────────────
-  # For each focal sample, compute the mean correlation to every OTHER study
-  # separately, then average those per-study means — so each study gets one
-  # equal vote regardless of how many samples it contributed.
   cat("Step 2: Computing study-size-weighted inter-study connectivity...\n")
   
   unique_studies <- unique(study_vec)
@@ -356,7 +397,7 @@ custom_DaMiR.sampleFilt <- function(data,
     focal_study <- study_vec[focal]
     other_studies <- unique_studies[unique_studies != focal_study]
     
-    if (length(other_studies) == 0) return(NA)  # only one study in dataset
+    if (length(other_studies) == 0) return(NA)
     
     per_study_means <- sapply(other_studies, function(s) {
       s_samples <- names(study_vec[study_vec == s])
@@ -366,13 +407,10 @@ custom_DaMiR.sampleFilt <- function(data,
     mean(per_study_means, na.rm = TRUE)
   })
   
-  # Z-score across all samples
   inter_study_z <- as.numeric(scale(inter_study_conn))
   names(inter_study_z) <- all_samples
   
   # ── Step 4: Within-study Z-score ────────────────────────────────────────────
-  # For each sample, mean correlation to its own study-mates, then Z-scored
-  # within that study so outlier detection is relative to the study's own range.
   cat("Step 3: Computing within-study Z-scores...\n")
   
   within_study_mean_corr <- sapply(all_samples, function(focal) {
@@ -382,7 +420,6 @@ custom_DaMiR.sampleFilt <- function(data,
     mean(cormatrix[focal, study_mates], na.rm = TRUE)
   })
   
-  # Z-score within each study group
   within_study_z <- ave(
     within_study_mean_corr,
     study_vec,
@@ -407,14 +444,12 @@ custom_DaMiR.sampleFilt <- function(data,
   # ── Step 6: Apply inter-study and within-study filters ──────────────────────
   cat("Step 4: Applying inter-study Z filter (threshold:", th.inter_study_z, ")...\n")
   
-  # Inter-study Z filter (applied to all; NA = single-study dataset → keep)
   pass_inter <- is.na(qc_df$inter_study_z) | (qc_df$inter_study_z >= th.inter_study_z)
   
-  # Within-study Z filter — skip for small studies
   cat("Step 5: Applying within-study Z filter (threshold:", th.within_study_z,
       "; exempt if study_n <=", small_study_threshold, ")...\n")
-  pass_within <- qc_df$study_n <= small_study_threshold |   # small-study exemption
-    is.na(qc_df$within_study_z) |              # single sample in study
+  pass_within <- qc_df$study_n <= small_study_threshold |
+    is.na(qc_df$within_study_z) |
     (qc_df$within_study_z >= th.within_study_z)
   
   pass_both <- pass_inter & pass_within
@@ -432,19 +467,12 @@ custom_DaMiR.sampleFilt <- function(data,
   cat("  Samples remaining after correlation filters:", length(samples_after_corr), "\n\n")
   
   # ── Step 6b: Near-duplicate detection ───────────────────────────────────────
-  # Within the post-correlation-filter set, identify sample pairs with pairwise
-  # correlation >= th.duplicate_cor.  For each duplicate cluster, retain only
-  # the sample with the highest mean correlation to ALL other passing samples
-  # (i.e. the most "central" representative).  This is done greedily: pairs are
-  # processed in descending order of their pairwise correlation so the most
-  # extreme duplicates are resolved first.
   cat("Step 6b: Detecting near-duplicate samples (pairwise correlation >=",
       th.duplicate_cor, ")...\n")
   
   cor_sub <- cormatrix[samples_after_corr, samples_after_corr]
   diag(cor_sub) <- NA
   
-  # Collect all pairs above threshold (upper triangle only to avoid double-counting)
   dup_pairs <- which(cor_sub >= th.duplicate_cor, arr.ind = TRUE)
   dup_pairs <- dup_pairs[dup_pairs[, 1] < dup_pairs[, 2], , drop = FALSE]
   
@@ -460,7 +488,6 @@ custom_DaMiR.sampleFilt <- function(data,
                pairwise_cor = numeric(), stringsAsFactors = FALSE)
   }
   
-  # Mean connectivity across ALL passing samples (used to pick the "better" one)
   mean_conn_sub <- rowMeans(cor_sub, na.rm = TRUE)
   
   removed_duplicates <- character(0)
@@ -469,16 +496,14 @@ custom_DaMiR.sampleFilt <- function(data,
     cat("  Found", nrow(dup_pair_df), "near-duplicate pair(s):\n")
     dup_pair_df_sorted <- dup_pair_df[order(-dup_pair_df$pairwise_cor), ]
     
-    active_samples <- samples_after_corr  # shrinks as duplicates are removed
+    active_samples <- samples_after_corr
     
     for (i in seq_len(nrow(dup_pair_df_sorted))) {
       sa <- dup_pair_df_sorted$sample_a[i]
       sb <- dup_pair_df_sorted$sample_b[i]
       
-      # Skip if either member of the pair was already removed
       if (!(sa %in% active_samples) || !(sb %in% active_samples)) next
       
-      # Drop the sample with LOWER mean connectivity (less representative)
       if (mean_conn_sub[sa] >= mean_conn_sub[sb]) {
         drop_sample <- sb
         keep_sample_dup <- sa
@@ -503,11 +528,9 @@ custom_DaMiR.sampleFilt <- function(data,
   samples_after_dedup <- active_samples
   cat("  Samples remaining after duplicate filter:", length(samples_after_dedup), "\n\n")
   
-  # Record duplicate removal in qc_df
   qc_df$removed_as_duplicate <- qc_df$sample_name %in% removed_duplicates
   qc_df$pass_dedup_filter     <- !(qc_df$sample_name %in% removed_duplicates)
   
-  # Diagnostic plot 5: heatmap of max pairwise correlation per sample
   max_pairwise_cor <- apply(cor_sub, 1, max, na.rm = TRUE)
   dup_plot_df <- data.frame(
     sample_name      = names(max_pairwise_cor),
@@ -531,7 +554,6 @@ custom_DaMiR.sampleFilt <- function(data,
           axis.line.y = element_line(color = "black", size = 0.2))
   
   # ── Step 7: WGCNA standardised connectivity (Z.k) ───────────────────────────
-  # Recompute on the post-dedup sample set only.
   cat("Step 7: Computing WGCNA standardised connectivity (Z.k) on retained samples...\n")
   
   count_data_filt <- count_data[, samples_after_dedup, drop = FALSE]
@@ -585,7 +607,6 @@ custom_DaMiR.sampleFilt <- function(data,
   cat("  Total removed      :", n_samples_init - length(keep_samples_final), "\n\n")
   
   # ── Diagnostic plots ────────────────────────────────────────────────────────
-  # Plot 1: inter-study Z
   p1 <- ggplot(qc_df, aes(x = inter_study_z, fill = pass_correlation_filters)) +
     geom_histogram(bins = 30, alpha = 0.7, color = "white") +
     geom_vline(xintercept = th.inter_study_z, linetype = "dashed", color = "#AA4643", linewidth = 0.6) +
@@ -599,7 +620,6 @@ custom_DaMiR.sampleFilt <- function(data,
           axis.line.x = element_line(color = "black", size = 0.2),
           axis.line.y = element_line(color = "black", size = 0.2))
   
-  # Plot 2: within-study Z, coloured by small-study exemption
   p2 <- ggplot(qc_df, aes(x = within_study_z, fill = pass_correlation_filters)) +
     geom_histogram(bins = 30, alpha = 0.7, color = "white") +
     geom_vline(xintercept = th.within_study_z, linetype = "dashed", color = "#AA4643", linewidth = 0.6) +
@@ -614,7 +634,6 @@ custom_DaMiR.sampleFilt <- function(data,
           axis.line.x = element_line(color = "black", size = 0.2),
           axis.line.y = element_line(color = "black", size = 0.2))
   
-  # Plot 3: WGCNA Z.k
   p3 <- ggplot(wgcna_df, aes(x = Z.k,
                              fill = sample_name %in% keep_samples_final)) +
     geom_histogram(bins = 30, alpha = 0.7, color = "white") +
@@ -629,7 +648,6 @@ custom_DaMiR.sampleFilt <- function(data,
           axis.line.x = element_line(color = "black", size = 0.2),
           axis.line.y = element_line(color = "black", size = 0.2))
   
-  # Plot 4: per-study boxplot of within-study correlations
   p4 <- ggplot(qc_df, aes(x = reorder(study, within_study_corr, FUN = median, na.rm = TRUE),
                           y = within_study_corr,
                           fill = factor(study_n <= small_study_threshold,
@@ -1414,22 +1432,6 @@ create_quantile_ranked_heatmap <- function(data_matrix, sample_vector, colors = 
 
 
 # ── WGCNA plotting helpers ────────────────────────────────────────────────────
-# The three functions below (.wgcna_theme, plot_soft_threshold,
-# plot_wgcna_dendrogram) replace the base-R WGCNA diagnostic plots with
-# ggplot2/patchwork equivalents that match the project palette and theme.
-#
-# Example usage:
-#   ggsave("figures/WGCNA_sft.svg",
-#          plot_soft_threshold(sft, 1:22, selected_power = 15, title_A = "A", title_B = "B"),
-#          width = 8.27, height = 11.69 / 3)
-#
-#   ggsave("figures/WGCNA_dendro.svg",
-#          plot_wgcna_dendrogram(geneTree,
-#            cbind(dynamicColors, mergedColors),
-#            c("Dynamic Tree Cut", "Merged dynamic"),
-#            dendro_title = "C"),
-#          width = 8.27, height = 11.69 / 3)
-
 
 # .wgcna_theme() ---------------------------------------------------------------
 # Internal ggplot2 theme helper shared by the WGCNA plotting functions.
@@ -1477,7 +1479,6 @@ plot_soft_threshold <- function(sft,
     mean_connect = sft$fitIndices[, 5]
   )
   
-  # ── Panel A: Scale-free topology R² ──
   pA <- ggplot(df, aes(x = power, y = signed_r2)) +
     geom_hline(yintercept = r2_cutoff,
                color = "black", linewidth = 0.2, linetype = "solid") +
@@ -1487,8 +1488,7 @@ plot_soft_threshold <- function(sft,
              label = paste0("R² = ", r2_cutoff),
              hjust = 0, vjust = 0, size = 2.5, color = "black") +
     geom_point(size = 1.5, color = .muted_blue, alpha = 0.8) +
-    geom_text(aes(label = power), vjust = -0.8, size = 3.5, color = "grey30")
-  +
+    geom_text(aes(label = power), vjust = -0.8, size = 3.5, color = "grey30") +
     labs(
       title = title_A,
       x     = "Soft Threshold (power)",
@@ -1503,7 +1503,6 @@ plot_soft_threshold <- function(sft,
                  color = .muted_red, linewidth = 0.6, linetype = "dotted")
   }
   
-  # ── Panel B: Mean connectivity ──
   pB <- ggplot(df, aes(x = power, y = mean_connect)) +
     geom_point(size = 1.5, color = .muted_blue, alpha = 0.8) +
     geom_text(aes(label = power),
@@ -1522,7 +1521,7 @@ plot_soft_threshold <- function(sft,
                  color = .muted_red, linewidth = 0.6, linetype = "dotted")
   }
   
-  pA + pB   # patchwork side-by-side
+  pA + pB
 }
 
 
@@ -1530,14 +1529,9 @@ plot_soft_threshold <- function(sft,
 # Replaces plotDendroAndColors(). Draws the gene dendrogram (using ggdendro)
 # with one or more colour-bar tracks below it, stacked via patchwork.
 #
-# Leaf segments (yend == 0) are dropped to avoid rendering an impenetrable
-# solid black base — only actual merge branches are shown, matching the
-# appearance of the base-R WGCNA dendrogram.
-#
 # Args:
 #   geneTree     : hclust object
-#   color_mat    : a colour vector OR matrix/data.frame (one column per track),
-#                  e.g. cbind(dynamicColors, mergedColors)
+#   color_mat    : a colour vector OR matrix/data.frame (one column per track)
 #   track_labels : character vector of track names (one per column)
 #   dendro_title : panel letter / title shown above the dendrogram (default "C")
 #   bar_height   : relative height of each colour bar track (default 0.06)
@@ -1554,23 +1548,15 @@ plot_wgcna_dendrogram <- function(geneTree,
   if (!requireNamespace("patchwork", quietly = TRUE))
     stop("Please install patchwork: install.packages('patchwork')")
   
-  # ── Convert hclust to ggdendro segments ──
   ddata   <- ggdendro::dendro_data(geneTree, type = "rectangle")
   seg_df  <- ggdendro::segment(ddata)
   n_genes <- nrow(ddata$labels)
   
-  # ── Drop pure leaf segments ──────────────────────────────────────────────────
-  # ggdendro produces one vertical segment per leaf running from yend = 0 up to
-  # its first merge height. With thousands of genes these completely overlap and
-  # render as an impenetrable solid black wall regardless of any axis clipping.
-  # Removing segments where yend == 0 leaves only the actual merge branch
-  # structure, which is exactly what the base-R WGCNA dendrogram shows.
   branch_df <- seg_df[seg_df$yend > 0, ]
   
-  y_min <- min(branch_df$yend) * 0.98   # small margin below the lowest merge
+  y_min <- min(branch_df$yend) * 0.98
   y_max <- max(branch_df$y)
   
-  # ── Dendrogram panel ──
   p_dendro <- ggplot(branch_df) +
     geom_segment(aes(x = x, y = y, xend = xend, yend = yend),
                  linewidth = 0.2, color = "grey20") +
@@ -1585,7 +1571,6 @@ plot_wgcna_dendrogram <- function(geneTree,
       plot.margin  = margin(t = 4, r = 4, b = 0, l = 4)
     )
   
-  # ── Colour bar panels ──
   if (is.vector(color_mat) && !is.list(color_mat)) {
     color_mat <- matrix(color_mat, ncol = 1)
     if (is.null(track_labels)) track_labels <- "Module"
@@ -1628,7 +1613,6 @@ plot_wgcna_dendrogram <- function(geneTree,
       )
   })
   
-  # ── Stack with patchwork ──
   bar_rel <- rep(bar_height, n_tracks)
   heights <- c(1 - sum(bar_rel), bar_rel)
   
@@ -1649,15 +1633,6 @@ plot_wgcna_dendrogram <- function(geneTree,
 # Supports both standard (all-DEG) and directional (up/down split) enrichment.
 # When gene_up and gene_down are provided, an UpDownRatio column is appended
 # showing the count of up- and down-regulated genes per term.
-#
-# Filtering logic (applied in order):
-#   1. Background-level: terms with gene set size outside [minGSSize_background,
-#      maxGSSize] are removed before any overlap is computed.
-#   2. Overlap-level: terms with fewer than minGSSize overlapping DEGs are removed.
-#   3. Statistical: results are filtered to pvalue <= pvalueCutoff and
-#      p.adjust <= qvalueCutoff.
-# q-values are computed via the qvalue package (bootstrap pi0); if unavailable
-# or estimation fails, qvalue is set to NA.
 #
 # Args:
 #   gene              : character vector of DEG Ensembl IDs (combined up+down)
@@ -1897,15 +1872,6 @@ custom_enricher <- function(gene,
 
 # add_odds_ratio() -------------------------------------------------------------
 # Computes odds ratios and a combined significance score from enrichment results.
-# Intended to be called on the output of enricher() or custom_enricher() before
-# downstream filtering or plotting.
-#
-# Continuity correction (+ 0.5 to all cells) is applied when GeneCount equals
-# BgGeneCount (i.e. all background genes are DEGs for that term) to avoid
-# infinite odds ratios.
-#
-# The combined_score is the harmonic mean of OddsRatio and -log10(qvalue),
-# giving equal weight to effect size and statistical confidence.
 #
 # Args:
 #   enrichment_results : data frame with GeneRatio, BgRatio, and qvalue columns
@@ -1947,24 +1913,15 @@ add_odds_ratio <- function(enrichment_results) {
 
 # map_terms_to_genes() ---------------------------------------------------------
 # Maps enriched term IDs back to the individual expressed Ensembl gene IDs
-# that drove the enrichment signal, by reading each unique library TSV file
-# once and filtering to terms present in the enrichment results. Handles both
-# standard ORA (enricher) and fgsea output via the `test` parameter.
-#
-# Each library TSV is read only once regardless of how many enriched terms it
-# contains, making this efficient for large result tables spanning many
-# libraries. Ensembl version suffixes (e.g. ".1") are stripped from
-# data_adjust rownames before matching.
+# that drove the enrichment signal. Handles both standard ORA (enricher) and
+# fgsea output via the `test` parameter.
 #
 # Args:
 #   enrichment_results : data frame / data.table with columns 'library' and
 #                        either 'ID' (ORA) or 'pathway' (fgsea)
-#   data_adjust        : expression matrix; rownames are Ensembl IDs (version
-#                        suffixes are stripped internally)
+#   data_adjust        : expression matrix; rownames are Ensembl IDs
 #   library_directory  : path to directory containing per-library TSV files
-#                        (columns: Term, ensembl_gene_id)
-#   test               : pass "fgsea" if enrichment_results uses 'pathway'
-#                        instead of 'ID'; NULL or omitted for ORA results
+#   test               : pass "fgsea" if using 'pathway' column; NULL for ORA
 #
 # Returns: data.table with columns Term, ensembl_gene_id, Library
 map_terms_to_genes <- function(enrichment_results, data_adjust, library_directory, test = NULL) {
@@ -2004,12 +1961,10 @@ map_terms_to_genes <- function(enrichment_results, data_adjust, library_director
 
 # summarize_term_gene_list() ---------------------------------------------------
 # Collapses a term-gene mapping data frame into one row per (Term, Library)
-# with a list-column of unique gene IDs. Useful for Jaccard index calculations
-# and network visualisation.
+# with a list-column of unique gene IDs.
 #
 # Args:
 #   term_gene_mapping : data frame with columns Term, ensembl_gene_id, Library
-#                       (output of map_terms_to_genes())
 #
 # Returns: tibble with columns Term, Library, genes (list-column)
 summarize_term_gene_list <- function(term_gene_mapping) {
@@ -2024,7 +1979,6 @@ summarize_term_gene_list <- function(term_gene_mapping) {
 
 # jaccard_index() --------------------------------------------------------------
 # Computes the Jaccard similarity index between two sets.
-#   J(A, B) = |A ∩ B| / |A ∪ B|
 #
 # Args:
 #   set1, set2 : vectors (gene IDs or any comparable elements)
@@ -2039,9 +1993,7 @@ jaccard_index <- function(set1, set2) {
 
 # calculate_jaccard_index_with_expression() ------------------------------------
 # Computes the Jaccard similarity index between two gene sets after filtering
-# both to only genes present in `expressed_genes`. Use this variant when
-# comparing gene sets in the context of a specific dataset's expressed gene
-# universe (e.g. to avoid inflating similarity via unexpressed background genes).
+# both to only genes present in `expressed_genes`.
 #
 # Args:
 #   set1, set2       : vectors of gene IDs
@@ -2060,19 +2012,15 @@ calculate_jaccard_index_with_expression <- function(set1, set2, expressed_genes)
 # run_enrichment_analysis() ----------------------------------------------------
 # Batch ORA across all TSV library files in `library_directory` using
 # clusterProfiler::enricher(). Combines up- and down-regulated DEGs into a
-# single gene vector per library, then appends odds ratios, library name, and
-# per-term directional gene counts to the output.
+# single gene vector per library.
 #
 # Args:
 #   degs_up           : character vector of up-regulated Ensembl gene IDs
 #   degs_down         : character vector of down-regulated Ensembl gene IDs
 #   background_genes  : character vector of all background gene IDs
 #   library_directory : path to directory containing per-library TSV files
-#                       (columns: Term, ensembl_gene_id)
 #
-# Returns: data frame of all significant enriched terms across all libraries,
-#          with columns from enricher() plus OddsRatio, library,
-#          num_genes_up, num_genes_down
+# Returns: data frame of all significant enriched terms across all libraries
 run_enrichment_analysis <- function(degs_up, degs_down, background_genes, library_directory) {
   enrichment_results_all <- data.frame()
   library_files <- list.files(library_directory, full.names = TRUE)
@@ -2122,16 +2070,12 @@ run_enrichment_analysis <- function(degs_up, degs_down, background_genes, librar
 
 
 # count_gene_set_terms() -------------------------------------------------------
-# Utility function that counts the total number of unique terms across all
-# library TSV files in a directory. Useful for reporting the size of the
-# custom gene set collection used in enrichment analyses.
+# Counts the total number of unique terms across all library TSV files.
 #
 # Args:
 #   library_directory : path to directory containing per-library TSV files
 #
-# Returns: list with elements:
-#   $total_libraries — integer count of library files
-#   $total_terms     — integer total of unique terms across all libraries
+# Returns: list with elements $total_libraries and $total_terms
 count_gene_set_terms <- function(library_directory) {
   total_libraries <- 0
   total_terms <- 0
@@ -2159,8 +2103,6 @@ count_gene_set_terms <- function(library_directory) {
 
 # modify_labels() --------------------------------------------------------------
 # Strips the last underscore-delimited suffix from a vector of labels.
-# Used to clean up sample/group labels that carry a trailing replicate or
-# batch identifier (e.g. "SampleA_1" → "SampleA").
 #
 # Args:
 #   labels : character vector (or factor coercible to character)
@@ -2180,12 +2122,10 @@ modify_labels <- function(labels) {
 
 # gt_table() -------------------------------------------------------------------
 # Formats the top `nrow` rows of an enrichment results data frame as a styled
-# gt table for HTML/RMarkdown output. Column labels, widths, and font sizes are
-# pre-configured for the project's standard enrichment result structure.
+# gt table for HTML/RMarkdown output.
 #
 # Args:
-#   df   : data frame with columns: Pathway, Library, Gene ratio, Bg ratio,
-#           OddsRatio, q value, Up:Down ratio, Significance score, Louvain cluster
+#   df   : data frame with standard enrichment result columns
 #   nrow : number of top rows to display (default 20)
 #
 # Returns: a gt table object
