@@ -1,9 +1,9 @@
 # ==============================================================================
-# Script:   [FILENAME].R
-# Chapter:  [CHAPTER NUMBER] — [CHAPTER TITLE]
-# Step:     [X] of [Y] in the [CHAPTER NUMBER] workflow
-#           Preceded by: [PRECEDING SCRIPT NAME OR "none — first step"]
-#           Followed by: [FOLLOWING SCRIPT NAME]
+# Script:   01_tximport.R
+# Chapter:  [1] — exvivo bulk rnaseq
+# Step:     1 of [Y] in the CHAPTER 01 workflow
+#           Preceded by: n/a — first step
+#           Followed by: 02_sample_qc_filter_normalise.R
 #
 # Description:
 #   Aggregates Salmon transcript-level quantification outputs (quant.sf files)
@@ -66,15 +66,15 @@ source("microglial-identity/common/R/00_functions.R")
 #
 #   2) Run this script from scratch (DOWNLOAD_OUTPUT_RDS = FALSE, default):
 #      Requires raw Salmon quant.sf files on disk, organised as described in
-#      the header above. These are available from GEO: [INSERT GEO ACCESSION].
-#      Note: this script has no input RDS objects — its inputs are raw files,
+#      the header above.
+#      Note: this script has no input RDS objects — its inputs are raw Salmon files,
 #      so LOAD_INPUT_RDS does not apply here (see note below).
 #
 # Replace XXXXXXX in ZENODO_BASE with the actual Zenodo record ID once the
 # dataset has been deposited.
 # ==============================================================================
 
-ZENODO_BASE <- "https://zenodo.org/records/XXXXXXX/files"
+ZENODO_BASE <- "https://zenodo.org/records/XXXXXXX/files/chapter_01/rds"
 
 # Input RDS objects required by this script:
 #   None — this is the first script in the pipeline. Inputs are raw quant.sf
@@ -86,7 +86,7 @@ LOAD_INPUT_RDS <- TRUE
 
 # Output RDS produced by this script (also available on Zenodo)
 output_rds <- list(
-  txi = "txi_all_datasets.rds"   # Merged tximport object: $counts, $abundance (TPM), $length
+  txi = "rds/chapter_01/exvivo_counts.rds"   # Merged tximport object: $counts, $abundance (TPM), $length
 )
 
 # DOWNLOAD_OUTPUT_RDS: set to TRUE to download the output RDS from Zenodo
@@ -250,8 +250,9 @@ cat("Genes detected in all samples:", sum(genes_detected == ncol(txi$counts)), "
 exvivo_counts <- txi$counts
 
 if (SAVE_OUTPUT_RDS) {
-  saveRDS(exvivo_counts, file = "/home/rstudio/exvivo_counts.rds")
-  cat("\nSaved txi object to /home/rstudio/exvivo_counts.rds\n")
+  dir.create("rds/chapter_01", recursive = TRUE, showWarnings = FALSE)
+  saveRDS(exvivo_counts, file = "rds/chapter_01/exvivo_counts.rds")
+  cat("\nSaved txi object to rds/chapter_01/exvivo_counts.rds")
   cat("Contents: txi$counts, txi$abundance (TPM), txi$length\n")
 }
 
