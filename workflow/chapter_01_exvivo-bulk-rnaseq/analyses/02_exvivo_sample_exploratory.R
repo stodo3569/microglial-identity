@@ -173,9 +173,10 @@ remove(tmp_cpm_count)
 # Saved here so that fig_exvivo_exploratory_prefilter.R can load this object
 # and generate figures showing the full, unfiltered sample distribution.
 if (SAVE_OUTPUT_RDS) {
+  dir.create("rds/chapter_01", recursive = TRUE, showWarnings = FALSE)
   saveRDS(
     list(counts = exvivo_counts, metadata = exvivo_metadata),
     file = output_rds$pre_filter
   )
-  message("Saved checkpoint A: ", output_rds$pre_filter)
+  message("Saved RDS object: ", output_rds$pre_filter)
 }
