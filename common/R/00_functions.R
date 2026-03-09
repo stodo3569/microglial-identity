@@ -98,6 +98,13 @@
 # An optional dashed horizontal threshold line is added when `threshold` is
 # not NULL.
 #
+# Note on group label formatting:
+#   This function does NOT modify group labels internally. Any label
+#   formatting (e.g. stripping database accession suffixes) should be applied
+#   to the data frame before calling this function. This ensures that all
+#   layers — boxplots, jittered points, and any external overlays such as
+#   triangle markers — use consistent labels and align correctly on the x-axis.
+#
 # Args:
 #   data_frame   : data frame containing QC metrics; must have a 'cell_type'
 #                  column when `colours` is provided
@@ -119,9 +126,6 @@ plot_qc_boxplot <- function(data_frame, metric, group_by, threshold = NULL,
   if (!is.null(colours) && !("cell_type" %in% colnames(data_frame))) {
     stop("'colours' was provided but data_frame has no 'cell_type' column to join on")
   }
-  
-  # Strip trailing replicate/batch suffix from group labels
-  data_frame[[group_by]] <- sub("_[^_]*$", "", data_frame[[group_by]])
   
   metric_sym   <- rlang::sym(metric)
   group_by_sym <- rlang::sym(group_by)
@@ -172,7 +176,6 @@ plot_qc_boxplot <- function(data_frame, metric, group_by, threshold = NULL,
   
   return(p)
 }
-
 
 # qc_bar() ---------------------------------------------------------------------
 # Draws a stacked bar chart showing the count of pathological vs.
