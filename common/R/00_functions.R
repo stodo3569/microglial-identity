@@ -48,6 +48,8 @@
 #     plot_pca_loadings()
 #     compute_correlation()
 #     compute_kruskal_wallis()
+#     make_pearson_heatmap()
+#     make_kruskal_heatmap()
 #
 #  5. WGCNA ............................................... line ~800
 #     Kmodule_sparse_progress()
@@ -72,7 +74,6 @@
 #     modify_labels()
 #     gt_table()
 # =============================================================================
-
 
 # =============================================================================
 # 1. QUALITY CONTROL
@@ -277,8 +278,7 @@ plot_qc_density <- function(data_frame, metric, threshold) {
 #
 # Returns: metadata data frame with an additional 'sex_imputed' column
 #
-# Note: Requires org.Hs.eg.db for chromosome mapping and calls plot_pca()
-#       (defined below), which assigns `pca` to the global environment.
+# Note: Requires org.Hs.eg.db for chromosome mapping.
 SexDetect <- function(data, metadata) {
   cpm_counts <- cpm(data)
   
@@ -286,9 +286,10 @@ SexDetect <- function(data, metadata) {
   rows_y <- which(rows_chrom == "Y")
   y_cpm_counts <- cpm_counts[rows_y,]
   
-  meow <- plot_pca(log2(y_cpm_counts + 0.5), metadata, intgroup = "cell_type", ntop = nrow(y_cpm_counts), scale = FALSE)
+  res      <- plot_pca(log2(y_cpm_counts + 0.5), metadata, intgroup = "cell_type",
+                       ntop = nrow(y_cpm_counts), scale = FALSE)
+  sex_data <- as.data.frame(res$pca$x)
   
-  sex_data <- as.data.frame(pca$x)
   sex_imputed <- ifelse(sex_data$PC1 > 0, "Male", "Female")
   metadata <- add_column(metadata, sex_imputed = sex_imputed, .after = "sex")
   
@@ -533,12 +534,9 @@ custom_DaMiR.sampleFilt <- function(data,
   cat("  Samples retained after Pass 2     :", length(keep_samples_final), "\n\n")
   
   # ── Build per-sample QC summary ───────────────────────────────────────────
-  # Z.k and mean_IAC are NA for samples removed in Pass 1 (never entered
-  # the Pass-2 correlation matrix). pass_wgcna_all mirrors this: NA for
-  # Pass-1 removals, TRUE/FALSE for Pass-1 survivors based on the Pass-2 Z.k filter.
   pass_wgcna_all             <- rep(NA, length(all_samples))
   names(pass_wgcna_all)      <- all_samples
-  pass_wgcna_all[keep_pass1] <- pass_wgcna   # named logical from Pass 2
+  pass_wgcna_all[keep_pass1] <- pass_wgcna
   
   qc_df <- tibble(
     sample_name              = all_samples,
@@ -548,8 +546,8 @@ custom_DaMiR.sampleFilt <- function(data,
     inter_study_z            = inter_study_z[all_samples],
     within_study_corr        = within_study_mean_corr[all_samples],
     within_study_z           = within_study_z[all_samples],
-    mean_IAC                 = mean_IAC_pass1[all_samples],   # NA for Pass-1 removals
-    Z.k                      = Z.k_pass1[all_samples],        # NA for Pass-1 removals
+    mean_IAC                 = mean_IAC_pass1[all_samples],
+    Z.k                      = Z.k_pass1[all_samples],
     removed_as_duplicate     = all_samples %in% removed_duplicates,
     pass_inter_study_filter  = as.logical(pass_inter),
     pass_within_study_filter = as.logical(pass_within),
@@ -596,7 +594,6 @@ custom_DaMiR.sampleFilt <- function(data,
           axis.line.x = element_line(color = "black", size = 0.2),
           axis.line.y = element_line(color = "black", size = 0.2))
   
-  # Pass-2 WGCNA plot: only shows Pass-1 survivors; Pass-1 removals are excluded
   p3_data <- qc_df %>% filter(!is.na(Z.k))
   p3 <- ggplot(p3_data, aes(x = Z.k, fill = pass_wgcna_filter)) +
     geom_histogram(bins = 30, alpha = 0.7, color = "white") +
@@ -668,6 +665,7 @@ custom_DaMiR.sampleFilt <- function(data,
     removed_duplicates = removed_duplicates
   ))
 }
+
 # =============================================================================
 # 2. NORMALISATION
 # =============================================================================
@@ -778,7 +776,6 @@ DaMiR_normalisation_custom <- function(data, minCounts = 10, fSample = 0.5, hype
                                     colData = as.data.frame(colData(data)))
   return(data_norm)
 }
-
 
 # =============================================================================
 # 3. SURROGATE VARIABLE ANALYSIS
@@ -929,7 +926,6 @@ DaMiR.SV_modified <- function (data, method = c("fve", "leek", "be"), th.fve = 0
   return(list(sv_matrix = sv_matrix, plot = p))
 }
 
-
 # =============================================================================
 # 4. DIMENSIONALITY REDUCTION / PCA
 # =============================================================================
@@ -940,86 +936,137 @@ DaMiR.SV_modified <- function (data, method = c("fve", "leek", "be"), th.fve = 0
 # a metadata variable. Categorical variables use discrete colours; continuous
 # variables use a red-white-blue gradient.
 #
-# Side effects: assigns `pca` and `percentVar` to the global environment so
-#               downstream functions (e.g. SexDetect, plot_scree) can use them.
-#
 # Args:
 #   object           : numeric matrix (rows = genes, cols = samples)
-#   metadata         : data frame with sample-level metadata; rownames = colnames(object)
-#   intgroup         : character — metadata column to use for colouring (default "condition")
+#   metadata         : data frame with sample-level metadata; rownames must
+#                      match colnames(object)
+#   intgroup         : character — metadata column to colour points by
+#                      (default "condition")
 #   ntop             : number of most-variable genes to use (default 500)
-#   pcs              : integer vector of length 2 — which PCs to plot (default c(1,2))
+#   pcs              : integer vector of length 2 — which PCs to plot
+#                      (default c(1, 2))
 #   returnData       : if TRUE, return the PC data frame instead of a plot
 #   annotate_points  : character vector of sample names to label with ggrepel
-#   scale            : logical — whether to scale variables before PCA (default TRUE)
+#   scale            : logical — whether to scale variables before PCA
+#                      (default TRUE)
 #
-# Returns: ggplot object, or a data frame (if returnData = TRUE)
-plot_pca <- function (object, metadata, intgroup = "condition", ntop = 500, pcs = c(1, 2), returnData = FALSE, annotate_points = NULL, scale = TRUE) {
-  rv <- matrixStats::rowVars(object, useNames = TRUE)
+# Returns:
+#   A named list with three elements:
+#     $plot       — ggplot object (or a data frame if returnData = TRUE)
+#     $pca        — prcomp object (pass to plot_scree() or use $x directly)
+#     $percentVar — numeric vector of per-PC variance fractions
+#
+# Note: No objects are assigned to the global environment. Callers that need
+# the prcomp result (e.g. for plot_scree or extracting PC eigengenes) should
+# capture the return value:
+#
+#   res <- plot_pca(mat, metadata, intgroup = "study")
+#   p   <- res$plot
+#   p_scree <- plot_scree(res$pca, components = 1:10)
+#   pc_eigengenes <- as.data.frame(res$pca$x)
+# ------------------------------------------------------------------------------
+
+plot_pca <- function(object,
+                     metadata,
+                     intgroup        = "condition",
+                     ntop            = 500,
+                     pcs             = c(1, 2),
+                     returnData      = FALSE,
+                     annotate_points = NULL,
+                     scale           = TRUE) {
+  
+  # ── Gene selection ──────────────────────────────────────────────────────────
+  rv     <- matrixStats::rowVars(object, useNames = TRUE)
   select <- order(rv, decreasing = TRUE)[seq_len(min(ntop, length(rv)))]
-  pca <- prcomp(t(object[select, ]), scale. = scale)
-  assign("pca", pca, envir = globalenv())
+  
+  # ── PCA ─────────────────────────────────────────────────────────────────────
+  pca        <- prcomp(t(object[select, ]), scale. = scale)
   percentVar <- pca$sdev^2 / sum(pca$sdev^2)
-  assign("percentVar", percentVar, envir = globalenv())
   
   if (!all(intgroup %in% colnames(metadata))) {
-    stop("the argument 'intgroup' should specify columns of colData(dds)")
+    stop("'intgroup' must name a column in metadata.")
   }
   
-  intgroup.df <- metadata[, intgroup, drop = FALSE]
+  # ── Grouping variable ────────────────────────────────────────────────────────
+  intgroup.df    <- metadata[, intgroup, drop = FALSE]
   is_categorical <- is.factor(metadata[[intgroup]]) || is.character(metadata[[intgroup]])
   
   if (is_categorical) {
-    group <- if (ncol(intgroup.df) > 1) {
+    group      <- if (ncol(intgroup.df) > 1) {
       factor(apply(intgroup.df, 1, paste, collapse = ":"))
     } else {
       metadata[[intgroup]]
     }
     groupColor <- "group"
   } else {
-    group <- metadata[[intgroup]]
+    group      <- metadata[[intgroup]]
     groupColor <- intgroup
   }
   
-  d <- data.frame(pc_1 = pca$x[, pcs[1]], pc_2 = pca$x[, pcs[2]], group = group, name = colnames(object)) %>% cbind(metadata)
+  # ── Data frame for plotting ──────────────────────────────────────────────────
+  d <- data.frame(
+    pc_1  = pca$x[, pcs[1]],
+    pc_2  = pca$x[, pcs[2]],
+    group = group,
+    name  = colnames(object)
+  ) |> cbind(metadata)
   
   if (returnData) {
-    attr(d, "percentVar") <- percentVar[pcs[1]:pcs[2]]
-    return(d)
+    attr(d, "percentVar") <- percentVar[pcs]
+    return(list(plot = d, pca = pca, percentVar = percentVar))
   }
   
-  colours <- c("#77AADD", "#99DDFF", "#44BB99", "#BBCC33", "#AAAA00", 
-               "#EEDD88", "#EE8866", "#FFAABB", "#DDDDDD", "#CC99CC")  
-  vivid_colours <- c("#AA4643", "#4572A7")
+  # ── Colour palettes ──────────────────────────────────────────────────────────
+  palette_discrete <- c(
+    "#77AADD", "#99DDFF", "#44BB99", "#BBCC33", "#AAAA00",
+    "#EEDD88", "#EE8866", "#FFAABB", "#DDDDDD", "#CC99CC"
+  )
+  palette_diverging <- c("#AA4643", "#4572A7")
+  
+  # ── Build plot ───────────────────────────────────────────────────────────────
+  x_lab <- paste0("PC", pcs[1], ": ", round(percentVar[pcs[1]] * 100), "% variance")
+  y_lab <- paste0("PC", pcs[2], ": ", round(percentVar[pcs[2]] * 100), "% variance")
   
   if (is_categorical) {
-    p <- ggplot(data = d, aes_string(x = "pc_1", y = "pc_2", color = groupColor)) +
+    p <- ggplot(d, aes(x = pc_1, y = pc_2, colour = .data[[groupColor]])) +
       geom_point(size = 3) +
-      xlab(paste0("PC", pcs[1], ": ", round(percentVar[pcs[1]] * 100), "% variance")) + theme_bw() + scale_color_manual(values = colours)
+      scale_colour_manual(values = palette_discrete)
   } else {
-    p <- ggplot(data = d, aes_string(x = "pc_1", y = "pc_2", fill =  groupColor)) +
-      geom_point(size = 3, shape = 21, color = "grey") +
-      xlab(paste0("PC", pcs[1], ": ", round(percentVar[pcs[1]] * 100), "% variance")) + theme_bw() + scale_fill_gradient2(low = vivid_colours[2], high = vivid_colours[1], mid = "white", midpoint = mean(d$group))
+    p <- ggplot(d, aes(x = pc_1, y = pc_2, fill = .data[[groupColor]])) +
+      geom_point(size = 3, shape = 21, colour = "grey") +
+      scale_fill_gradient2(
+        low      = palette_diverging[2],
+        high     = palette_diverging[1],
+        mid      = "white",
+        midpoint = mean(d$group)
+      )
   }
   
-  p <- p + theme(panel.border = element_blank(),
-                 axis.line.x = element_line(color = "black", size = 0.2),
-                 axis.line.y = element_line(color = "black", size = 0.2)) +
-    ylab(paste0("PC", pcs[2], ": ", round(percentVar[pcs[2]] * 100), "% variance")) +
-    coord_fixed()
+  p <- p +
+    xlab(x_lab) +
+    ylab(y_lab) +
+    coord_fixed() +
+    theme_bw() +
+    theme(
+      panel.border  = element_blank(),
+      axis.line.x   = element_line(colour = "black", linewidth = 0.2),
+      axis.line.y   = element_line(colour = "black", linewidth = 0.2)
+    )
   
   if (!is.null(annotate_points)) {
-    p <- p + ggrepel::geom_text_repel(aes_string(label = "name"), 
-                                      data = subset(d, name %in% annotate_points), 
-                                      size = 3.5, 
-                                      box.padding = 1.5,
-                                      point.padding = 0.7,
-                                      color = "black",
-                                      max.overlaps = Inf,
-                                      segment.color = "black")
+    p <- p + ggrepel::geom_text_repel(
+      data           = subset(d, name %in% annotate_points),
+      aes(label      = name),
+      size           = 3.5,
+      box.padding    = 1.5,
+      point.padding  = 0.7,
+      colour         = "black",
+      max.overlaps   = Inf,
+      segment.colour = "black"
+    )
   }
   
-  return(p)
+  list(plot = p, pca = pca, percentVar = percentVar)
 }
 
 
@@ -1029,7 +1076,9 @@ plot_pca <- function (object, metadata, intgroup = "condition", ntop = 500, pcs 
 # support. Intended for quick exploratory two-way PCA plots where the grouping
 # variable is always categorical.
 #
-# Side effects: assigns `pca` and `percentVar` to the global environment.
+# Note: Unlike plot_pca(), this function still assigns `pca` and `percentVar`
+#       to the global environment. Consider migrating callers to plot_pca()
+#       and capturing the return value instead.
 #
 # Args:
 #   object     : numeric matrix (rows = genes, cols = samples)
@@ -1073,11 +1122,10 @@ twplot_pca <- function (object, metadata, intgroup = "condition", ntop = 500, ti
 
 # plot_scree() -----------------------------------------------------------------
 # Draws a scree plot (bar chart of per-PC variance + cumulative variance line)
-# from a prcomp object. Designed to be called after plot_pca() using the `pca`
-# object assigned to the global environment.
+# from a prcomp object.
 #
 # Args:
-#   pca        : prcomp object
+#   pca        : prcomp object (returned in $pca from plot_pca())
 #   components : integer vector of PC indices to include (default: all)
 #   ...        : additional arguments (currently unused)
 #
@@ -1271,6 +1319,121 @@ compute_kruskal_wallis <- function(pc_eigengenes, pc_metadata, num_pcs) {
   return(heatmap_data)
 }
 
+
+# make_pearson_heatmap() -------------------------------------------------------
+# Renders a Pearson correlation heatmap between PC scores and continuous
+# covariates. A thin rendering wrapper around compute_correlation(): passes the
+# inputs through compute_correlation() then builds the ggplot tile layer.
+# Significant associations (BH-adjusted p < 0.05) are bold-annotated with an
+# asterisk.
+#
+# Args:
+#   pc_eigengenes : data frame of PC scores (samples × PCs), typically obtained
+#                   via as.data.frame(plot_pca(...)$pca$x)
+#   metadata_cols : data frame of continuous covariates (samples × variables),
+#                   e.g. metadata |> dplyr::select(age, mapping_rate, ...)
+#   n_pcs         : integer — number of PCs to include (default 10)
+#
+# Returns: a ggplot object
+make_pearson_heatmap <- function(pc_eigengenes, metadata_cols, n_pcs = 10) {
+  
+  palette_diverging <- c("#4572A7", "#AA4643")
+  
+  heatmap_data <- compute_correlation(pc_eigengenes, metadata_cols, n_pcs, "pearson")
+  
+  ggplot(heatmap_data, aes(x = var, y = pc, fill = estimate)) +
+    geom_tile() +
+    geom_text(
+      aes(
+        label    = ifelse(
+          significant == "bold",
+          paste0(sprintf("%.2f", estimate), "*"),
+          sprintf("%.2f", estimate)
+        ),
+        fontface = ifelse(significant == "bold", "bold", "plain")
+      ),
+      colour = "black", size = 3
+    ) +
+    scale_fill_gradient2(
+      low      = palette_diverging[1],
+      high     = palette_diverging[2],
+      mid      = "white",
+      midpoint = 0,
+      limits   = c(-1, 1),
+      name     = "Pearson\nCoefficient"
+    ) +
+    scale_x_discrete(labels = function(x) gsub("_", " ", x)) +
+    xlab(NULL) + ylab(NULL) +
+    theme_bw() +
+    theme(
+      panel.border  = element_blank(),
+      axis.line.x   = element_line(colour = "black", linewidth = 0.2),
+      axis.line.y   = element_line(colour = "black", linewidth = 0.2),
+      axis.text.x   = element_text(angle = 45, hjust = 1)
+    )
+}
+
+
+# make_kruskal_heatmap() -------------------------------------------------------
+# Renders a Kruskal-Wallis chi-square heatmap between PC scores and categorical
+# covariates. A thin rendering wrapper around compute_kruskal_wallis(): passes
+# the inputs through compute_kruskal_wallis() then builds the ggplot tile layer.
+# Significant associations (BH-adjusted p < 0.05) are bold-annotated with an
+# asterisk. The colour scale midpoint is set to the median chi-square statistic
+# across all tested PC-variable pairs so that contrast is distributed around a
+# meaningful reference rather than zero.
+#
+# Args:
+#   pc_eigengenes : data frame of PC scores (samples × PCs), typically obtained
+#                   via as.data.frame(plot_pca(...)$pca$x)
+#   metadata_cols : data frame of categorical covariates (samples × variables),
+#                   e.g. metadata |> dplyr::select(study, sex_imputed, region, ...)
+#   n_pcs         : integer — number of PCs to include (default 10)
+#
+# Returns: a ggplot object
+make_kruskal_heatmap <- function(pc_eigengenes, metadata_cols, n_pcs = 10) {
+  
+  palette_diverging <- c("#4572A7", "#AA4643")
+  
+  kruskal_data <- compute_kruskal_wallis(pc_eigengenes, metadata_cols, n_pcs)
+  
+  x_labels <- function(x) {
+    x <- gsub("sex_imputed",       "sex",           x)
+    x <- gsub("source_if_ex_vivo", "sample origin", x)
+    x <- gsub("_",                 " ",             x)
+    x
+  }
+  
+  ggplot(kruskal_data, aes(x = var, y = pc, fill = chi.square)) +
+    geom_tile() +
+    geom_text(
+      aes(
+        label    = ifelse(
+          significant == "bold",
+          paste0(sprintf("%.2f", chi.square), "*"),
+          sprintf("%.2f", chi.square)
+        ),
+        fontface = ifelse(significant == "bold", "bold", "plain")
+      ),
+      colour = "black", size = 3
+    ) +
+    scale_fill_gradient2(
+      low      = palette_diverging[1],
+      high     = palette_diverging[2],
+      mid      = "white",
+      midpoint = median(kruskal_data$chi.square, na.rm = TRUE),
+      name     = "Chi-square\nStatistic"
+    ) +
+    scale_x_discrete(labels = x_labels) +
+    xlab(NULL) + ylab(NULL) +
+    theme_bw() +
+    theme(
+      panel.border  = element_blank(),
+      axis.line.x   = element_line(colour = "black", linewidth = 0.2),
+      axis.line.y   = element_line(colour = "black", linewidth = 0.2),
+      axis.text.x   = element_text(angle = 45, hjust = 1)
+    )
+}
 
 # =============================================================================
 # 5. WGCNA
@@ -1603,7 +1766,6 @@ plot_wgcna_dendrogram <- function(geneTree,
     heights = heights
   )
 }
-
 
 # =============================================================================
 # 6. ENRICHMENT ANALYSIS
