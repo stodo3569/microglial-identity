@@ -50,6 +50,9 @@
 #     compute_kruskal_wallis()
 #     make_pearson_heatmap()
 #     make_kruskal_heatmap()
+#     make_pca_panels()
+#     assemble_pca_overview()
+#     assemble_pca_metafeatures()
 #
 #  5. WGCNA ............................................... line ~800
 #     Kmodule_sparse_progress()
@@ -1434,6 +1437,195 @@ make_kruskal_heatmap <- function(pc_eigengenes, metadata_cols, n_pcs = 10) {
       axis.text.x   = element_text(angle = 45, hjust = 1)
     )
 }
+
+
+# make_pca_panels() ------------------------------------------------------------
+# Generates the full set of PCA-based diagnostic panels for a single
+# normalised/corrected expression matrix. Intended to be called once per
+# matrix and passed to the figure assembly functions (assemble_pca_overview()
+# and assemble_pca_metafeatures()) defined in the figure scripts.
+#
+# Args:
+#   mat               : numeric matrix (rows = genes, cols = samples)
+#   metadata          : data frame of sample metadata; rownames must match
+#                       colnames(mat)
+#   ntop              : number of most-variable genes to use for PCA
+#   color_vars        : named character vector — metadata variables for the
+#                       per-variable PCA colour panels. Names become the panel
+#                       labels in labs(colour = ); values are the column names
+#                       in metadata. e.g.:
+#                         c(study = "study", age = "age", sex = "sex_imputed")
+#   continuous_vars   : character vector of continuous metadata column names
+#                       for the Pearson correlation heatmap
+#   categorical_vars  : character vector of categorical metadata column names
+#                       for the Kruskal-Wallis heatmap
+#
+# Returns: a named list of ggplot objects with the following fixed slots:
+#   $pca_<name>      — one PCA colour panel per entry in color_vars, named
+#                      "pca_" + the name() of that entry (e.g. $pca_study,
+#                      $pca_age). The first entry in color_vars is also used
+#                      as the PCA for the scree plot and heatmaps.
+#   $scree           — scree plot (PC1–10), computed from the first color_vars PCA
+#   $pearson_heatmap — Pearson correlation heatmap: PCs vs continuous_vars
+#   $kruskal_heatmap — Kruskal-Wallis heatmap: PCs vs categorical_vars
+#
+# Example:
+#   vst_panels <- make_pca_panels(
+#     mat             = vst,
+#     metadata        = metadata,
+#     ntop            = 0.1 * nrow(vst),
+#     color_vars      = c(study = "study", age = "age", sex = "sex_imputed",
+#                         region = "region", origin = "source_if_ex_vivo"),
+#     continuous_vars = c("age", "mapping_rate", "total_reads", "sample_gene_count"),
+#     categorical_vars = c("study", "sex_imputed", "source_if_ex_vivo", "region")
+#   )
+#   vst_panels$pca_study   # PCA coloured by study
+#   vst_panels$pca_age     # PCA coloured by age
+make_pca_panels <- function(mat, metadata, ntop, color_vars,
+                            continuous_vars, categorical_vars) {
+  
+  if (is.null(names(color_vars)) || any(names(color_vars) == "")) {
+    stop("'color_vars' must be a fully named character vector.")
+  }
+  
+  # ── Run PCA once for the first variable (used for scree + heatmaps) ─────────
+  first_var <- color_vars[[1]]
+  res_first <- plot_pca(mat, metadata, intgroup = first_var, ntop = ntop)
+  pc_scores <- as.data.frame(res_first$pca$x)
+  
+  # ── Per-variable PCA colour panels — named "pca_<label>" ─────────────────
+  pca_plots <- lapply(names(color_vars), function(label) {
+    var <- color_vars[[label]]
+    plot_pca(mat, metadata, intgroup = var, ntop = ntop)$plot +
+      labs(colour = label)
+  })
+  names(pca_plots) <- paste0("pca_", names(color_vars))
+  
+  # ── Fixed panels ─────────────────────────────────────────────────────────
+  fixed_panels <- list(
+    scree = plot_scree(res_first$pca, components = 1:10),
+    
+    pearson_heatmap = make_pearson_heatmap(
+      pc_scores,
+      metadata |> dplyr::select(dplyr::all_of(continuous_vars))
+    ),
+    kruskal_heatmap = make_kruskal_heatmap(
+      pc_scores,
+      metadata |> dplyr::select(dplyr::all_of(categorical_vars))
+    )
+  )
+  
+  c(pca_plots, fixed_panels)
+}
+
+
+# assemble_pca_overview() ------------------------------------------------------
+# Assembles a portrait (A4) figure with the primary PCA panel, scree plot, and
+# both correlation heatmaps. The primary PCA panel is the first "pca_*" slot in
+# the panel set — whichever variable was listed first in color_vars when calling
+# make_pca_panels(). Accepts one or two panel sets.
+#
+# Args:
+#   panels_a : named list from make_pca_panels() — always required
+#   panels_b : named list from make_pca_panels() — optional; triggers two-column
+#              layout. Omit or pass NULL for a single-matrix figure.
+#
+# Returns: a patchwork object
+#
+# Examples:
+#   assemble_pca_overview(vst_panels)                    # single matrix
+#   assemble_pca_overview(vst_panels, sva_panels)        # VST vs SVA
+#   assemble_pca_overview(study_panels, sva_panels)      # study vs SVA
+assemble_pca_overview <- function(panels_a, panels_b = NULL) {
+  
+  primary_slot <- names(panels_a)[startsWith(names(panels_a), "pca_")][[1]]
+  
+  if (is.null(panels_b)) {
+    
+    (
+      panels_a[[primary_slot]] /
+        panels_a$scree           /
+        panels_a$pearson_heatmap /
+        panels_a$kruskal_heatmap
+    ) +
+      plot_layout(heights = c(1, 0.7, 0.7, 0.8)) +
+      plot_annotation(tag_levels = "A") &
+      theme(plot.tag = element_text(size = 9))
+    
+  } else {
+    
+    row_pca     <- (panels_a[[primary_slot]] | plot_spacer() | panels_b[[primary_slot]] | guide_area()) +
+      plot_layout(guides = "collect", widths = c(1, 0.1, 1, 1))
+    row_scree   <- (panels_a$scree           | plot_spacer() | panels_b$scree           | plot_spacer()) +
+      plot_layout(widths = c(1, 0.001, 1, 0.001))
+    row_pearson <- (panels_a$pearson_heatmap | plot_spacer() | panels_b$pearson_heatmap | guide_area()) +
+      plot_layout(guides = "collect", widths = c(1, 0.1, 1, 0.5))
+    row_kruskal <- (panels_a$kruskal_heatmap | plot_spacer() | panels_b$kruskal_heatmap | guide_area()) +
+      plot_layout(widths = c(1, 0.1, 1, 0.5))
+    
+    (row_pca / row_scree / row_pearson / row_kruskal) +
+      plot_layout(heights = c(1, 0.7, 0.7, 0.8)) +
+      plot_annotation(
+        tag_levels = list(c("A", "B", "C", "D", "E", "F", "G", "H"))
+      ) &
+      theme(plot.tag = element_text(size = 9))
+  }
+}
+
+
+# assemble_pca_metafeatures() --------------------------------------------------
+# Assembles a landscape figure with one column per color_var PCA panel.
+# Panel slots are discovered dynamically from the "pca_" prefixed names in
+# panels_a, so the layout automatically reflects whatever was passed to
+# color_vars when building the panel sets.
+#
+# Args:
+#   panels_a : named list from make_pca_panels() — always required
+#   panels_b : named list from make_pca_panels() — optional; triggers top/bottom
+#              pairing per column. Omit or pass NULL for a single-matrix figure.
+#
+# Returns: a patchwork object
+#
+# Examples:
+#   assemble_pca_metafeatures(vst_panels)                # single matrix
+#   assemble_pca_metafeatures(vst_panels, sva_panels)    # VST vs SVA
+#   assemble_pca_metafeatures(study_panels, sva_panels)  # study vs SVA
+assemble_pca_metafeatures <- function(panels_a, panels_b = NULL) {
+  
+  pca_slots     <- names(panels_a)[startsWith(names(panels_a), "pca_")]
+  strip_legend  <- theme(legend.position = "none")
+  bottom_legend <- theme(legend.position = "bottom", legend.direction = "vertical")
+  
+  if (is.null(panels_b)) {
+    
+    plots <- lapply(pca_slots, function(s) panels_a[[s]])
+    wrap_plots(plots, nrow = 1) +
+      plot_annotation(tag_levels = "A") &
+      theme(
+        plot.tag             = element_text(size = 9),
+        legend.justification = "top"
+      )
+    
+  } else {
+    
+    col_layout <- plot_layout(heights = c(1, 0.01, 1), ncol = 1)
+    n_panels   <- length(pca_slots)
+    tag_letters <- LETTERS[seq_len(n_panels * 2)]
+    
+    cols <- lapply(pca_slots, function(s) {
+      (panels_a[[s]] + strip_legend) / plot_spacer() / (panels_b[[s]] + bottom_legend) +
+        col_layout
+    })
+    
+    wrap_plots(cols, nrow = 1) +
+      plot_annotation(tag_levels = list(tag_letters)) &
+      theme(
+        plot.tag             = element_text(size = 9),
+        legend.justification = "top"
+      )
+  }
+}
+
 
 # =============================================================================
 # 5. WGCNA
