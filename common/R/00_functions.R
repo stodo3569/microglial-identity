@@ -1020,7 +1020,7 @@ plot_pca <- function(object,
   }
   
   # ── Colour palettes ──────────────────────────────────────────────────────────
-  palette_discrete <- c(
+  palette_discrete_base <- c(
     "#77AADD", "#99DDFF", "#44BB99", "#BBCC33", "#AAAA00",
     "#EEDD88", "#EE8866", "#FFAABB", "#DDDDDD", "#CC99CC"
   )
@@ -1031,6 +1031,12 @@ plot_pca <- function(object,
   y_lab <- paste0("PC", pcs[2], ": ", round(percentVar[pcs[2]] * 100), "% variance")
   
   if (is_categorical) {
+    n_levels <- length(unique(d[[groupColor]]))
+    palette_discrete <- if (n_levels <= length(palette_discrete_base)) {
+      palette_discrete_base
+    } else {
+      colorRampPalette(palette_discrete_base)(n_levels)
+    }
     p <- ggplot(d, aes(x = pc_1, y = pc_2, colour = .data[[groupColor]])) +
       geom_point(size = 3) +
       scale_colour_manual(values = palette_discrete)
