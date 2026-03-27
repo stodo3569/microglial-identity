@@ -155,6 +155,8 @@ fig <- (p1 | p2) / (p3 | p4) / (p5 | plot_spacer()) +
   plot_annotation(tag_levels = "A") &
   theme(plot.tag = element_text(size = 14))
 
+dir.create("outputs/chapter_01/figures", recursive = TRUE, showWarnings = FALSE)
+
 svg(
   "outputs/chapter_01/figures/fig_exvivo_exploratory_prefilter.svg",
   width  = 8.27,
