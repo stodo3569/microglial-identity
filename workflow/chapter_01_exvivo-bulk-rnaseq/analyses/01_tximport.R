@@ -50,7 +50,8 @@
 # you run this script from inside a cloned copy of the repository with its
 # folder structure intact. The file can also be browsed online at:
 # https://github.com/[YOUR-GITHUB-USERNAME]/[YOUR-REPO-NAME]/blob/main/common/R/00_functions.R
-source("microglial-identity/common/R/00_functions.R")
+setwd("microglial-identity/")
+source("common/R/00_functions.R")
 
 # ==============================================================================
 # RDS management
@@ -128,8 +129,7 @@ library(tximport)
 library(readr)
 
 # ── 2. Discover all quant.sf files ───────────────────────────────────────────
-setwd("/home/rstudio")
-base_dir <- "data"
+base_dir <- "/data"
 
 all_quant_files <- list.files(
   path       = base_dir,
