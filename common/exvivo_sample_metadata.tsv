@@ -253,11 +253,6 @@ Dorion_2023_GSE228755	GSM7135879	HAM814_ex vivo	ex vivo primary microglia	Epilep
 Dorion_2023_GSE228755	GSM7135883	HAM815_ex_vivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM7135883	80.56
 Dorion_2023_GSE228755	GSM7135889	HAM816_ex vivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM7135889	83.32
 Dorion_2023_GSE228755	GSM7135894	HAM821_ex vivo	ex vivo primary microglia	Epilepsy	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	NA	NA	NA	GSM7135894	82.33
-Wolf_2022_GSE180705	GSM5468498	MG P1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	53	Female	Retina	GSM5468498	82.48
-Wolf_2022_GSE180705	GSM5468499	MG P3	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	82	Male	Retina	GSM5468499	89.44
-Wolf_2022_GSE180705	GSM5468500	MG P4	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	94	Female	Retina	GSM5468500	77.91
-Wolf_2022_GSE180705	GSM5468501	MG P5	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	56	Male	Retina	GSM5468501	93.23
-Wolf_2022_GSE180705	GSM5468502	MG P6	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	61	Male	Retina	GSM5468502	85.69
 van den Bosch_2024_GSE234700	GSM7473479	10-008 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	81	Male	Subcortical white matter	GSM7473479	34.14
 van den Bosch_2024_GSE234700	GSM7473480	10-008 stroke NAWM	ex vivo primary microglia	Stroke	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	81	Male	Subcortical white matter	GSM7473480	38.69
 van den Bosch_2024_GSE234700	GSM7473481	94-116 stroke nodules	ex vivo primary microglia	Stroke	Inflammatory	FALSE	Post-mortem	None	None	NA	NA	NA	72	Female	Subcortical white matter	GSM7473481	11.94
@@ -289,59 +284,49 @@ van den Bosch_2024_GSE234700	GSM7473506	17-100 MS NAWM	ex vivo primary microglia
 Pressl_2024_GSE233386	GSM7426704	4943_Microglia_BEB19025_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	54	Male	Cortex	GSM7426704	15.85
 Pressl_2024_GSE233386	GSM7426719	5446_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	63	Female	Cortex	GSM7426719	18.83
 Pressl_2024_GSE233386	GSM7426726	5471_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	None	NA	NA	NA	50	Male	Cortex	GSM7426726	16.93
-Wolf_2022_GSE193161	GSM5775662	Retinal microglia P1 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	53	Female	NA	GSM5775662	82.53
-Wolf_2022_GSE193161	GSM5775663	Retinal microglia P1 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	53	Female	NA	GSM5775663	82.42
-Wolf_2022_GSE193161	GSM5775664	Retinal microglia P3 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	82	Male	NA	GSM5775664	89.48
-Wolf_2022_GSE193161	GSM5775665	Retinal microglia P3 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	82	Male	NA	GSM5775665	89.39
-Wolf_2022_GSE193161	GSM5775666	Retinal microglia P4 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	94	Female	NA	GSM5775666	78.02
-Wolf_2022_GSE193161	GSM5775667	Retinal microglia P4 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	94	Female	NA	GSM5775667	77.79
-Wolf_2022_GSE193161	GSM5775668	Retinal microglia P5 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	56	Male	NA	GSM5775668	93.26
-Wolf_2022_GSE193161	GSM5775669	Retinal microglia P5 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	56	Male	NA	GSM5775669	93.19
-Wolf_2022_GSE193161	GSM5775670	Retinal microglia P6 FC1	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	61	Male	NA	GSM5775670	85.72
-Wolf_2022_GSE193161	GSM5775671	Retinal microglia P6 FC2	ex vivo primary microglia	Eye melanoma	Normal	TRUE	Surgical biopsy	None	None	NA	NA	NA	61	Male	NA	GSM5775671	85.67
-Stirparo_2025_GSE282079	GSM8635372	enrichedÊnuclei_2009-005_4316	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	82	Male	Cerebellum	GSM8635372	19.16
-Stirparo_2025_GSE282079	GSM8635385	enrichedÊnuclei_2011-017_4388	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	83	Male	Cerebellum	GSM8635385	13.67
-Stirparo_2025_GSE282079	GSM8635393	enrichedÊnuclei_2011-082_4193	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	84	Female	Cerebellum	GSM8635393	16.11
-Stirparo_2025_GSE282079	GSM8635401	enrichedÊnuclei_2011-090_4204	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	85	Female	Cerebellum	GSM8635401	17.9
-Stirparo_2025_GSE282079	GSM8635411	enrichedÊnuclei_2011-111_4285	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	93	Male	Cerebellum	GSM8635411	13.27
-Stirparo_2025_GSE282079	GSM8635419	enrichedÊnuclei_2012-001_7652	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	89	Female	Cerebellum	GSM8635419	1.41
-Stirparo_2025_GSE282079	GSM8635422	enrichedÊnuclei_2012-005_4343	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	84	Female	Cerebellum	GSM8635422	17.17
-Stirparo_2025_GSE282079	GSM8635464	enrichedÊnuclei_BN2_3744	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	84	Male	Cerebellum	GSM8635464	13.46
-Stirparo_2025_GSE282079	GSM8635478	enrichedÊnuclei_C9/194_3549	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	43	Male	Cerebellum	GSM8635478	17.17
-Stirparo_2025_GSE282079	GSM8635531	enrichedÊnuclei_FX_10453	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	66	Male	Cerebellum	GSM8635531	18.69
-Stirparo_2025_GSE282079	GSM8635546	enrichedÊnuclei_KO_3969	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	82	Female	Cerebellum	GSM8635546	16.95
-Stirparo_2025_GSE282079	GSM8635550	enrichedÊnuclei_MD_1215_6679	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	21	Male	Cerebellum	GSM8635550	7.16
-Stirparo_2025_GSE282079	GSM8635557	enrichedÊnuclei_MD_1485_6558	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	24	Female	Cerebellum	GSM8635557	3.38
-Stirparo_2025_GSE282079	GSM8635564	enrichedÊnuclei_MD_1722_6731	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	16	Male	Cerebellum	GSM8635564	4.22
-Stirparo_2025_GSE282079	GSM8635575	enrichedÊnuclei_MD_5391_6638	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	8	Male	Cerebellum	GSM8635575	20.09
-Stirparo_2025_GSE282079	GSM8635604	enrichedÊnuclei_MD_5730_7245	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	25	Male	Cerebellum	GSM8635604	0.59
-Stirparo_2025_GSE282079	GSM8635612	enrichedÊnuclei_MD_5751_5652	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	25	Female	Cerebellum	GSM8635612	18.09
-Stirparo_2025_GSE282079	GSM8635622	enrichedÊnuclei_MD_6018_6680	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	24	Male	Cerebellum	GSM8635622	11.73
-Stirparo_2025_GSE282079	GSM8635628	enrichedÊnuclei_MD_6209_6862	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	27	Male	Cerebellum	GSM8635628	5.64
-Stirparo_2025_GSE282079	GSM8635638	enrichedÊnuclei_MD_6252_9077	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	8	Female	Cerebellum	GSM8635638	14.4
-Stirparo_2025_GSE282079	GSM8635648	enrichedÊnuclei_OY_10444	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	60	Male	Cerebellum	GSM8635648	16.14
-Matlik_2023_GSE227729	GSM7106344	3440_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	PosteriorÊputamen	GSM7106344	18.22
-Matlik_2023_GSE227729	GSM7106387	3561_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	PosteriorÊputamen	GSM7106387	17
-Matlik_2023_GSE227729	GSM7106390	3564_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	AnteriorÊcaudate	GSM7106390	15.7
-Matlik_2023_GSE227729	GSM7106396	3585_Microglia_BEB19025_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	54	Male	PosteriorÊputamen	GSM7106396	21
-Matlik_2023_GSE227729	GSM7106416	3847_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	AnteriorÊputamen	GSM7106416	16.88
-Matlik_2023_GSE227729	GSM7106418	3849_Microglia_BEB18116_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	67	Male	AnteriorÊputamen	GSM7106418	15.82
-Matlik_2023_GSE227729	GSM7106426	3876_Microglia_BEB18135_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	56	Male	PosteriorÊcaudate	GSM7106426	14.26
-Matlik_2023_GSE227729	GSM7106436	3887_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	AnteriorÊputamen	GSM7106436	13.78
-Matlik_2023_GSE227729	GSM7106443	4375_Microglia_BEB18116_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	67	Male	PosteriorÊputamen	GSM7106443	19.26
-Matlik_2023_GSE227729	GSM7106445	4378_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	PosteriorÊcaudate	GSM7106445	17.43
-Matlik_2023_GSE227729	GSM7106447	4381_Microglia_BEB19025_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	54	Male	PosteriorÊcaudate	GSM7106447	18.62
-Matlik_2023_GSE227729	GSM7106450	4384_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Female	PosteriorÊcaudate	GSM7106450	17.14
-Matlik_2023_GSE227729	GSM7106452	4387_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Female	PosteriorÊputamen	GSM7106452	17.29
-Matlik_2023_GSE227729	GSM7106454	4390_Microglia_BEB18135_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	56	Male	PosteriorÊputamen	GSM7106454	16.64
-Matlik_2023_GSE227729	GSM7106491	4759_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	PosteriorÊputamen	GSM7106491	15.39
-Matlik_2023_GSE227729	GSM7106495	4780_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	PosteriorÊcaudate	GSM7106495	16.93
-Matlik_2023_GSE227729	GSM7106498	4783_Microglia_BEB19051_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	39	Male	AnteriorÊputamen	GSM7106498	15.64
-Matlik_2023_GSE227729	GSM7106501	4863_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	PosteriorÊcaudate	GSM7106501	15.67
-Matlik_2023_GSE227729	GSM7106504	4866_Microglia_BEB19051_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	39	Male	PosteriorÊcaudate	GSM7106504	14.46
-Matlik_2023_GSE227729	GSM7106506	4869_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	AnteriorÊcaudate	GSM7106506	15.15
-Matlik_2023_GSE227729	GSM7106509	4872_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Female	AnteriorÊcaudate	GSM7106509	17.43
-Matlik_2023_GSE227729	GSM7106511	4877_Microglia_BEB19051_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	39	Male	PosteriorÊputamen	GSM7106511	15.33
-Matlik_2023_GSE227729	GSM7106532	6140_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	AnteriorÊputamen	GSM7106532	17.42
-Matlik_2023_GSE227729	GSM7106538	6187_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	AnteriorÊcaudate	GSM7106538	17.89
-Matlik_2023_GSE227729	GSM7106544	6280_Microglia_BEB18116_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	67	Male	PosteriorÊcaudate	GSM7106544	17.76
+Stirparo_2025_GSE282079	GSM8635372	enrichedï¿½nuclei_2009-005_4316	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	82	Male	Cerebellum	GSM8635372	19.16
+Stirparo_2025_GSE282079	GSM8635385	enrichedï¿½nuclei_2011-017_4388	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	83	Male	Cerebellum	GSM8635385	13.67
+Stirparo_2025_GSE282079	GSM8635393	enrichedï¿½nuclei_2011-082_4193	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	84	Female	Cerebellum	GSM8635393	16.11
+Stirparo_2025_GSE282079	GSM8635401	enrichedï¿½nuclei_2011-090_4204	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	85	Female	Cerebellum	GSM8635401	17.9
+Stirparo_2025_GSE282079	GSM8635411	enrichedï¿½nuclei_2011-111_4285	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	93	Male	Cerebellum	GSM8635411	13.27
+Stirparo_2025_GSE282079	GSM8635419	enrichedï¿½nuclei_2012-001_7652	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	89	Female	Cerebellum	GSM8635419	1.41
+Stirparo_2025_GSE282079	GSM8635422	enrichedï¿½nuclei_2012-005_4343	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	84	Female	Cerebellum	GSM8635422	17.17
+Stirparo_2025_GSE282079	GSM8635464	enrichedï¿½nuclei_BN2_3744	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	84	Male	Cerebellum	GSM8635464	13.46
+Stirparo_2025_GSE282079	GSM8635478	enrichedï¿½nuclei_C9/194_3549	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	43	Male	Cerebellum	GSM8635478	17.17
+Stirparo_2025_GSE282079	GSM8635531	enrichedï¿½nuclei_FX_10453	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	66	Male	Cerebellum	GSM8635531	18.69
+Stirparo_2025_GSE282079	GSM8635546	enrichedï¿½nuclei_KO_3969	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	82	Female	Cerebellum	GSM8635546	16.95
+Stirparo_2025_GSE282079	GSM8635550	enrichedï¿½nuclei_MD_1215_6679	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	21	Male	Cerebellum	GSM8635550	7.16
+Stirparo_2025_GSE282079	GSM8635557	enrichedï¿½nuclei_MD_1485_6558	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	24	Female	Cerebellum	GSM8635557	3.38
+Stirparo_2025_GSE282079	GSM8635564	enrichedï¿½nuclei_MD_1722_6731	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	16	Male	Cerebellum	GSM8635564	4.22
+Stirparo_2025_GSE282079	GSM8635575	enrichedï¿½nuclei_MD_5391_6638	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	8	Male	Cerebellum	GSM8635575	20.09
+Stirparo_2025_GSE282079	GSM8635604	enrichedï¿½nuclei_MD_5730_7245	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	25	Male	Cerebellum	GSM8635604	0.59
+Stirparo_2025_GSE282079	GSM8635612	enrichedï¿½nuclei_MD_5751_5652	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	25	Female	Cerebellum	GSM8635612	18.09
+Stirparo_2025_GSE282079	GSM8635622	enrichedï¿½nuclei_MD_6018_6680	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	24	Male	Cerebellum	GSM8635622	11.73
+Stirparo_2025_GSE282079	GSM8635628	enrichedï¿½nuclei_MD_6209_6862	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	27	Male	Cerebellum	GSM8635628	5.64
+Stirparo_2025_GSE282079	GSM8635638	enrichedï¿½nuclei_MD_6252_9077	ex vivo primary microglia	ataxia-telangiectasia	Inflammatory	FALSE	Post-mortem	None	NA	NA	NA	NA	8	Female	Cerebellum	GSM8635638	14.4
+Stirparo_2025_GSE282079	GSM8635648	enrichedï¿½nuclei_OY_10444	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	60	Male	Cerebellum	GSM8635648	16.14
+Matlik_2023_GSE227729	GSM7106344	3440_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	Posteriorï¿½putamen	GSM7106344	18.22
+Matlik_2023_GSE227729	GSM7106387	3561_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	Posteriorï¿½putamen	GSM7106387	17
+Matlik_2023_GSE227729	GSM7106390	3564_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	Anteriorï¿½caudate	GSM7106390	15.7
+Matlik_2023_GSE227729	GSM7106396	3585_Microglia_BEB19025_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	54	Male	Posteriorï¿½putamen	GSM7106396	21
+Matlik_2023_GSE227729	GSM7106416	3847_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	Anteriorï¿½putamen	GSM7106416	16.88
+Matlik_2023_GSE227729	GSM7106418	3849_Microglia_BEB18116_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	67	Male	Anteriorï¿½putamen	GSM7106418	15.82
+Matlik_2023_GSE227729	GSM7106426	3876_Microglia_BEB18135_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	56	Male	Posteriorï¿½caudate	GSM7106426	14.26
+Matlik_2023_GSE227729	GSM7106436	3887_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	Anteriorï¿½putamen	GSM7106436	13.78
+Matlik_2023_GSE227729	GSM7106443	4375_Microglia_BEB18116_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	67	Male	Posteriorï¿½putamen	GSM7106443	19.26
+Matlik_2023_GSE227729	GSM7106445	4378_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	Posteriorï¿½caudate	GSM7106445	17.43
+Matlik_2023_GSE227729	GSM7106447	4381_Microglia_BEB19025_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	54	Male	Posteriorï¿½caudate	GSM7106447	18.62
+Matlik_2023_GSE227729	GSM7106450	4384_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Female	Posteriorï¿½caudate	GSM7106450	17.14
+Matlik_2023_GSE227729	GSM7106452	4387_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Female	Posteriorï¿½putamen	GSM7106452	17.29
+Matlik_2023_GSE227729	GSM7106454	4390_Microglia_BEB18135_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	56	Male	Posteriorï¿½putamen	GSM7106454	16.64
+Matlik_2023_GSE227729	GSM7106491	4759_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	Posteriorï¿½putamen	GSM7106491	15.39
+Matlik_2023_GSE227729	GSM7106495	4780_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	Posteriorï¿½caudate	GSM7106495	16.93
+Matlik_2023_GSE227729	GSM7106498	4783_Microglia_BEB19051_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	39	Male	Anteriorï¿½putamen	GSM7106498	15.64
+Matlik_2023_GSE227729	GSM7106501	4863_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	Posteriorï¿½caudate	GSM7106501	15.67
+Matlik_2023_GSE227729	GSM7106504	4866_Microglia_BEB19051_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	39	Male	Posteriorï¿½caudate	GSM7106504	14.46
+Matlik_2023_GSE227729	GSM7106506	4869_Microglia_BEB20057_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	41	Male	Anteriorï¿½caudate	GSM7106506	15.15
+Matlik_2023_GSE227729	GSM7106509	4872_Microglia_HCTSU_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Female	Anteriorï¿½caudate	GSM7106509	17.43
+Matlik_2023_GSE227729	GSM7106511	4877_Microglia_BEB19051_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	39	Male	Posteriorï¿½putamen	GSM7106511	15.33
+Matlik_2023_GSE227729	GSM7106532	6140_Microglia_HCT-17-HFG_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	50	Male	Anteriorï¿½putamen	GSM7106532	17.42
+Matlik_2023_GSE227729	GSM7106538	6187_Microglia_BEB18117_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	63	Male	Anteriorï¿½caudate	GSM7106538	17.89
+Matlik_2023_GSE227729	GSM7106544	6280_Microglia_BEB18116_CTRL	ex vivo primary microglia	None	Normal	TRUE	Post-mortem	None	NA	NA	NA	NA	67	Male	Posteriorï¿½caudate	GSM7106544	17.76
