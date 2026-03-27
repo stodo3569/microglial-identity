@@ -12,7 +12,7 @@
 #   02_exvivo_sample_exploratory.R. A summary row gives totals across all studies.
 #
 #   Inclusion criteria applied:
-#     - Mapping rate        > 0 %
+#     - Mapping rate        > 50 %
 #     - Total mapped reads  > 5,000,000
 #     - Gene count (CPM>5)  > 8,000
 #     - Donor age           > 0 (non-missing)
@@ -38,7 +38,7 @@
 #   common/R/00_functions.R (see repository root).
 # ==============================================================================
 
-source("microglial-identity/common/R/00_functions.R")
+source("common/R/00_functions.R")
 
 # ==============================================================================
 # RDS management
@@ -104,17 +104,17 @@ library(gt)
 # criterion. A grand-total row is appended and rendered in bold.
 #
 # Inclusion criteria mirror those applied in 02_exvivo_sample_exploratory.R:
-#   mapping_rate     > 60
+#   mapping_rate     > 50
 #   total_reads      > 4,999,999   (i.e. >= 5,000,000)
 #   sample_gene_count > 7,999      (i.e. >= 8,000)
-#   age              > 19 and non-missing
+#   age              > 0 non-missing
 #   Control_tissue   == TRUE
 # ==============================================================================
 
 tab_data <- exvivo_metadata %>%
   mutate(
     passed_all_criteria =
-      (mapping_rate      > 0)       &
+      (mapping_rate      > 50)       &
       (total_reads       > 4999999)  &
       (sample_gene_count > 7999)     &
       (age               > 0)       &
