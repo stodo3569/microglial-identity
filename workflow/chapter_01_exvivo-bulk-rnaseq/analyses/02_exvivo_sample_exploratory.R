@@ -3,7 +3,8 @@
 # Chapter:  [1] — exvivo bulk rnaseq
 # Step:     2 of [Y] in the chapter_01 workflow
 #           Preceded by: 01_tximport.R
-#           Followed by: 03_[Y]
+#           Followed by: 03_exvivo_sample_qc.R
+#           Used by: fig_exvivo_exploratory_prefilter.R; tab_exvivo_exploratory_prefilter.R
 #
 # Description:
 #   Takes the merged gene-level count matrix produced by 01_tximport.R
@@ -36,7 +37,7 @@
 #   common/R/00_functions.R (see repository root).
 # ==============================================================================
 
-source("microglial-identity/common/R/00_functions.R")
+source("common/R/00_functions.R")
 
 # ==============================================================================
 # RDS management
@@ -143,7 +144,7 @@ library(DaMiRseq)
 # 1. Load metadata and compute per-sample QC metrics
 # ==============================================================================
 
-exvivo_metadata <- read_tsv("microglial-identity/common/exvivo_sample_metadata.tsv")
+exvivo_metadata <- read_tsv("common/exvivo_sample_metadata.tsv")
 
 # Align with the counts matrix
 exvivo_metadata <- filter(exvivo_metadata, name_id %in% colnames(exvivo_counts))
@@ -170,8 +171,11 @@ for (index in 1:ncol(tmp_cpm_count)) {
 remove(tmp_cpm_count)
 
 # ── RDS checkpoint: pre-filter snapshot ────────────────────────────────────────
-# Saved here so that fig_exvivo_exploratory_prefilter.R can load this object
+# Saved here so that fig_exvivo_exploratory_prefilter.R and
+# tab_exvivo_exploratory_prefilter.R can load this object
 # and generate figures showing the full, unfiltered sample distribution.
+# or 03_exvivo_sample_qc.R to proceed with the quality control
+
 if (SAVE_OUTPUT_RDS) {
   dir.create("rds/chapter_01", recursive = TRUE, showWarnings = FALSE)
   saveRDS(
